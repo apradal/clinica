@@ -13,12 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {return view('welcome');});
+
+/** Routes that check user is logged in to access */
+Route::group(['middleware' => 'auth.admin'], function (){
+    /** Admin area restricted */
+    Route::get('admin', 'Admin\AdminController@index')->name('admin');
+    Route::post('admin/logout', 'Auth\Admin\LoginController@logout')->name('logout.admin');
 });
 
-Route::get('admin', 'Admin\AdminController@index')->name('admin');
+//let this routers open to login.
+Route::get('admin/login', function () {return view('admin\auth\login');})->name('login.admin');
+Route::post('admin/login', 'Auth\Admin\LoginController@login')->name('login.admin');
 
-Auth::routes();
+//If someday we need normal login/register users uncomment this.
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
