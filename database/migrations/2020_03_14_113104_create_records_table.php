@@ -17,10 +17,10 @@ class CreateRecordsTable extends Migration
             $table->id();
             $table->string('allergies')->nullable();
             $table->string('treatment')->nullable();
-            $table->unsignedBigInteger('pacients_id');
+            $table->unsignedBigInteger('patient_id');
             $table->timestamps();
 
-            $table->foreign('pacients_id')->references('id')->on('pacients')->cascadeOnDelete();
+            $table->foreign('patient_id')->references('id')->on('patients')->cascadeOnDelete();
         });
     }
 

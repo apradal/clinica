@@ -29,17 +29,16 @@ class CreateDiseasesTable extends Migration
             $table->string('hiv_description')->nullable();
             $table->boolean('lung');
             $table->string('lung_description')->nullable();
-            $table->string('hepatitis');
             $table->string('hepatitis_description')->nullable();
             $table->boolean('diabetes');
             $table->string('diabetes_description')->nullable();
             $table->boolean('circulatory');
             $table->string('circulatory_description')->nullable();
             $table->string('others_description')->nullable();
-            $table->unsignedBigInteger('records_id');
+            $table->unsignedBigInteger('record_id');
             $table->timestamps();
 
-            $table->foreign('records_id')->references('id')->on('records')->cascadeOnDelete();
+            $table->foreign('record_id')->references('id')->on('records')->cascadeOnDelete();
         });
     }
 

@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/laravel/laravel">Admin</a>
+                    <a href="{{ route('admin') }}">Admin</a>
                 </div>
             </div>
         </div>

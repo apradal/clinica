@@ -32,16 +32,17 @@ class Treatment extends Model
      *
      * @var array
      */
-    protected $attributes = [
-        'description'
+    protected $fillable = [
+        'description',
+        'date'
     ];
 
     /**
-     * Gets paceint associate to the treatment.
+     * Gets patient associate to the treatment.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function pacient(){
-        return $this->belongsTo('App\Pacient');
+    public function patient(){
+        return $this->belongsTo('App\Patient');
     }
 }

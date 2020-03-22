@@ -1,0 +1,95 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Exception;
+
+class Patient extends Model
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'patients';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
+     * The model's default attributes to save.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'surname',
+        'phone',
+        'phone2',
+        'nif',
+        'email',
+        'address',
+        'birth_year',
+        'insurance'
+    ];
+
+    /**
+     * Gets record associate to the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function record(){
+        return $this->hasOne('App\Record');
+    }
+
+    /**
+     * Get the treatments for the patient.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function treatments()
+    {
+        return $this->hasMany('App\Treatment');
+    }
+
+    /**
+     * Returns an array with patient, record and diseasses attributes.
+     * @param $id
+     * @return array
+     * @throws Exception
+     */
+    public function loadPatientWithRecords($id)
+    {
+        /** @var \App\Patient $patient */
+        $patient = $this::find($id);
+        if ($patient->id) {
+            /** @var \App\Record $record */
+            $record = $patient->record;
+            if ($record->id) {
+                /** @var \App\Diseases $diseases */
+                $diseases = $record->disease;
+                if ($diseases->id) {
+                    //TODO coger los tratamientos del paciente
+                    return [
+                        'patient' => $patient->getAttributes(),
+                        'record' => $record->getAttributes(),
+                        'diseases' => $diseases->getAttributes()
+                    ];
+                } else {
+                    throw new Exception('Error al cargar enfermedades');
+                }
+            } else {
+                throw new Exception('Error al cargar historia');
+            }
+        } else {
+            throw new Exception('Error al cargar paciente');
+        }
+    }
+
+
+}

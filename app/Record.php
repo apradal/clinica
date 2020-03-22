@@ -32,18 +32,19 @@ class Record extends Model
      *
      * @var array
      */
-    protected $attributes = [
+    protected $fillable = [
         'allergies',
-        'treatment'
+        'treatment',
+        'patient_id'
     ];
 
     /**
-     * Gets pacient associate to the record.
+     * Gets patient associate to the record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function pacient(){
-        return $this->belongsTo('App\Pacient');
+    public function patient(){
+        return $this->belongsTo('App\Patient', 'patient_id');
     }
 
     /**

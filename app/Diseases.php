@@ -32,7 +32,7 @@ class Diseases extends Model
      *
      * @var array
      */
-    protected $attributes = [
+    protected $fillable = [
         'heart',
         'heart_description',
         'osteoporosis',
@@ -54,6 +54,7 @@ class Diseases extends Model
         'circulatory',
         'circulatory_description',
         'others_description',
+        'records_id'
     ];
 
     /**

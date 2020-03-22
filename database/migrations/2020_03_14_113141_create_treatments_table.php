@@ -16,10 +16,11 @@ class CreateTreatmentsTable extends Migration
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
             $table->string('description')->nullable();
-            $table->unsignedBigInteger('pacients_id');
+            $table->date('date');
+            $table->unsignedBigInteger('patient_id');
             $table->timestamps();
 
-            $table->foreign('pacients_id')->references('id')->on('pacients')->cascadeOnDelete();
+            $table->foreign('patient_id')->references('id')->on('patients')->cascadeOnDelete();
         });
     }
 

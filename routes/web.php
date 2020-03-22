@@ -20,6 +20,12 @@ Route::group(['middleware' => 'auth.admin'], function (){
     /** Admin area restricted */
     Route::get('admin', 'Admin\AdminController@index')->name('admin');
     Route::post('admin/logout', 'Auth\Admin\LoginController@logout')->name('logout.admin');
+    //records
+    Route::get('admin/record', 'Admin\RecordController@index')->name('record');
+    Route::post('admin/record', 'Admin\RecordController@newRecord')->name('record.save');
+    //patients
+    Route::get('admin/patient', 'Admin\PatientController@index')->name('patient');
+    Route::post('admin/patient/add-treatment-ajax', 'Admin\PatientController@addTreatmentAjax')->name('patient.treatment.add.ajax');
 });
 
 //let this routers open to login.
