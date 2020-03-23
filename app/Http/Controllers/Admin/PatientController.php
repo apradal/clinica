@@ -46,7 +46,7 @@ class PatientController extends Controller
         if ($request->input('id')) {
             try {
                 $data = $this->_patientModel->loadPatientWithRecords($request->input('id'));
-                return view('admin\patient\index')->with($data);
+                return view('admin.patient.index')->with($data);
             } catch (\Exception $e) {
                 return redirect()->route('admin')->withErrors($e->getMessage());
             }

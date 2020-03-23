@@ -45,9 +45,9 @@ class RecordController extends Controller
     public function index(Request $request)
     {
         if ($request->old()) {
-            return view('admin\record\index')->with($request->old());
+            return view('admin.record.index')->with($request->old());
         } else {
-            return view('admin\record\index');
+            return view('admin.record.index');
         }
     }
 

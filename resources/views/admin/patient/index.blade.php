@@ -1,4 +1,4 @@
-@extends('layouts\admin.app')
+@extends('layouts.admin.app')
 @section('body_class', 'admin_record_index')
 @section('content')
     <div class="container">

@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth.admin'], function (){
 });
 
 //let this routers open to login.
-Route::get('admin/login', function () {return view('admin\auth\login');})->name('login.admin');
+Route::get('admin/login', function () {return view('admin.auth.login');})->name('login.admin');
 Route::post('admin/login', 'Auth\Admin\LoginController@login')->name('login.admin');
 
 //If someday we need normal login/register users uncomment this.
