@@ -19,6 +19,8 @@ class CreatePatientsTable extends Migration
             $table->string('surname');
             $table->string('nif')->unique();
             $table->string('email')->nullable();
+            $table->string('location')->nullable();
+            $table->string('postal_code')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('phone2')->nullable();

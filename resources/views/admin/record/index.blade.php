@@ -1,4 +1,4 @@
-@extends('layouts\admin.app')
+@extends('layouts.admin.app')
 @section('body_class', 'admin_record_index')
 @section('content')
     <div class="container">
@@ -30,12 +30,18 @@
                                 <input type="email" name="email" id="email" value="{{ $email ?? '' }}"/>
                                 <label for="address">{{__('record/index.Address')}}:</label>
                                 <input type="text" name="address" id="address" value="{{ $address ?? '' }}"/>
-                                <label for="phone">{{__('record/index.Phone')}}:</label>
-                                <input type="number" name="phone" id="phone" value="{{ $phone ?? '' }}"/>
+                                <label for="postal_code">{{__('Código Postal')}}:</label>
+                                <input type="number" name="postal_code" id="postal_code" value="{{ $postal_code ?? '' }}"/>
                             </div>
                             <div>
+                                <label for="location">{{__('Localidad')}}:</label>
+                                <input type="text" name="location" id="location" value="{{ $location ?? '' }}"/>
+                                <label for="phone">{{__('record/index.Phone')}}:</label>
+                                <input type="number" name="phone" id="phone" value="{{ $phone ?? '' }}"/>
                                 <label for="phone2">{{__('record/index.Phone 2')}}:</label>
                                 <input type="number" name="phone2" id="phone2" value="{{ $phone2 ?? '' }}"/>
+                            </div>
+                            <div>
                                 <label for="birth_year">{{__('record/index.BirthDay')}}</label>
                                 <input type="date" id="birth_year" name="birth_year" value="{{ $birth_year ?? '' }}"/>
                                 <label for="insurance">{{__('record/index.Insurance')}}:</label>

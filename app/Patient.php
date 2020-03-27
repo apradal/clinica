@@ -31,6 +31,8 @@ class Patient extends Model
         'surname',
         'phone',
         'phone2',
+        'postal_code',
+        'location',
         'nif',
         'email',
         'address',
