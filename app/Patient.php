@@ -94,5 +94,28 @@ class Patient extends Model
         }
     }
 
+    /**
+     * get results from db by filter.
+     * @param $params
+     * @return mixed
+     */
+    public function searchByFilter($params)
+    {
+        $data = $params['search_data'];
+        $filter = $params['search_filter'];
+
+        switch ($filter) {
+            case 'name':
+            case 'surname':
+                $condition = 'like';
+                $data = '%'.$data.'%';
+                break;
+            default:
+                $condition = '=';
+                break;
+        }
+
+        return $this::where($filter, $condition, $data);
+    }
 
 }

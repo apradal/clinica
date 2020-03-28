@@ -10,7 +10,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use App\Patient;
 use App\Treatment;
 
@@ -74,6 +73,37 @@ class PatientController extends Controller
                 } else {
                     return response()->json(['success' => false]);
                 }
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
+    /**
+     * Index page for search patients
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function search()
+    {
+        try {
+            return view('admin.patient.search');
+        } catch (\Exception $e) {
+            return redirect()->route('admin')->withErrors($e->getMessage());
+        }
+    }
+
+    public function searchAjax(Request $request)
+    {
+        if ($request->ajax() && $request->input('search_filter') && $request->input('search_data')) {
+            $params = $request->all();
+            $result = $this->_patientModel->searchByFilter($params);
+
+            if ($result->count()) {
+                $content = view('includes.admin.patient..search.tablerow')
+                    ->with(['result' => $result->get()->all()])->render();
+                return response()->json(['success' => true, 'content' => $content]);
+            } else {
+                return response()->json(['success' => false]);
             }
         }
 

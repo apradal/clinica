@@ -17,7 +17,7 @@
                     <p>{{ __('messages.Records') }}</p>
                     <ul>
                         <li><a href="{{route('record')}}">{{ __('messages.New Record') }}</a></li>
-                        <li>{{ __('messages.Search Record') }}</li>
+                        <li><a href="{{route('patient.search')}}">{{ __('messages.Search Record') }}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-xs-12"></div>
