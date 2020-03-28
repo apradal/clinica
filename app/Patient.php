@@ -72,15 +72,16 @@ class Patient extends Model
         if ($patient->id) {
             /** @var \App\Record $record */
             $record = $patient->record;
-            if ($record->id) {
+            $treatment = $patient->treatments;
+            if ($record->id && $treatment) {
                 /** @var \App\Diseases $diseases */
                 $diseases = $record->disease;
                 if ($diseases->id) {
-                    //TODO coger los tratamientos del paciente
                     return [
                         'patient' => $patient->getAttributes(),
                         'record' => $record->getAttributes(),
-                        'diseases' => $diseases->getAttributes()
+                        'diseases' => $diseases->getAttributes(),
+                        'treatments' => $treatment
                     ];
                 } else {
                     throw new Exception('Error al cargar enfermedades');

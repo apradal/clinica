@@ -2,6 +2,7 @@ function Patient() {
 
     this.addBtnTreatment = $('#add-treatment-btn');
     this.treatmentTable = $('#treatment-table');
+    this.ajaxMsgRow = $('#btn-row');
 
     this.init = function () {
         this._addBtnListeners()
@@ -53,7 +54,9 @@ function Patient() {
         let descriptionTextArea = $('<textarea></textarea>');
         descriptionTextArea.attr({
             'name': 'description',
-            'class': 'td'
+            'class': 'td',
+            'cols': '60',
+            'rows': '2'
         });
 
         row.append([dateInput, descriptionTextArea, patientInput]);
@@ -65,7 +68,7 @@ function Patient() {
     };
 
     this._sendFormAjax = function (form) {
-        this._readOnlyInputs(form);
+        this._readOnlyInputs(form, true);
         let self = this;
         $.ajax({
             url: form.attr('action'),
@@ -79,22 +82,27 @@ function Patient() {
                 self.addBtnTreatment.removeClass('submit');
                 self.addBtnTreatment.html('Añadir');
                 self.addBtnTreatment.attr('disabled', false);
+                self.ajaxMsgRow.find('.alert-success').html('Tratamiento añadido');
+                self.ajaxMsgRow.find('.alert-danger').html('');
             } else {
-                //TODO messages of succes or error under form.
-                console.log('error')
+                self.ajaxMsgRow.find('.alert-danger').html('Error al añadir tratamiento');
+                self.ajaxMsgRow.find('.alert-success').html('');
                 self.addBtnTreatment.attr('disabled', false);
+                self._readOnlyInputs(form, false);
             }
         }).fail(function (response) {
-            console.log('error')
+            self.ajaxMsgRow.find('.alert-danger').html('Error al añadir tratamiento');
+            self.ajaxMsgRow.find('.alert-success').html('');
             self.addBtnTreatment.attr('disabled', false);
+            self._readOnlyInputs(form, false);
         })
     };
 
-    this._readOnlyInputs = function (form)
+    this._readOnlyInputs = function (form, $value)
     {
         let id = form.attr('id');
         $('#'+id+' input, #'+id+' textarea').each(function () {
-            $(this).attr('readOnly', true);
+            $(this).attr('readOnly', $value);
         })
     };
 

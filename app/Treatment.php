@@ -34,7 +34,8 @@ class Treatment extends Model
      */
     protected $fillable = [
         'description',
-        'date'
+        'date',
+        'patient_id'
     ];
 
     /**
@@ -43,6 +44,6 @@ class Treatment extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function patient(){
-        return $this->belongsTo('App\Patient');
+        return $this->belongsTo('App\Patient', 'patient_id');
     }
 }

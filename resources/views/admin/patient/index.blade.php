@@ -30,7 +30,21 @@
                                 {{--<div class="td"></div>--}}
                                 {{--<div class="td"></div>--}}
                             </div>
-                            <button type="button" id="add-treatment-btn">{{__('Añadir')}}</button>
+                            @foreach($treatments as $treatment)
+                                <?php $uniqueId = uniqid() ?>
+                                <form id="<?= $uniqueId ?>" action="{{route('patient.treatment.add.ajax')}}" method="POST">
+                                    <div class="tr" id="row-<?= $uniqueId ?>">
+                                        <input type="date" name="date" class="td" value="{{$treatment['date']}}" readonly />
+                                        <textarea name="description" class="td" cols="60" rows="2" readonly>{{$treatment['description']}}</textarea>
+                                        <input type="hidden" name="patient-id" value="{{$patient['id']}}" />
+                                    </div>
+                                </form>
+                            @endforeach
+                            <div class="tr" id="btn-row">
+                                <button type="button" id="add-treatment-btn">{{__('Añadir')}}</button>
+                                <div class="alert-success"></div>
+                                <div class="alert-danger"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
