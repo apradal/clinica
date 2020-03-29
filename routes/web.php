@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth.admin'], function (){
     Route::post('admin/patient/add-treatment-ajax', 'Admin\PatientController@addTreatmentAjax')->name('patient.treatment.add.ajax');
     Route::get('admin/patient/search', 'Admin\PatientController@search')->name('patient.search');
     Route::get('admin/patient/searchAjax', 'Admin\PatientController@searchAjax')->name('patient.search.ajax');
+    Route::post('admin/patient/edit-patient-ajax', 'Admin\PatientController@editPatientAjax')->name('patient.edit.ajax');
 });
 
 //let this routers open to login.

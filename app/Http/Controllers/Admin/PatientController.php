@@ -80,6 +80,36 @@ class PatientController extends Controller
     }
 
     /**
+     * Edit patient by ajax
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editPatientAjax(Request $request)
+    {
+        if ($request->input('id') && $request->ajax()) {
+            $params = $request->all();
+
+            /** @var \App\Patient $currentPatient */
+            $currentPatient = $this->_patientModel->find($params['id']);
+            if ($currentPatient->getAttribute('id')) {
+                foreach ($params as $key => $value) {
+                    if ($key === 'id') continue;
+                    $currentPatient->setAttribute($key, $value);
+                }
+                if ($currentPatient->save()) {
+                    return response()->json(['success' => true, 'message' => 'Paciente guardado correctamente']);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Error al guardar paciente']);
+                }
+            } else {
+                return response()->json(['success' => false, 'message' => 'El id del paciente no existe']);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
+    /**
      * Index page for search patients
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
