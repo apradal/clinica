@@ -11,5 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+mix.setPublicPath('clinica-chamorro.com/')
+    .js('resources/js/app.js', 'js')
+    .js('resources/js/admin/patient/patient.js', 'js/admin')
+    .js('resources/js/admin/patient/searchpatient.js', 'js/admin')
+   .sass('resources/sass/app.scss', 'css');
