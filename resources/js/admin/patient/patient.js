@@ -218,7 +218,7 @@ function Patient() {
         let data = {};
 
         $.each(form.find(':input'), function() {
-            if (($(this).data('changed') || $(this).attr('type') === 'hidden') && $(this).val().length) {
+            if (($(this).data('changed') || $(this).attr('type') === 'hidden')) {
                 data[$(this).attr('name')] = $(this).val();
             }
         });
