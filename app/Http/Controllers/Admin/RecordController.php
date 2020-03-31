@@ -95,7 +95,6 @@ class RecordController extends Controller
         return [
             'name' => 'required',
             'surname' => 'required',
-            'nif' => 'required',
             'phone' => 'required',
         ];
     }
@@ -105,7 +104,6 @@ class RecordController extends Controller
         return [
             'name.required' => 'El nombre del paciente es obligatorio',
             'surname.required' => 'Los apellidos del paciente son obligatorio',
-            'nif.required' => 'El dni del paciente es obligatorio',
             'phone.required' => 'El teléfono del paciente es obligatorio',
         ];
     }
