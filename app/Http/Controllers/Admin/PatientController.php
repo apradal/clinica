@@ -92,7 +92,7 @@ class PatientController extends Controller
             /** @var \App\Patient $currentPatient */
             $currentPatient = $this->_patientModel->find($params['patient_id']);
             if ($currentPatient->getAttribute('id')) {
-                $treatment = $currentPatient->treatments()->find(1);
+                $treatment = $currentPatient->treatments()->find($params['id']);
                 if ($treatment->getAttribute('id')) {
                     foreach ($params as $key => $value) {
                         if ($key === 'id' || $key === 'patient_id') continue;
