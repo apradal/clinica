@@ -80,6 +80,39 @@ class PatientController extends Controller
     }
 
     /**
+     * Edit Treatment by ajax
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editTreatmentAjax(Request $request)
+    {
+        if ($request->input('id') && $request->input('patient_id') && $request->ajax()) {
+            $params = $request->all();
+
+            /** @var \App\Patient $currentPatient */
+            $currentPatient = $this->_patientModel->find($params['patient_id']);
+            if ($currentPatient->getAttribute('id')) {
+                $treatment = $currentPatient->treatments()->find(1);
+                if ($treatment->getAttribute('id')) {
+                    foreach ($params as $key => $value) {
+                        if ($key === 'id' || $key === 'patient_id') continue;
+                        $treatment->setAttribute($key, $value);
+                    }
+                }
+                if ($treatment->save()) {
+                    return response()->json(['success' => true, 'message' => 'Tratamiento editado correctamente']);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Error al editar tratamiento']);
+                }
+            } else {
+                return response()->json(['success' => false, 'message' => 'El id del tratamiento no existe']);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
+    /**
      * Edit patient by ajax
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -97,9 +130,9 @@ class PatientController extends Controller
                     $currentPatient->setAttribute($key, $value);
                 }
                 if ($currentPatient->save()) {
-                    return response()->json(['success' => true, 'message' => 'Paciente guardado correctamente']);
+                    return response()->json(['success' => true, 'message' => 'Paciente editado correctamente']);
                 } else {
-                    return response()->json(['success' => false, 'message' => 'Error al guardar paciente']);
+                    return response()->json(['success' => false, 'message' => 'Error al editar paciente']);
                 }
             } else {
                 return response()->json(['success' => false, 'message' => 'El id del paciente no existe']);

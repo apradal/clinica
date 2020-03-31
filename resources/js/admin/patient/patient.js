@@ -5,7 +5,7 @@ function Patient() {
     this.ajaxMsgRow = $('#btn-row');
     this.editIcons = $('.edit-icon');
     this.patientForm = $('#patient-edit-form');
-
+    this.treatmentForm = $('.treatments-edit-form');
 
     this.init = function () {
         this._addBtnListeners();
@@ -31,16 +31,25 @@ function Patient() {
         });
         //Edit patient data icons
         this.editIcons.on('click', function () {
-            let input = $('#' + $(this).data('target'));
-            let strLength = input.val().length * 2;
+            let wrapper = $('#' + $(this).data('target'));
+            let inputs = wrapper.find('input, textarea, select');
             let submit = $(this).closest('form').find('button[type="submit"]');
 
-            if (input.attr('readOnly')) input.attr('readOnly', false);
-            if (submit.hasClass('hidden')) submit.removeClass('hidden');
+            //iterate all inputs
+            inputs.each(function (counter, elmt) {
+                if ($(elmt).attr('readOnly')) $(elmt).attr('readOnly', false);
+                $(elmt).attr('data-changed', true);
+                //set focus
+                if ($(elmt).data('focus')) {
+                    $(elmt).focus();
+                    if ($(elmt).attr('type') !== 'date') {
+                        let strLength = $(elmt).val().length * 2;
+                        $(elmt)[0].setSelectionRange(strLength, strLength);
+                    }
+                }
+            });
 
-            input.focus();
-            if (input.attr('type') !== 'date') input[0].setSelectionRange(strLength, strLength);
-            input.attr('data-changed', true);
+            if (submit.hasClass('hidden')) submit.removeClass('hidden');
         })
     };
 
@@ -58,15 +67,41 @@ function Patient() {
                         $.each(self.patientForm.find(':input'), function() {
                             if ($(this).attr('type') === 'submit') return true;
                             $(this).attr('readonly', true);
-                            self.patientForm.find('button[type="submit"]').addClass('hidden');
-                            self.patientForm.find('.alert-success').html(response.message);
                         });
+                        self.patientForm.find('button[type="submit"]').addClass('hidden');
+                        let success = self.patientForm.find('.alert-success');
+                        if (success.css('display') === 'none') success.css('display', '');
+                        success.html(response.message).delay(2000).fadeOut('slow');
                     } else {
-                        self.patientForm.find('.alert-danger').html(response.message);
+                        self.patientForm.find('.alert-danger').html(response.message).delay(2000).fadeOut('slow');
                     }
                 });
             }
-        })
+        });
+
+        this.treatmentForm.on('submit', function (e) {
+            e.preventDefault();
+
+            var data = self._getInputsModified($(this));
+            var form = $(this);
+
+            if (Object.keys(data).length) {
+                self._editFormAjax(form, data, function (response) {
+                    if (response.success) {
+                        $.each(form.find(':input'), function () {
+                            if ($(this).attr('type') === 'submit') return true;
+                            $(this).attr('readonly', true);
+                        });
+                        form.find('button[type="submit"]').addClass('hidden');
+                        let success = form.find('.alert-success');
+                        if (success.css('display') === 'none') success.css('display', '');
+                        success.html(response.message).delay(2000).fadeOut('slow');
+                    } else {
+                        form.find('.alert-danger').html(response.message).delay(2000).fadeOut('slow');
+                    }
+                });
+            }
+        });
 
     };
 
@@ -83,6 +118,7 @@ function Patient() {
         }).done(function (response) {
             successCallback(response);
         }).fail(function (response) {
+            //todo show errors
             console.log('Error')
         })
     };

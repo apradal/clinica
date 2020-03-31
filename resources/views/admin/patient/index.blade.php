@@ -32,12 +32,17 @@
                             </div>
                             @foreach($treatments as $treatment)
                                 <?php $uniqueId = uniqid() ?>
-                                <form id="<?= $uniqueId ?>" action="{{route('patient.treatment.add.ajax')}}" method="POST">
+                                <form id="<?= $uniqueId ?>" class="treatments-edit-form" action="{{route('patient.treatment.edit.ajax')}}" method="POST">
                                     <div class="tr" id="row-<?= $uniqueId ?>">
                                         <input type="date" name="date" class="td" value="{{$treatment['date']}}" readonly />
-                                        <textarea name="description" class="td" cols="60" rows="2" readonly>{{$treatment['description']}}</textarea>
-                                        <input type="hidden" name="patient-id" value="{{$patient['id']}}" />
+                                        <textarea name="description" data-focus="true" class="td" cols="60" rows="2" readonly>{{$treatment['description']}}</textarea>
+                                        <input type="hidden" name="id" value="{{$treatment['id']}}" />
+                                        <input type="hidden" name="patient_id" value="{{$patient['id']}}" />
+                                        <span class="edit-icon" data-target="row-<?= $uniqueId ?>">edit</span>
+                                        <button type="submit" class="hidden">{{__('Guardar')}}</button>
                                     </div>
+                                    <div class="alert-success"></div>
+                                    <div class="alert-danger"></div>
                                 </form>
                             @endforeach
                             <div class="tr" id="btn-row">
