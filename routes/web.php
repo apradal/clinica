@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth.admin'], function (){
     //records
     Route::get('admin/record', 'Admin\RecordController@index')->name('record');
     Route::post('admin/record', 'Admin\RecordController@newRecord')->name('record.save');
+    Route::post('admin/patient/edit-record-ajax', 'Admin\RecordController@editRecordAjax')->name('patient.record.edit.ajax');
     //patients
     Route::get('admin/patient', 'Admin\PatientController@index')->name('patient');
     Route::post('admin/patient/add-treatment-ajax', 'Admin\PatientController@addTreatmentAjax')->name('patient.treatment.add.ajax');
@@ -30,6 +31,8 @@ Route::group(['middleware' => 'auth.admin'], function (){
     Route::get('admin/patient/search', 'Admin\PatientController@search')->name('patient.search');
     Route::get('admin/patient/searchAjax', 'Admin\PatientController@searchAjax')->name('patient.search.ajax');
     Route::post('admin/patient/edit-patient-ajax', 'Admin\PatientController@editPatientAjax')->name('patient.edit.ajax');
+    //diseases
+    Route::post('admin/patient/edit-disease-ajax', 'Admin\DiseaseController@editDiseaseAjax')->name('patient.disease.edit.ajax');
 });
 
 //let this routers open to login.

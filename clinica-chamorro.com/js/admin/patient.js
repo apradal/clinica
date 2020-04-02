@@ -98,8 +98,7 @@ function Patient() {
   this.treatmentTable = $('#treatment-table');
   this.ajaxMsgRow = $('#btn-row');
   this.editIcons = $('.edit-icon');
-  this.patientForm = $('#patient-edit-form');
-  this.treatmentForm = $('.treatments-edit-form');
+  this.forms = $('#patient-edit-form, .treatments-edit-form, #record-edit-form, #diseases-edit-form');
 
   this.init = function () {
     this._addBtnListeners();
@@ -133,12 +132,16 @@ function Patient() {
 
       inputs.each(function (counter, elmt) {
         if ($(elmt).attr('readOnly')) $(elmt).attr('readOnly', false);
-        $(elmt).attr('data-changed', true); //set focus
+        if ($(elmt).attr('disabled')) $(elmt).attr('disabled', false);
+        let type = $(elmt).attr('type');
 
+        if (type !== 'radio') $(elmt).attr('data-changed', true);
+
+        //set focus
         if ($(elmt).data('focus')) {
           $(elmt).focus();
 
-          if ($(elmt).attr('type') !== 'date') {
+          if (type !== 'date' || type !== 'radio') {
             var strLength = $(elmt).val().length * 2;
             $(elmt)[0].setSelectionRange(strLength, strLength);
           }
@@ -150,29 +153,8 @@ function Patient() {
 
   this._addFormListeners = function () {
     var self = this;
-    this.patientForm.on('submit', function (e) {
-      e.preventDefault();
 
-      var data = self._getInputsModified($(this));
-
-      if (Object.keys(data).length) {
-        self._editFormAjax($(this), data, function (response) {
-          if (response.success) {
-            $.each(self.patientForm.find(':input'), function () {
-              if ($(this).attr('type') === 'submit') return true;
-              $(this).attr('readonly', true);
-            });
-            self.patientForm.find('button[type="submit"]').addClass('hidden');
-            var success = self.patientForm.find('.alert-success');
-            if (success.css('display') === 'none') success.css('display', '');
-            success.html(response.message).delay(2000).fadeOut('slow');
-          } else {
-            self.patientForm.find('.alert-danger').html(response.message).delay(2000).fadeOut('slow');
-          }
-        });
-      }
-    });
-    this.treatmentForm.on('submit', function (e) {
+    this.forms.on('submit', function (e) {
       e.preventDefault();
 
       var data = self._getInputsModified($(this));
@@ -183,8 +165,13 @@ function Patient() {
         self._editFormAjax(form, data, function (response) {
           if (response.success) {
             $.each(form.find(':input'), function () {
-              if ($(this).attr('type') === 'submit') return true;
-              $(this).attr('readonly', true);
+              if ($(this).attr('type') === 'submit') {
+                return true;
+              } else if ($(this).prop('type') === 'select-one') {
+                $(this).attr('disabled', true);
+              } else {
+                $(this).attr('readonly', true);
+              }
             });
             form.find('button[type="submit"]').addClass('hidden');
             var success = form.find('.alert-success');
@@ -309,7 +296,7 @@ function Patient() {
   this._getInputsModified = function (form) {
     var data = {};
     $.each(form.find(':input'), function () {
-      if ($(this).data('changed') || $(this).attr('type') === 'hidden') {
+      if ($(this).data('changed') || $(this).attr('type') === 'hidden' || $(this).is(':checked')) {
         data[$(this).attr('name')] = $(this).val();
       }
     });

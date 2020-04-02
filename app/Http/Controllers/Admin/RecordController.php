@@ -107,4 +107,32 @@ class RecordController extends Controller
             'phone.required' => 'El teléfono del paciente es obligatorio',
         ];
     }
+
+    public function editRecordAjax(Request $request)
+    {
+        if ($request->input('id') && $request->input('patient_id') && $request->ajax()) {
+            $params = $request->all();
+
+            /** @var \App\Patient $currentPatient */
+            $currentPatient = $this->_patientModel->find($params['patient_id']);
+            if ($currentPatient->getAttribute('id')) {
+                $record = $currentPatient->record()->find($params['id']);
+                if ($record->getAttribute('id')) {
+                    foreach ($params as $key => $value) {
+                        if ($key === 'id' || $key === 'patient_id') continue;
+                        $record->setAttribute($key, $value);
+                    }
+                }
+                if ($record->save()) {
+                    return response()->json(['success' => true, 'message' => 'Historia editado correctamente']);
+                } else {
+                    return response()->json(['success' => false, 'message' => 'Error al editar historia']);
+                }
+            } else {
+                return response()->json(['success' => false, 'message' => 'El id del historia no existe']);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
 }

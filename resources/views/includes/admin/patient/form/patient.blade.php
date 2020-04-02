@@ -35,7 +35,7 @@
             <textarea id="insurance" name="insurance" readonly data-focus="true">{{$patient['insurance']}}</textarea>
             <span class="edit-icon" data-target="insurance-editable">edit</span>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12">
             <input type="hidden" name="id" value="{{$patient['id']}}" />
             <button type="submit" class="hidden">{{__('Guardar')}}</button>
         </div>
