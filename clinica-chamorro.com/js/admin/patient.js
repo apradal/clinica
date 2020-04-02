@@ -133,11 +133,9 @@ function Patient() {
       inputs.each(function (counter, elmt) {
         if ($(elmt).attr('readOnly')) $(elmt).attr('readOnly', false);
         if ($(elmt).attr('disabled')) $(elmt).attr('disabled', false);
-        let type = $(elmt).attr('type');
+        var type = $(elmt).attr('type');
+        if (type !== 'radio') $(elmt).attr('data-changed', true); //set focus
 
-        if (type !== 'radio') $(elmt).attr('data-changed', true);
-
-        //set focus
         if ($(elmt).data('focus')) {
           $(elmt).focus();
 
@@ -153,7 +151,6 @@ function Patient() {
 
   this._addFormListeners = function () {
     var self = this;
-
     this.forms.on('submit', function (e) {
       e.preventDefault();
 
