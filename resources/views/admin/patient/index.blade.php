@@ -15,7 +15,12 @@
                 @endif
                 <h1>{{$patient['name']}} {{$patient['surname']}}</h1>
                 <!-- Patient -->
-                @include('includes.admin.patient.form.patient')
+                {{--//VUEEEE--}}
+                <admin-patient-patient-form
+                        :route="{{ json_encode(route('patient.edit.ajax')) }}"
+                        :patient-data="{{ json_encode($patient) }}">
+                </admin-patient-patient-form>
+                {{--@include('includes.admin.patient.form.patient')--}}
                 <!-- Record -->
                 @include('includes.admin.patient.form.record')
                 <!-- Diseases -->
@@ -57,5 +62,5 @@
         </div>
     </div>
 
-    <script src="{{asset('js/admin/patient.js')}}" defer></script>
+    {{--<script src="{{asset('js/admin/patient.js')}}" defer></script>--}}
 @endsection

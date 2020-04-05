@@ -6,7 +6,7 @@
 
 require('./bootstrap');
 
-//window.Vue = require('vue');
+window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -16,10 +16,13 @@ require('./bootstrap');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+import PatientForm from './components/admin/patient/PatientForm.vue';
+Vue.component('admin-patient-patient-form', PatientForm);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +30,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// const app = new Vue({
-//     el: '#app',
-// });
+const app = new Vue({
+    el: '#app',
+});

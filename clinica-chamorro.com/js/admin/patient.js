@@ -99,6 +99,7 @@ function Patient() {
   this.ajaxMsgRow = $('#btn-row');
   this.editIcons = $('.edit-icon');
   this.forms = $('#patient-edit-form, .treatments-edit-form, #record-edit-form, #diseases-edit-form');
+  this.treatmentForm = null;
 
   this.init = function () {
     this._addBtnListeners();
