@@ -19,10 +19,10 @@ window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i)
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-import PatientForm from './components/admin/patient/PatientForm.vue';
-Vue.component('admin-patient-patient-form', PatientForm);
+/** Components **/
+Vue.component('admin-patient-patient-form', require('./components/admin/patient/PatientForm.vue').default);
+Vue.component('admin-patient-record-form', require('./components/admin/patient/RecordForm.vue').default);
+Vue.component('admin-patient-diseases-form', require('./components/admin/patient/DiseasesForm.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

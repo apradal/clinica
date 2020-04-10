@@ -37,7 +37,7 @@
                 <span class="edit-icon" data-target="phone2Editable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12">
-                <input type="hidden" name="id" :value="this.patientData.id" />
+                <input type="hidden" name="id" :value="patient.id" />
                 <button type="submit" ref="submit" v-show="showBtn">Guardar</button>
             </div>
         </div>
@@ -63,7 +63,8 @@
             },
             formSubmit(event) {
                 event.preventDefault();
-                var self = this;
+                let self = this;
+
                 axios.post(event.target.getAttribute('action'), this.patient)
                     .then(function (response) {
                         let inputs = self.$refs.form.querySelectorAll('input, textarea');

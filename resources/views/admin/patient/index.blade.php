@@ -17,14 +17,25 @@
                 <!-- Patient -->
                 {{--//VUEEEE--}}
                 <admin-patient-patient-form
-                        :route="{{ json_encode(route('patient.edit.ajax')) }}"
-                        :patient-data="{{ json_encode($patient) }}">
+                    :route="{{ json_encode(route('patient.edit.ajax')) }}"
+                    :patient-data="{{ json_encode($patient) }}"
+                >
                 </admin-patient-patient-form>
-                {{--@include('includes.admin.patient.form.patient')--}}
                 <!-- Record -->
-                @include('includes.admin.patient.form.record')
+                <admin-patient-record-form
+                    :route="{{ json_encode(route('patient.record.edit.ajax')) }}"
+                    :patient-data="{{ json_encode($patient) }}"
+                    :record-data="{{ json_encode($record) }}"
+                >
+                </admin-patient-record-form>
                 <!-- Diseases -->
-                @include('includes.admin.patient.form.diseases')
+                <admin-patient-diseases-form
+                    :route="{{ json_encode(route('patient.disease.edit.ajax')) }}"
+                    :record-data="{{ json_encode($record) }}"
+                    :diseases-data="{{ json_encode($diseases) }}"
+                >
+                </admin-patient-diseases-form>
+                
                 <div class="row">
                     <div class="col-12">
                         <h4>{{__('Plan de Tratamientos')}}</h4>
