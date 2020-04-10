@@ -8,58 +8,72 @@
             </div>
             <div class="col-12 col-md-6" ref="heartEditable">
                 <label for="heart">Corazón</label>
-                <select v-model="diseases.heart" class="form-control" name="heart" id="heart" disabled>
+                <select v-model="diseases.heart" v-on:change="onChange($event, 'heart_description')"
+                        class="form-control" name="heart" id="heart" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.heart_description" class="form-control" name="heart_description" readonly></textarea>
+                <textarea v-model="diseases.heart_description" v-show="diseases.heart"
+                          class="form-control" name="heart_description" readonly></textarea>
                 <span class="edit-icon" data-target="heartEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="osteoporosisEditable">
                 <label for="osteoporosis">Osteoporosis:</label>
-                <select v-model="diseases.osteoporosis" class="form-control" name="osteoporosis" id="osteoporosis" disabled>
+                <select v-model="diseases.osteoporosis" v-on:change="onChange($event, 'osteoporosis_description')"
+                        class="form-control" name="osteoporosis" id="osteoporosis" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.osteoporosis_description" class="form-control" name="osteoporosis_description" readonly></textarea>
+                <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis"
+                          class="form-control" name="osteoporosis_description" readonly></textarea>
                 <span class="edit-icon" data-target="osteoporosisEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="liverEditable">
                 <label for="liver">Hígado:</label>
-                <select v-model="diseases.liver" class="form-control" name="liver" id="liver" disabled>
+                <select v-model="diseases.liver" v-on:change="onChange($event, 'liver_description')"
+                        class="form-control" name="liver" id="liver" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.liver_description" class="form-control" name="liver_description" readonly></textarea>
+                <textarea v-model="diseases.liver_description" v-show="diseases.liver"
+                          class="form-control" name="liver_description" readonly></textarea>
                 <span class="edit-icon" data-target="liverEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="cancerEditable">
                 <label for="cancer">Cancer:</label>
-                <select v-model="diseases.cancer" class="form-control" name="cancer" id="cancer" disabled>
+                <select v-model="diseases.cancer" v-on:change="onChange($event, 'cancer_description')"
+                        class="form-control" name="cancer" id="cancer" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.cancer_description" class="form-control" name="cancer_description" readonly></textarea>
+                <textarea v-model="diseases.cancer_description" v-show="diseases.cancer"
+                          class="form-control" name="cancer_description" readonly></textarea>
                 <span class="edit-icon" data-target="cancerEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="kidneyEditable">
                 <label for="kidney">Riñón:</label>
-                <select v-model="diseases.kidney" class="form-control" name="kidney" id="kidney" disabled>
+                <select v-model="diseases.kidney" v-on:change="onChange($event, 'kidney_description')"
+                        class="form-control" name="kidney" id="kidney" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.kidney_description" class="form-control" name="kidney_description" readonly></textarea>
+                <textarea v-model="diseases.kidney_description" v-show="diseases.kidney"
+                          class="form-control" name="kidney_description" readonly></textarea>
                 <span class="edit-icon" data-target="kidneyEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="hivEditable">
                 <label for="hiv">IVH:</label>
-                <select v-model="diseases.hiv" class="form-control" name="hiv" id="hiv" disabled>
+                <select v-model="diseases.hiv" v-on:change="onChange($event, 'hiv_description')"
+                        class="form-control" name="hiv" id="hiv" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.hiv_description" class="form-control" name="hiv_description" readonly></textarea>
+                <textarea v-model="diseases.hiv_description" v-show="diseases.hiv"
+                          class="form-control" name="hiv_description" readonly></textarea>
                 <span class="edit-icon" data-target="hivEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="lungEditable">
                 <label for="lung">Pulmón:</label>
-                <select v-model="diseases.lung" class="form-control" name="lung" id="lung" disabled>
+                <select v-model="diseases.lung" v-on:change="onChange($event, 'lung_description')"
+                        class="form-control" name="lung" id="lung" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.lung_description" class="form-control" name="lung_description" readonly></textarea>
+                <textarea v-model="diseases.lung_description" v-show="diseases.lung"
+                          class="form-control" name="lung_description" readonly></textarea>
                 <span class="edit-icon" data-target="lungEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="hepatitisEditable">
@@ -73,18 +87,22 @@
             </div>
             <div class="col-12 col-md-6" ref="diabetesEditable">
                 <label for="diabetes">Diabetes:</label>
-                <select v-model="diseases.diabetes" class="form-control" name="diabetes" id="diabetes" disabled>
+                <select v-model="diseases.diabetes" v-on:change="onChange($event, 'diabetes_description')"
+                        class="form-control" name="diabetes" id="diabetes" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.diabetes_description" class="form-control" name="diabetes_description" readonly></textarea>
+                <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes"
+                          class="form-control" name="diabetes_description" readonly></textarea>
                 <span class="edit-icon" data-target="diabetesEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="circulatoryEditable">
                 <label for="circulatory">Circulatorio:</label>
-                <select v-model="diseases.circulatory" class="form-control" name="circulatory" id="circulatory" disabled>
+                <select v-model="diseases.circulatory" v-on:change="onChange($event, 'circulatory_description')"
+                        class="form-control" name="circulatory" id="circulatory" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.circulatory_description" class="form-control" name="circulatory_description" readonly></textarea>
+                <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory"
+                          class="form-control" name="circulatory_description" readonly></textarea>
                 <span class="edit-icon" data-target="circulatoryEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="othersEditable">
@@ -159,6 +177,10 @@
                     }
                 }
                 this.showBtn = true;
+            },
+            onChange(event, a) {
+                //removes val on select if select NO
+                if (parseInt(event.target.value) === 0) this.diseases[a] = null;
             },
             formSubmit(event) {
                 event.preventDefault();

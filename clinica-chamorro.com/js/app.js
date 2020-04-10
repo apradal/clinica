@@ -2044,6 +2044,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'recordData', 'diseasesData'],
   data: function data() {
@@ -2109,6 +2127,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.showBtn = true;
+    },
+    onChange: function onChange(event, a) {
+      //removes val on select if select NO
+      if (parseInt(event.target.value) === 0) this.diseases[a] = null;
     },
     formSubmit: function formSubmit(event) {
       event.preventDefault();
@@ -37816,21 +37838,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "heart", id: "heart", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "heart",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "heart",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "heart_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -37848,6 +37875,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.heart_description,
                 expression: "diseases.heart_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.heart,
+                expression: "diseases.heart"
               }
             ],
             staticClass: "form-control",
@@ -37900,21 +37933,28 @@ var render = function() {
                   disabled: ""
                 },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "osteoporosis",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.diseases,
+                        "osteoporosis",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                    function($event) {
+                      return _vm.onChange($event, "osteoporosis_description")
+                    }
+                  ]
                 }
               },
               _vm._l(_vm.selectOptions, function(option) {
@@ -37932,6 +37972,12 @@ var render = function() {
                   rawName: "v-model",
                   value: _vm.diseases.osteoporosis_description,
                   expression: "diseases.osteoporosis_description"
+                },
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.diseases.osteoporosis,
+                  expression: "diseases.osteoporosis"
                 }
               ],
               staticClass: "form-control",
@@ -37980,21 +38026,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "liver", id: "liver", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "liver",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "liver",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "liver_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38012,6 +38063,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.liver_description,
                 expression: "diseases.liver_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.liver,
+                expression: "diseases.liver"
               }
             ],
             staticClass: "form-control",
@@ -38055,21 +38112,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "cancer", id: "cancer", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "cancer",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "cancer",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "cancer_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38087,6 +38149,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.cancer_description,
                 expression: "diseases.cancer_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.cancer,
+                expression: "diseases.cancer"
               }
             ],
             staticClass: "form-control",
@@ -38134,21 +38202,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "kidney", id: "kidney", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "kidney",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "kidney",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "kidney_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38166,6 +38239,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.kidney_description,
                 expression: "diseases.kidney_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.kidney,
+                expression: "diseases.kidney"
               }
             ],
             staticClass: "form-control",
@@ -38213,21 +38292,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "hiv", id: "hiv", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "hiv",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "hiv",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "hiv_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38245,6 +38329,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.hiv_description,
                 expression: "diseases.hiv_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.hiv,
+                expression: "diseases.hiv"
               }
             ],
             staticClass: "form-control",
@@ -38288,21 +38378,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "lung", id: "lung", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "lung",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "lung",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "lung_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38320,6 +38415,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.lung_description,
                 expression: "diseases.lung_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.lung,
+                expression: "diseases.lung"
               }
             ],
             staticClass: "form-control",
@@ -38423,21 +38524,26 @@ var render = function() {
               staticClass: "form-control",
               attrs: { name: "diabetes", id: "diabetes", disabled: "" },
               on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.diseases,
-                    "diabetes",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
+                change: [
+                  function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.diseases,
+                      "diabetes",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                  function($event) {
+                    return _vm.onChange($event, "diabetes_description")
+                  }
+                ]
               }
             },
             _vm._l(_vm.selectOptions, function(option) {
@@ -38455,6 +38561,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.diseases.diabetes_description,
                 expression: "diseases.diabetes_description"
+              },
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.diseases.diabetes,
+                expression: "diseases.diabetes"
               }
             ],
             staticClass: "form-control",
@@ -38507,21 +38619,28 @@ var render = function() {
                 staticClass: "form-control",
                 attrs: { name: "circulatory", id: "circulatory", disabled: "" },
                 on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "circulatory",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.diseases,
+                        "circulatory",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                    function($event) {
+                      return _vm.onChange($event, "circulatory_description")
+                    }
+                  ]
                 }
               },
               _vm._l(_vm.selectOptions, function(option) {
@@ -38539,6 +38658,12 @@ var render = function() {
                   rawName: "v-model",
                   value: _vm.diseases.circulatory_description,
                   expression: "diseases.circulatory_description"
+                },
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.diseases.circulatory,
+                  expression: "diseases.circulatory"
                 }
               ],
               staticClass: "form-control",

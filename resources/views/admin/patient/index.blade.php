@@ -35,7 +35,7 @@
                     :diseases-data="{{ json_encode($diseases) }}"
                 >
                 </admin-patient-diseases-form>
-                
+
                 <div class="row">
                     <div class="col-12">
                         <h4>{{__('Plan de Tratamientos')}}</h4>
