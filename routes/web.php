@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth.admin'], function (){
     Route::get('admin/patient', 'Admin\PatientController@index')->name('patient');
     Route::post('admin/patient/add-treatment-ajax', 'Admin\PatientController@addTreatmentAjax')->name('patient.treatment.add.ajax');
     Route::post('admin/patient/edit-treatment-ajax', 'Admin\PatientController@editTreatmentAjax')->name('patient.treatment.edit.ajax');
+    Route::post('admin/patient/delete-treatment-ajax', 'Admin\PatientController@deleteTreatmentAjax')->name('patient.treatment.delete.ajax');
     Route::get('admin/patient/search', 'Admin\PatientController@search')->name('patient.search');
     Route::get('admin/patient/searchAjax', 'Admin\PatientController@searchAjax')->name('patient.search.ajax');
     Route::post('admin/patient/edit-patient-ajax', 'Admin\PatientController@editPatientAjax')->name('patient.edit.ajax');

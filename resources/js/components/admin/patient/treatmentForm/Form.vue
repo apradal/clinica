@@ -8,6 +8,7 @@
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
             <span class="edit-icon" data-target="treatmentEditable" v-on:click="edit">edit</span>
+            <span class="delete-icon" v-on:click="openModal">delete</span>
             <button type="submit" v-show="showBtn">Guardar</button>
         </div>
     </form>
@@ -15,7 +16,7 @@
 
 <script>
     export default {
-        props: ['routes', 'treatmentData'],
+        props: ['routes', 'treatmentData', 'index'],
         data: function() {
             return {
                 new: this.treatmentData.new,
@@ -46,6 +47,14 @@
                     }
                 }
                 this.showBtn = true;
+            },
+            remove() {
+                axios
+                    .post(this.routes.delete, this.treatment)
+                    .then(function (response) {})
+            },
+            openModal() {
+                this.$emit('openModal', this)
             },
             formSubmit(event) {
                 event.preventDefault();

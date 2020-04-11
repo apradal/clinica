@@ -38,7 +38,8 @@
                 <admin-patient-treatment-form
                     :routes="{{ json_encode([
                         'add' => route('patient.treatment.add.ajax'),
-                        'edit' => route('patient.treatment.edit.ajax')
+                        'edit' => route('patient.treatment.edit.ajax'),
+                        'delete' => route('patient.treatment.delete.ajax')
                     ]) }}"
                     :treatment-data="{{ json_encode($treatments) }}"
                     :patient-data="{{ json_encode($patient) }}"

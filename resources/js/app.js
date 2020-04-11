@@ -24,6 +24,8 @@ Vue.component('admin-patient-patient-form', require('./components/admin/patient/
 Vue.component('admin-patient-record-form', require('./components/admin/patient/RecordForm.vue').default);
 Vue.component('admin-patient-diseases-form', require('./components/admin/patient/DiseasesForm.vue').default);
 Vue.component('admin-patient-treatment-form', require('./components/admin/patient/TreatmentForm.vue').default);
+Vue.component('TreamtentForm', require('./components/admin/patient/treatmentForm/Form.vue').default);
+Vue.component('TreamtentModal', require('./components/admin/patient/treatmentForm/ModalDelete.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

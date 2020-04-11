@@ -1,16 +1,18 @@
 <template>
     <div class="row">
         <div class="col-12">
-        <h4>Plan de Tratamientos</h4>
+            <h4>Plan de Tratamientos</h4>
             <div id="treatment-table">
                 <div class="tr">
                     <div class="td">Fecha</div>
                     <div class="td">Descripción</div>
                 </div>
-                <template v-for="treatment in treatments">
+                <template v-for="(treatment, index) in treatments">
                     <TreamtentForm
                         :routes="routes"
                         :treatment-data="treatment"
+                        :index="index"
+                        v-on:openModal="openModal"
                     >
                     </TreamtentForm>
                 </template>
@@ -18,6 +20,10 @@
                     <button type="button" v-on:click="renderNewForm">Añadir</button>
                 </div>
             </div>
+        </div>
+        <div class="col-12">
+            <TreamtentModal v-if="showModal" v-on:closeModal="removeForm">
+            </TreamtentModal>
         </div>
     </div>
 </template>
@@ -34,24 +40,33 @@
         }
     }
 
-    import TreamtentForm from './treatmentForm/Form';
-
     export default {
         props: ['routes', 'treatmentData', 'patientData'],
-        components: {
-            TreamtentForm
-        },
         data: function() {
             return {
+                showModal: false,
                 showBtn: false,
                 alertSuccess: false,
                 alertError: false,
-                treatments: []
+                treatments: [],
+                currentChild: null
             }
         },
         methods: {
             renderNewForm() {
                 this.treatments.push(new TreatmentModel(null, null, null, this.patientData.id));
+            },
+            openModal(component) {
+                this.showModal = true;
+                this.currentChild = component;
+            },
+            removeForm(value) {
+                if (this.currentChild !== null && value) {
+                    this.currentChild.remove();
+                    this.treatments.splice(this.currentChild.index, 1);
+                    this.currentChild = null;
+                }
+                this.showModal = false;
             }
         },
         created() {

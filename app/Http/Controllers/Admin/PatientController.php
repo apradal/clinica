@@ -90,6 +90,39 @@ class PatientController extends Controller
     }
 
     /**
+     * deletes treatment by ajax.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteTreatmentAjax(Request $request)
+    {
+        if ($request->input('id') && $request->ajax()) {
+            $params = $request->all();
+
+            /** @var \App\Patient $currentPatient */
+            $currentPatient = $this->_patientModel->find($params['patient_id']);
+            try {
+                if ($currentPatient->getAttribute('id')) {
+                    if ($currentPatient->treatments()->find($params['id'])->delete()) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => 'Tratamiento eliminado correctamente',
+                        ]);
+                    } else {
+                        return response()->json(['success' => false, 'message' => 'Error al eliminar tratamiento']);
+                    }
+                } else {
+                    return response()->json(['success' => false, 'message' => 'El id del tratamiento no existe']);
+                }
+            } catch (\Exception $e) {
+                return response()->json(['error' => true, 'message' => $e->getMessage()], 500);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
+    /**
      * Edit Treatment by ajax
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
