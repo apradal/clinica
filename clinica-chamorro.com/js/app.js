@@ -2365,6 +2365,182 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _treatmentForm_Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./treatmentForm/Form */ "./resources/js/components/admin/patient/treatmentForm/Form.vue");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//since vue cant handle collections, create model outside
+var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
+  var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+
+  _classCallCheck(this, TreatmentModel);
+
+  this.id = id;
+  this.date = date;
+  this.description = description;
+  this.patient_id = patientId;
+  this["new"] = isNew;
+};
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['routes', 'treatmentData', 'patientData'],
+  components: {
+    TreamtentForm: _treatmentForm_Form__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      showBtn: false,
+      alertSuccess: false,
+      alertError: false,
+      treatments: []
+    };
+  },
+  methods: {
+    renderNewForm: function renderNewForm() {
+      this.treatments.push(new TreatmentModel(null, null, null, this.patientData.id));
+    }
+  },
+  created: function created() {
+    var self = this; //fetch array with models.
+
+    this.treatmentData.forEach(function (el) {
+      self.treatments.push(new TreatmentModel(el.id, el.date, el.description, self.patientData.id, false));
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['routes', 'treatmentData'],
+  data: function data() {
+    return {
+      "new": this.treatmentData["new"],
+      showBtn: false,
+      alertSuccess: false,
+      alertError: false,
+      route: this.treatmentData["new"] ? this.routes.add : this.routes.edit,
+      treatment: {
+        id: this.treatmentData.id,
+        date: this.treatmentData.date,
+        description: this.treatmentData.description,
+        patient_id: this.treatmentData.patient_id
+      }
+    };
+  },
+  methods: {
+    edit: function edit(event) {
+      var target = event.target.getAttribute('data-target');
+      var wrapper = this.$refs[target];
+
+      if (wrapper !== undefined) {
+        for (var i = 0; i < wrapper.children.length; i++) {
+          var elmt = wrapper.children[i];
+          if (elmt.hasAttribute('readonly')) elmt.removeAttribute('readonly');
+          if (elmt.hasAttribute('disabled')) elmt.removeAttribute('disabled');
+          elmt.focus();
+        }
+      }
+
+      this.showBtn = true;
+    },
+    formSubmit: function formSubmit(event) {
+      event.preventDefault();
+      var self = this;
+      axios.post(event.target.getAttribute('action'), this.treatment).then(function (response) {
+        self["new"] = false;
+        self.route = self.routes.edit;
+        self.showBtn = false; //if new form has been saved and page haven't been reloaded, it needs id for edit.
+
+        if (self.treatment.id === null || self.treatment.id === undefined && response.success === true) self.treatment.id = response.data.id;
+        var inputs = event.target.querySelectorAll('input, textarea');
+
+        for (var i = 0; i < inputs.length; i++) {
+          inputs[i].setAttribute('readonly', true);
+        }
+
+        self.$refs.alertSuccess.innerText = response.data.message;
+        self.alertSuccess = true;
+        setTimeout(function () {
+          return self.alertSuccess = false;
+        }, 3000);
+      })["catch"](function (error) {
+        var data = error.response.data;
+
+        if (data.error) {
+          self.$refs.alertError.innerText = data.message;
+          self.alertError = true;
+          setTimeout(function () {
+            return self.alertError = false;
+          }, 5000);
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.showBtn = this["new"];
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -39308,6 +39484,241 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("h4", [_vm._v("Plan de Tratamientos")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { attrs: { id: "treatment-table" } },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._l(_vm.treatments, function(treatment) {
+            return [
+              _c("TreamtentForm", {
+                attrs: { routes: _vm.routes, "treatment-data": treatment }
+              })
+            ]
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "tr", attrs: { id: "btn-row" } }, [
+            _c(
+              "button",
+              { attrs: { type: "button" }, on: { click: _vm.renderNewForm } },
+              [_vm._v("Añadir")]
+            )
+          ])
+        ],
+        2
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tr" }, [
+      _c("div", { staticClass: "td" }, [_vm._v("Fecha")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "td" }, [_vm._v("Descripción")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8&":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8& ***!
+  \***********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      attrs: { action: this.route, method: "post" },
+      on: { submit: _vm.formSubmit }
+    },
+    [
+      _c("div", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.alertSuccess,
+            expression: "alertSuccess"
+          }
+        ],
+        ref: "alertSuccess",
+        staticClass: "alert alert-success"
+      }),
+      _vm._v(" "),
+      _c("div", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.alertError,
+            expression: "alertError"
+          }
+        ],
+        ref: "alertError",
+        staticClass: "alert alert-danger"
+      }),
+      _vm._v(" "),
+      _c("div", { ref: "treatmentEditable", staticClass: "tr" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.treatment.date,
+              expression: "treatment.date"
+            }
+          ],
+          staticClass: "td form-control",
+          attrs: { type: "date", name: "date", readonly: !this.new },
+          domProps: { value: _vm.treatment.date },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.treatment, "date", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.treatment.description,
+              expression: "treatment.description"
+            }
+          ],
+          staticClass: "td form-control",
+          attrs: { name: "description", readonly: !this.new },
+          domProps: { value: _vm.treatment.description },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.treatment, "description", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.treatment.id,
+              expression: "treatment.id"
+            }
+          ],
+          attrs: { type: "hidden", name: "id" },
+          domProps: { value: _vm.treatment.id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.treatment, "id", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.treatment.patient_id,
+              expression: "treatment.patient_id"
+            }
+          ],
+          attrs: { type: "hidden", name: "patient_id" },
+          domProps: { value: _vm.treatment.patient_id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.treatment, "patient_id", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "edit-icon",
+            attrs: { "data-target": "treatmentEditable" },
+            on: { click: _vm.edit }
+          },
+          [_vm._v("edit")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showBtn,
+                expression: "showBtn"
+              }
+            ],
+            attrs: { type: "submit" }
+          },
+          [_vm._v("Guardar")]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -51476,7 +51887,9 @@ var map = {
 	"./components/ExampleComponent.vue": "./resources/js/components/ExampleComponent.vue",
 	"./components/admin/patient/DiseasesForm.vue": "./resources/js/components/admin/patient/DiseasesForm.vue",
 	"./components/admin/patient/PatientForm.vue": "./resources/js/components/admin/patient/PatientForm.vue",
-	"./components/admin/patient/RecordForm.vue": "./resources/js/components/admin/patient/RecordForm.vue"
+	"./components/admin/patient/RecordForm.vue": "./resources/js/components/admin/patient/RecordForm.vue",
+	"./components/admin/patient/TreatmentForm.vue": "./resources/js/components/admin/patient/TreatmentForm.vue",
+	"./components/admin/patient/treatmentForm/Form.vue": "./resources/js/components/admin/patient/treatmentForm/Form.vue"
 };
 
 
@@ -51534,6 +51947,7 @@ files.keys().map(function (key) {
 Vue.component('admin-patient-patient-form', __webpack_require__(/*! ./components/admin/patient/PatientForm.vue */ "./resources/js/components/admin/patient/PatientForm.vue")["default"]);
 Vue.component('admin-patient-record-form', __webpack_require__(/*! ./components/admin/patient/RecordForm.vue */ "./resources/js/components/admin/patient/RecordForm.vue")["default"]);
 Vue.component('admin-patient-diseases-form', __webpack_require__(/*! ./components/admin/patient/DiseasesForm.vue */ "./resources/js/components/admin/patient/DiseasesForm.vue")["default"]);
+Vue.component('admin-patient-treatment-form', __webpack_require__(/*! ./components/admin/patient/TreatmentForm.vue */ "./resources/js/components/admin/patient/TreatmentForm.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51862,6 +52276,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecordForm_vue_vue_type_template_id_6f0424aa___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecordForm_vue_vue_type_template_id_6f0424aa___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/TreatmentForm.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/admin/patient/TreatmentForm.vue ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TreatmentForm.vue?vue&type=template&id=747a40f7& */ "./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7&");
+/* harmony import */ var _TreatmentForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TreatmentForm.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TreatmentForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/patient/TreatmentForm.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TreatmentForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TreatmentForm.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TreatmentForm_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7& ***!
+  \************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TreatmentForm.vue?vue&type=template&id=747a40f7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/TreatmentForm.vue?vue&type=template&id=747a40f7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TreatmentForm_vue_vue_type_template_id_747a40f7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/treatmentForm/Form.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/admin/patient/treatmentForm/Form.vue ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form.vue?vue&type=template&id=25e328e8& */ "./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8&");
+/* harmony import */ var _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Form.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/patient/treatmentForm/Form.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8& ***!
+  \*****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Form.vue?vue&type=template&id=25e328e8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/treatmentForm/Form.vue?vue&type=template&id=25e328e8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Form_vue_vue_type_template_id_25e328e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

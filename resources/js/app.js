@@ -23,6 +23,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 Vue.component('admin-patient-patient-form', require('./components/admin/patient/PatientForm.vue').default);
 Vue.component('admin-patient-record-form', require('./components/admin/patient/RecordForm.vue').default);
 Vue.component('admin-patient-diseases-form', require('./components/admin/patient/DiseasesForm.vue').default);
+Vue.component('admin-patient-treatment-form', require('./components/admin/patient/TreatmentForm.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

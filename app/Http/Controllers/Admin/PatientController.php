@@ -61,18 +61,28 @@ class PatientController extends Controller
      */
     public function addTreatmentAjax(Request $request)
     {
-        if ($request->input('patient-id')) {
+        if ($request->input('patient_id')) {
             $params = $request->all();
 
-            $currentPatient = $this->_patientModel->find($params['patient-id']);
-            if ($currentPatient->id) {
-                $this->_treatmentModel->patient()->associate($currentPatient);
-                $treatment = $this->_treatmentModel->fill($params);
-                if ($treatment->save()) {
-                    return response()->json(['success' => true]);
+            $currentPatient = $this->_patientModel->find($params['patient_id']);
+            try {
+                if ($currentPatient->id) {
+                    $this->_treatmentModel->patient()->associate($currentPatient);
+                    $treatment = $this->_treatmentModel->fill($params);
+                    if ($treatment->save()) {
+                        return response()->json([
+                            'success' => true,
+                            'message' => 'Tratamiento guardado correctamente',
+                            'id' => $treatment->getAttribute('id')
+                        ]);
+                    } else {
+                        return response()->json(['success' => false, 'message' => 'Error al guardar tratamiento']);
+                    }
                 } else {
-                    return response()->json(['success' => false]);
+                    return response()->json(['success' => false, 'message' => 'El id del tratamiento no existe']);
                 }
+            } catch (\Exception $e) {
+                return response()->json(['error' => true, 'message' => $e->getMessage()], 500);
             }
         }
 
