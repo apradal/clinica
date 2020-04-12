@@ -10882,8 +10882,16 @@ a.text-dark:focus {
   }
 }
 
+.flex {
+  display: flex;
+}
+
 .hidden {
   display: none;
+}
+
+.center {
+  text-align: center;
 }
 
 .modal-mask {

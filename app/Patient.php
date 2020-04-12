@@ -101,21 +101,18 @@ class Patient extends Model
      */
     public function searchByFilter($params)
     {
-        $data = $params['search_data'];
-        $filter = $params['search_filter'];
-
-        switch ($filter) {
-            case 'name':
-            case 'surname':
+        $where = [];
+        foreach ($params as $key => $value) {
+            if ($key === 'name' || $key === 'surname') {
                 $condition = 'like';
-                $data = '%'.$data.'%';
-                break;
-            default:
+                $value = '%' . $value . '%';
+            } else {
                 $condition = '=';
-                break;
+            }
+            $where[] = [$key, $condition, $value];
         }
 
-        return $this::where($filter, $condition, $data);
+        return $this::where($where);
     }
 
 }

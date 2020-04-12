@@ -198,16 +198,19 @@ class PatientController extends Controller
         }
     }
 
+    /**
+     * Get patients by ajax.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function searchAjax(Request $request)
     {
-        if ($request->ajax() && $request->input('search_filter') && $request->input('search_data')) {
+        if ($request->ajax()) {
             $params = $request->all();
             $result = $this->_patientModel->searchByFilter($params);
 
             if ($result->count()) {
-                $content = view('includes.admin.patient..search.tablerow')
-                    ->with(['result' => $result->get()->all()])->render();
-                return response()->json(['success' => true, 'content' => $content]);
+                return response()->json(['success' => true, 'patients' => $result->get()->all()]);
             } else {
                 return response()->json(['success' => false]);
             }
