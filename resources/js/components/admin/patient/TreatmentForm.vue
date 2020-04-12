@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <h4>Plan de Tratamientos</h4>
-            <div id="treatment-table">
+            <div id="treatment-table" v-show="showForm">
                 <div class="tr">
                     <div class="td">Fecha</div>
                     <div class="td">Descripción</div>
@@ -20,6 +20,7 @@
                     <button type="button" v-on:click="renderNewForm">Añadir</button>
                 </div>
             </div>
+            <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
         </div>
         <div class="col-12">
             <TreamtentModal v-if="showModal" v-on:closeModal="removeForm">
@@ -44,6 +45,8 @@
         props: ['routes', 'treatmentData', 'patientData'],
         data: function() {
             return {
+                showForm: true,
+                showFormText: 'Ocultar Información',
                 showModal: false,
                 showBtn: false,
                 alertSuccess: false,
@@ -67,6 +70,15 @@
                     this.currentChild = null;
                 }
                 this.showModal = false;
+            },
+            toggleForm() {
+                if (!this.showForm) {
+                    this.showForm = true;
+                    this.showFormText = 'Ocultar Información';
+                } else {
+                    this.showForm = false;
+                    this.showFormText = 'Mostrar Información';
+                }
             }
         },
         created() {

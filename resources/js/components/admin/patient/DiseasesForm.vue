@@ -1,11 +1,11 @@
 <template>
     <form :action="this.route" @submit="formSubmit" method="post" ref="form">
-        <div class="row">
-            <div class="col-12">
-                <h4>Enfermedades</h4>
-                <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
-                <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
-            </div>
+        <div>
+            <h4>Enfermedades</h4>
+            <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
+            <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
+        </div>
+        <div class="row" v-show="showForm">
             <div class="col-12 col-md-6" ref="heartEditable">
                 <label for="heart">Corazón</label>
                 <select v-model="diseases.heart" v-on:change="onChange($event, 'heart_description')"
@@ -116,6 +116,7 @@
                 <button type="submit" ref="submit" v-show="showBtn">Guardar</button>
             </div>
         </div>
+        <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
     </form>
 </template>
 
@@ -124,6 +125,8 @@
         props: ['route', 'recordData', 'diseasesData'],
         data: function() {
             return {
+                showForm: false,
+                showFormText: 'Mostrar Información',
                 showBtn: false,
                 alertSuccess: false,
                 alertError: false,
@@ -206,6 +209,15 @@
                     .catch(function (error) {
                         console.log(error)
                     });
+            },
+            toggleForm() {
+                if (!this.showForm) {
+                    this.showForm = true;
+                    this.showFormText = 'Ocultar Información';
+                } else {
+                    this.showForm = false;
+                    this.showFormText = 'Mostrar Información';
+                }
             }
         }
     }

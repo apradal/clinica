@@ -7,8 +7,8 @@
             <textarea v-model="treatment.description" class="td form-control" name="description" :readonly="!this.new"></textarea>
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
-            <span class="edit-icon" data-target="treatmentEditable" v-on:click="edit">edit</span>
-            <span class="delete-icon" v-on:click="openModal">delete</span>
+            <span class="edit-icon" v-show="!this.new" data-target="treatmentEditable" v-on:click="edit">edit</span>
+            <span class="delete-icon" v-show="!this.new" v-on:click="openModal">delete</span>
             <button type="submit" v-show="showBtn">Guardar</button>
         </div>
     </form>

@@ -10949,3 +10949,11 @@ a.text-dark:focus {
   transform: scale(1.1);
 }
 
+.show-form {
+  border-bottom: 1px solid #ced4da;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+

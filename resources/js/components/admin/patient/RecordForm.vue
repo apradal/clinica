@@ -1,11 +1,11 @@
 <template>
     <form :action="this.route" @submit="formSubmit" method="post" ref="form">
-        <div class="row">
-            <div class="col-12">
-                <h4>Historia</h4>
-                <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
-                <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
-            </div>
+        <div>
+            <h4>Historia</h4>
+            <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
+            <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
+        </div>
+        <div class="row" v-show="showForm">
             <div class="col-12 col-md-6" ref="allergiesEditable">
                 <label for="allergies">Alergias:</label>
                 <textarea v-model="record.allergies" class="form-control" id="allergies" name="allergies" readonly></textarea>
@@ -22,6 +22,7 @@
                 <button type="submit" ref="submit" v-show="showBtn">Guardar</button>
             </div>
         </div>
+        <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
     </form>
 </template>
 
@@ -30,6 +31,9 @@
         props: ['route', 'patientData', 'recordData'],
         data: function() {
             return {
+                show: false,
+                showForm: false,
+                showFormText: 'Mostrar Información',
                 showBtn: false,
                 alertSuccess: false,
                 alertError: false,
@@ -72,6 +76,15 @@
                     .catch(function (error) {
                         console.log(error)
                     });
+            },
+            toggleForm() {
+                if (!this.showForm) {
+                    this.showForm = true;
+                    this.showFormText = 'Ocultar Información';
+                } else {
+                    this.showForm = false;
+                    this.showFormText = 'Mostrar Información';
+                }
             }
         }
     }
