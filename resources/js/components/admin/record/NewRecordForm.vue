@@ -4,29 +4,37 @@
             <h4>Datos Personales</h4>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-3">
                 <label class="col-form-label" for="name">Nombre:</label>
                 <input v-model="patient.name" id="name" class="form-control" name="name"/>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-3">
                 <label class="col-form-label" for="surname">Apellidos:</label>
                 <input v-model="patient.surname" class="form-control" id="surname" name="surname"/>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-3">
                 <label class="col-form-label" for="nif">DNI:</label>
                 <input v-model="patient.nif" class="form-control" id="nif" name="nif"/>
             </div>
+            <div class="col-12 col-md-3">
+                <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
+                <input type="date" v-model="patient.birth_year" class="form-control" id="birth_year" name="birth_year"/>
+            </div>
             <div class="col-12 col-md-4">
-                <label class="col-form-label" for="email">Email:</label>
-                <input type="email" v-model="patient.email" class="form-control" id="email" name="email"/>
+                <label class="col-form-label" for="address">Dirección:</label>
+                <textarea v-model="patient.address" v-on:keyup="textAreaAdjust" class="form-control" id="address" name="address"></textarea>
+            </div>
+            <div class="col-12 col-md-4">
+                <label class="col-form-label" for="location">Localidad:</label>
+                <input v-model="patient.location" class="form-control" id="location" name="location"/>
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="postal_code">Código postal:</label>
                 <input type="number" v-model="patient.postal_code" class="form-control" id="postal_code" name="postal_code"/>
             </div>
             <div class="col-12 col-md-4">
-                <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
-                <input type="date" v-model="patient.birth_year" class="form-control" id="birth_year" name="birth_year"/>
+                <label class="col-form-label" for="email">Email:</label>
+                <input type="email" v-model="patient.email" class="form-control" id="email" name="email"/>
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="phone">Teléfono:</label>
@@ -38,15 +46,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="insurance">Aseguradora:</label>
-                <textarea v-model="patient.insurance" class="form-control" id="insurance" name="insurance"></textarea>
-            </div>
-            <div class="col-12 col-md-6">
-                <label class="col-form-label" for="location">Localidad:</label>
-                <textarea v-model="patient.location" class="form-control" id="location" name="location"></textarea>
-            </div>
-            <div class="col-12 col-md-6">
-                <label class="col-form-label" for="address">Dirección:</label>
-                <textarea v-model="patient.address" class="form-control" id="address" name="address"></textarea>
+                <textarea v-model="patient.insurance" v-on:keyup="textAreaAdjust" class="form-control" id="insurance" name="insurance"></textarea>
             </div>
         </div>
         <div>
@@ -55,11 +55,11 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <label class="col-form-label" for="allergies">¿Tiene usted alguna alergia?:</label>
-                <textarea v-model="record.allergies" class="form-control" id="allergies" name="allergies"></textarea>
+                <textarea v-model="record.allergies" v-on:keyup="textAreaAdjust" class="form-control" id="allergies" name="allergies"></textarea>
             </div>
             <div class="col-12 col-md-6">
                 <label class="col-form-label" for="treatment">¿Está usted bajo tratamiento médico?:</label>
-                <textarea v-model="record.treatment" class="form-control" id="treatment" name="treatment"></textarea>
+                <textarea v-model="record.treatment" v-on:keyup="textAreaAdjust" class="form-control" id="treatment" name="treatment"></textarea>
             </div>
         </div>
         <div>
@@ -72,7 +72,7 @@
                 <select v-model="diseases.heart" class="form-control" name="heart" id="heart">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.heart_description" v-show="diseases.heart"
+                <textarea v-model="diseases.heart_description" v-show="diseases.heart" v-on:keyup="textAreaAdjust"
                           class="form-control" name="heart_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -80,7 +80,7 @@
                 <select v-model="diseases.osteoporosis" class="form-control" name="osteoporosis" id="osteoporosis">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis"
+                <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis" v-on:keyup="textAreaAdjust"
                           class="form-control" name="osteoporosis_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -88,7 +88,7 @@
                 <select v-model="diseases.liver" class="form-control" name="liver" id="liver" >
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.liver_description" v-show="diseases.liver"
+                <textarea v-model="diseases.liver_description" v-show="diseases.liver" v-on:keyup="textAreaAdjust"
                           class="form-control" name="liver_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -96,7 +96,7 @@
                 <select v-model="diseases.cancer" class="form-control" name="cancer" id="cancer">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.cancer_description" v-show="diseases.cancer"
+                <textarea v-model="diseases.cancer_description" v-show="diseases.cancer" v-on:keyup="textAreaAdjust"
                           class="form-control" name="cancer_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -104,7 +104,7 @@
                 <select v-model="diseases.kidney" class="form-control" name="kidney" id="kidney">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.kidney_description" v-show="diseases.kidney"
+                <textarea v-model="diseases.kidney_description" v-show="diseases.kidney" v-on:keyup="textAreaAdjust"
                           class="form-control" name="kidney_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -112,7 +112,7 @@
                 <select v-model="diseases.hiv" class="form-control" name="hiv" id="hiv">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.hiv_description" v-show="diseases.hiv"
+                <textarea v-model="diseases.hiv_description" v-show="diseases.hiv" v-on:keyup="textAreaAdjust"
                           class="form-control" name="hiv_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -120,7 +120,7 @@
                 <select v-model="diseases.lung" class="form-control" name="lung" id="lung">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.lung_description" v-show="diseases.lung"
+                <textarea v-model="diseases.lung_description" v-show="diseases.lung" v-on:keyup="textAreaAdjust"
                           class="form-control" name="lung_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -136,7 +136,7 @@
                 <select v-model="diseases.diabetes" class="form-control" name="diabetes" id="diabetes">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes"
+                <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes" v-on:keyup="textAreaAdjust"
                           class="form-control" name="diabetes_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
@@ -144,12 +144,12 @@
                 <select v-model="diseases.circulatory" class="form-control" name="circulatory" id="circulatory">
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory"
+                <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory" v-on:keyup="textAreaAdjust"
                           class="form-control" name="circulatory_description"></textarea>
             </div>
             <div class="col-12 col-md-6">
                 <label for="others_description">Otros:</label>
-                <textarea v-model="diseases.others_description"
+                <textarea v-model="diseases.others_description" v-on:keyup="textAreaAdjust"
                           class="form-control" id="others_description" name="others_description"></textarea>
             </div>
         </div>
@@ -224,6 +224,10 @@
                     this.showForm = false;
                     this.showFormText = 'Mostrar Información';
                 }
+            },
+            textAreaAdjust(event) {
+                if (event.target.scrollHeight >= 58)
+                    event.target.style.height = event.target.scrollHeight + "px";
             }
         }
     }

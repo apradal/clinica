@@ -10894,6 +10894,11 @@ a.text-dark:focus {
   text-align: center;
 }
 
+textarea {
+  overflow: hidden;
+  resize: none;
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;

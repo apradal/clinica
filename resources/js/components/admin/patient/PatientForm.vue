@@ -18,12 +18,14 @@
             </div>
             <div class="col-12 col-md-6" ref="addressEditable">
                 <label class="col-form-label" for="address">Dirección:</label>
-                <textarea v-model="patient.address" id="address" class="form-control" name="address" readonly></textarea>
+                <textarea v-model="patient.address" v-on:keyup="textAreaAdjust"
+                          id="address" class="form-control" name="address" readonly></textarea>
                 <span class="edit-icon" data-target="addressEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="insuranceEditable">
                 <label class="col-form-label" for="insurance">Aseguradora:</label>
-                <textarea v-model="patient.insurance" class="form-control" id="insurance" name="insurance" readonly></textarea>
+                <textarea v-model="patient.insurance" v-on:keyup="textAreaAdjust"
+                          class="form-control" id="insurance" name="insurance" readonly></textarea>
                 <span class="edit-icon" data-target="insuranceEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="phoneEditable">
@@ -106,6 +108,10 @@
                     this.showForm = false;
                     this.showFormText = 'Mostrar Información';
                 }
+            },
+            textAreaAdjust(event) {
+                if (event.target.scrollHeight >= 58)
+                    event.target.style.height = event.target.scrollHeight + "px";
             }
         }
     }

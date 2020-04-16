@@ -2030,6 +2030,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'recordData', 'diseasesData'],
   data: function data() {
@@ -2134,6 +2135,9 @@ __webpack_require__.r(__webpack_exports__);
         this.showForm = false;
         this.showFormText = 'Mostrar Información';
       }
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
     }
   }
 });
@@ -2149,6 +2153,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2259,6 +2265,9 @@ __webpack_require__.r(__webpack_exports__);
         this.showForm = false;
         this.showFormText = 'Mostrar Información';
       }
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
     }
   }
 });
@@ -2274,6 +2283,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -2363,6 +2374,9 @@ __webpack_require__.r(__webpack_exports__);
         this.showForm = false;
         this.showFormText = 'Mostrar Información';
       }
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
     }
   }
 });
@@ -2627,6 +2641,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes', 'treatmentData', 'index'],
   data: function data() {
@@ -2697,6 +2712,9 @@ __webpack_require__.r(__webpack_exports__);
           }, 5000);
         }
       });
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
     }
   },
   created: function created() {
@@ -2979,6 +2997,9 @@ __webpack_require__.r(__webpack_exports__);
         this.showForm = false;
         this.showFormText = 'Mostrar Información';
       }
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
     }
   }
 });
@@ -38475,6 +38496,7 @@ var render = function() {
               attrs: { name: "heart_description", readonly: "" },
               domProps: { value: _vm.diseases.heart_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -38576,6 +38598,7 @@ var render = function() {
                 attrs: { name: "osteoporosis_description", readonly: "" },
                 domProps: { value: _vm.diseases.osteoporosis_description },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -38669,6 +38692,7 @@ var render = function() {
               attrs: { name: "liver_description", readonly: "" },
               domProps: { value: _vm.diseases.liver_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -38761,6 +38785,7 @@ var render = function() {
               attrs: { name: "cancer_description", readonly: "" },
               domProps: { value: _vm.diseases.cancer_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -38853,6 +38878,7 @@ var render = function() {
               attrs: { name: "kidney_description", readonly: "" },
               domProps: { value: _vm.diseases.kidney_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -38945,6 +38971,7 @@ var render = function() {
               attrs: { name: "hiv_description", readonly: "" },
               domProps: { value: _vm.diseases.hiv_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -39033,6 +39060,7 @@ var render = function() {
               attrs: { name: "lung_description", readonly: "" },
               domProps: { value: _vm.diseases.lung_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -39190,6 +39218,7 @@ var render = function() {
                 attrs: { name: "diabetes_description", readonly: "" },
                 domProps: { value: _vm.diseases.diabetes_description },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -39292,6 +39321,7 @@ var render = function() {
                 attrs: { name: "circulatory_description", readonly: "" },
                 domProps: { value: _vm.diseases.circulatory_description },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -39339,6 +39369,7 @@ var render = function() {
               },
               domProps: { value: _vm.diseases.others_description },
               on: {
+                keyup: _vm.textAreaAdjust,
                 input: function($event) {
                   if ($event.target.composing) {
                     return
@@ -39593,6 +39624,7 @@ var render = function() {
                 attrs: { id: "address", name: "address", readonly: "" },
                 domProps: { value: _vm.patient.address },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -39637,6 +39669,7 @@ var render = function() {
                 attrs: { id: "insurance", name: "insurance", readonly: "" },
                 domProps: { value: _vm.patient.insurance },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -39875,6 +39908,7 @@ var render = function() {
                 attrs: { id: "allergies", name: "allergies", readonly: "" },
                 domProps: { value: _vm.record.allergies },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -39917,6 +39951,7 @@ var render = function() {
                 attrs: { id: "treatment", name: "treatment", readonly: "" },
                 domProps: { value: _vm.record.treatment },
                 on: {
+                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
@@ -40399,6 +40434,7 @@ var render = function() {
           attrs: { name: "description", readonly: !this.new },
           domProps: { value: _vm.treatment.description },
           on: {
+            keyup: _vm.textAreaAdjust,
             input: function($event) {
               if ($event.target.composing) {
                 return
@@ -40599,7 +40635,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 col-md-4" }, [
+      _c("div", { staticClass: "col-12 col-md-3" }, [
         _c("label", { staticClass: "col-form-label", attrs: { for: "name" } }, [
           _vm._v("Nombre:")
         ]),
@@ -40627,7 +40663,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-4" }, [
+      _c("div", { staticClass: "col-12 col-md-3" }, [
         _c(
           "label",
           { staticClass: "col-form-label", attrs: { for: "surname" } },
@@ -40657,7 +40693,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-4" }, [
+      _c("div", { staticClass: "col-12 col-md-3" }, [
         _c("label", { staticClass: "col-form-label", attrs: { for: "nif" } }, [
           _vm._v("DNI:")
         ]),
@@ -40685,11 +40721,11 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-4" }, [
+      _c("div", { staticClass: "col-12 col-md-3" }, [
         _c(
           "label",
-          { staticClass: "col-form-label", attrs: { for: "email" } },
-          [_vm._v("Email:")]
+          { staticClass: "col-form-label", attrs: { for: "birth_year" } },
+          [_vm._v("Fecha de nacimiento:")]
         ),
         _vm._v(" "),
         _c("input", {
@@ -40697,19 +40733,80 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.patient.email,
-              expression: "patient.email"
+              value: _vm.patient.birth_year,
+              expression: "patient.birth_year"
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "email", id: "email", name: "email" },
-          domProps: { value: _vm.patient.email },
+          attrs: { type: "date", id: "birth_year", name: "birth_year" },
+          domProps: { value: _vm.patient.birth_year },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.patient, "email", $event.target.value)
+              _vm.$set(_vm.patient, "birth_year", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 col-md-4" }, [
+        _c(
+          "label",
+          { staticClass: "col-form-label", attrs: { for: "address" } },
+          [_vm._v("Dirección:")]
+        ),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.patient.address,
+              expression: "patient.address"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { id: "address", name: "address" },
+          domProps: { value: _vm.patient.address },
+          on: {
+            keyup: _vm.textAreaAdjust,
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.patient, "address", $event.target.value)
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-12 col-md-4" }, [
+        _c(
+          "label",
+          { staticClass: "col-form-label", attrs: { for: "location" } },
+          [_vm._v("Localidad:")]
+        ),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.patient.location,
+              expression: "patient.location"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { id: "location", name: "location" },
+          domProps: { value: _vm.patient.location },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.patient, "location", $event.target.value)
             }
           }
         })
@@ -40748,8 +40845,8 @@ var render = function() {
       _c("div", { staticClass: "col-12 col-md-4" }, [
         _c(
           "label",
-          { staticClass: "col-form-label", attrs: { for: "birth_year" } },
-          [_vm._v("Fecha de nacimiento:")]
+          { staticClass: "col-form-label", attrs: { for: "email" } },
+          [_vm._v("Email:")]
         ),
         _vm._v(" "),
         _c("input", {
@@ -40757,19 +40854,19 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.patient.birth_year,
-              expression: "patient.birth_year"
+              value: _vm.patient.email,
+              expression: "patient.email"
             }
           ],
           staticClass: "form-control",
-          attrs: { type: "date", id: "birth_year", name: "birth_year" },
-          domProps: { value: _vm.patient.birth_year },
+          attrs: { type: "email", id: "email", name: "email" },
+          domProps: { value: _vm.patient.email },
           on: {
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.patient, "birth_year", $event.target.value)
+              _vm.$set(_vm.patient, "email", $event.target.value)
             }
           }
         })
@@ -40855,71 +40952,12 @@ var render = function() {
           attrs: { id: "insurance", name: "insurance" },
           domProps: { value: _vm.patient.insurance },
           on: {
+            keyup: _vm.textAreaAdjust,
             input: function($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(_vm.patient, "insurance", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-6" }, [
-        _c(
-          "label",
-          { staticClass: "col-form-label", attrs: { for: "location" } },
-          [_vm._v("Localidad:")]
-        ),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.patient.location,
-              expression: "patient.location"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { id: "location", name: "location" },
-          domProps: { value: _vm.patient.location },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.patient, "location", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-6" }, [
-        _c(
-          "label",
-          { staticClass: "col-form-label", attrs: { for: "address" } },
-          [_vm._v("Dirección:")]
-        ),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.patient.address,
-              expression: "patient.address"
-            }
-          ],
-          staticClass: "form-control",
-          attrs: { id: "address", name: "address" },
-          domProps: { value: _vm.patient.address },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.patient, "address", $event.target.value)
             }
           }
         })
@@ -40949,6 +40987,7 @@ var render = function() {
           attrs: { id: "allergies", name: "allergies" },
           domProps: { value: _vm.record.allergies },
           on: {
+            keyup: _vm.textAreaAdjust,
             input: function($event) {
               if ($event.target.composing) {
                 return
@@ -40979,6 +41018,7 @@ var render = function() {
           attrs: { id: "treatment", name: "treatment" },
           domProps: { value: _vm.record.treatment },
           on: {
+            keyup: _vm.textAreaAdjust,
             input: function($event) {
               if ($event.target.composing) {
                 return
@@ -41073,6 +41113,7 @@ var render = function() {
             attrs: { name: "heart_description" },
             domProps: { value: _vm.diseases.heart_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41146,6 +41187,7 @@ var render = function() {
             attrs: { name: "osteoporosis_description" },
             domProps: { value: _vm.diseases.osteoporosis_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41221,6 +41263,7 @@ var render = function() {
             attrs: { name: "liver_description" },
             domProps: { value: _vm.diseases.liver_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41292,6 +41335,7 @@ var render = function() {
             attrs: { name: "cancer_description" },
             domProps: { value: _vm.diseases.cancer_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41367,6 +41411,7 @@ var render = function() {
             attrs: { name: "kidney_description" },
             domProps: { value: _vm.diseases.kidney_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41442,6 +41487,7 @@ var render = function() {
             attrs: { name: "hiv_description" },
             domProps: { value: _vm.diseases.hiv_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41513,6 +41559,7 @@ var render = function() {
             attrs: { name: "lung_description" },
             domProps: { value: _vm.diseases.lung_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41633,6 +41680,7 @@ var render = function() {
             attrs: { name: "diabetes_description" },
             domProps: { value: _vm.diseases.diabetes_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41710,6 +41758,7 @@ var render = function() {
             attrs: { name: "circulatory_description" },
             domProps: { value: _vm.diseases.circulatory_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return
@@ -41742,6 +41791,7 @@ var render = function() {
             attrs: { id: "others_description", name: "others_description" },
             domProps: { value: _vm.diseases.others_description },
             on: {
+              keyup: _vm.textAreaAdjust,
               input: function($event) {
                 if ($event.target.composing) {
                   return

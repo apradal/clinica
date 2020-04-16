@@ -4,7 +4,8 @@
         <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
         <div class="tr" ref="treatmentEditable">
             <input type="date" v-model="treatment.date" class="td form-control" name="date" :readonly="!this.new" />
-            <textarea v-model="treatment.description" class="td form-control" name="description" :readonly="!this.new"></textarea>
+            <textarea v-model="treatment.description" v-on:keyup="textAreaAdjust"
+                      class="td form-control" name="description" :readonly="!this.new"></textarea>
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
             <span class="edit-icon" v-show="!this.new" data-target="treatmentEditable" v-on:click="edit">edit</span>
@@ -85,6 +86,10 @@
                             setTimeout(() => self.alertError = false, 5000);
                         }
                     });
+            },
+            textAreaAdjust(event) {
+                if (event.target.scrollHeight >= 58)
+                    event.target.style.height = event.target.scrollHeight + "px";
             }
         },
         created() {

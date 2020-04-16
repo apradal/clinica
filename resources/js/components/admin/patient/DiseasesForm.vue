@@ -12,7 +12,7 @@
                         class="form-control" name="heart" id="heart" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.heart_description" v-show="diseases.heart"
+                <textarea v-model="diseases.heart_description" v-show="diseases.heart" v-on:keyup="textAreaAdjust"
                           class="form-control" name="heart_description" readonly></textarea>
                 <span class="edit-icon" data-target="heartEditable" v-on:click="edit">edit</span>
             </div>
@@ -22,7 +22,7 @@
                         class="form-control" name="osteoporosis" id="osteoporosis" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis"
+                <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis" v-on:keyup="textAreaAdjust"
                           class="form-control" name="osteoporosis_description" readonly></textarea>
                 <span class="edit-icon" data-target="osteoporosisEditable" v-on:click="edit">edit</span>
             </div>
@@ -32,7 +32,7 @@
                         class="form-control" name="liver" id="liver" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.liver_description" v-show="diseases.liver"
+                <textarea v-model="diseases.liver_description" v-show="diseases.liver" v-on:keyup="textAreaAdjust"
                           class="form-control" name="liver_description" readonly></textarea>
                 <span class="edit-icon" data-target="liverEditable" v-on:click="edit">edit</span>
             </div>
@@ -42,7 +42,7 @@
                         class="form-control" name="cancer" id="cancer" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.cancer_description" v-show="diseases.cancer"
+                <textarea v-model="diseases.cancer_description" v-show="diseases.cancer" v-on:keyup="textAreaAdjust"
                           class="form-control" name="cancer_description" readonly></textarea>
                 <span class="edit-icon" data-target="cancerEditable" v-on:click="edit">edit</span>
             </div>
@@ -52,7 +52,7 @@
                         class="form-control" name="kidney" id="kidney" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.kidney_description" v-show="diseases.kidney"
+                <textarea v-model="diseases.kidney_description" v-show="diseases.kidney" v-on:keyup="textAreaAdjust"
                           class="form-control" name="kidney_description" readonly></textarea>
                 <span class="edit-icon" data-target="kidneyEditable" v-on:click="edit">edit</span>
             </div>
@@ -62,7 +62,7 @@
                         class="form-control" name="hiv" id="hiv" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.hiv_description" v-show="diseases.hiv"
+                <textarea v-model="diseases.hiv_description" v-show="diseases.hiv" v-on:keyup="textAreaAdjust"
                           class="form-control" name="hiv_description" readonly></textarea>
                 <span class="edit-icon" data-target="hivEditable" v-on:click="edit">edit</span>
             </div>
@@ -72,7 +72,7 @@
                         class="form-control" name="lung" id="lung" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.lung_description" v-show="diseases.lung"
+                <textarea v-model="diseases.lung_description" v-show="diseases.lung" v-on:keyup="textAreaAdjust"
                           class="form-control" name="lung_description" readonly></textarea>
                 <span class="edit-icon" data-target="lungEditable" v-on:click="edit">edit</span>
             </div>
@@ -91,7 +91,7 @@
                         class="form-control" name="diabetes" id="diabetes" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes"
+                <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes" v-on:keyup="textAreaAdjust"
                           class="form-control" name="diabetes_description" readonly></textarea>
                 <span class="edit-icon" data-target="diabetesEditable" v-on:click="edit">edit</span>
             </div>
@@ -101,13 +101,14 @@
                         class="form-control" name="circulatory" id="circulatory" disabled>
                     <option v-for="option in selectOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory"
+                <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory" v-on:keyup="textAreaAdjust"
                           class="form-control" name="circulatory_description" readonly></textarea>
                 <span class="edit-icon" data-target="circulatoryEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="othersEditable">
                 <label for="others_description">Otros:</label>
-                <textarea v-model="diseases.others_description" class="form-control" id="others_description" name="others_description" readonly></textarea>
+                <textarea v-model="diseases.others_description" v-on:keyup="textAreaAdjust"
+                          class="form-control" id="others_description" name="others_description" readonly></textarea>
                 <span class="edit-icon" data-target="othersEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12">
@@ -218,6 +219,10 @@
                     this.showForm = false;
                     this.showFormText = 'Mostrar Información';
                 }
+            },
+            textAreaAdjust(event) {
+                if (event.target.scrollHeight >= 58)
+                    event.target.style.height = event.target.scrollHeight + "px";
             }
         }
     }

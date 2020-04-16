@@ -8,12 +8,14 @@
         <div class="row" v-show="showForm">
             <div class="col-12 col-md-6" ref="allergiesEditable">
                 <label for="allergies">Alergias:</label>
-                <textarea v-model="record.allergies" class="form-control" id="allergies" name="allergies" readonly></textarea>
+                <textarea v-model="record.allergies" v-on:keyup="textAreaAdjust"
+                          class="form-control" id="allergies" name="allergies" readonly></textarea>
                 <span class="edit-icon" data-target="allergiesEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-6" ref="treatmentEditable">
                 <label for="treatment">Tratamiento médico:</label>
-                <textarea v-model="record.treatment" class="form-control" id="treatment" name="treatment" readonly></textarea>
+                <textarea v-model="record.treatment" v-on:keyup="textAreaAdjust"
+                          class="form-control" id="treatment" name="treatment" readonly></textarea>
                 <span class="edit-icon" data-target="treatmentEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12">
@@ -85,6 +87,10 @@
                     this.showForm = false;
                     this.showFormText = 'Mostrar Información';
                 }
+            },
+            textAreaAdjust(event) {
+                if (event.target.scrollHeight >= 58)
+                    event.target.style.height = event.target.scrollHeight + "px";
             }
         }
     }
