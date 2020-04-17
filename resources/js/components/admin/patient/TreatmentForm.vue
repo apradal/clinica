@@ -4,7 +4,7 @@
             <h4>Plan de Tratamientos</h4>
             <div id="treatment-table" v-show="showForm">
                 <div class="row">
-                    <div class="col-12 col-md-2">Fecha</div>
+                    <div class="col-12 col-md-2" v-on:click="orderByDate">Fecha</div>
                     <div class="col-12 col-md-10">Descripción</div>
                 </div>
                 <template v-for="(treatment, index) in treatments">
@@ -12,6 +12,7 @@
                         :routes="routes"
                         :treatment-data="treatment"
                         :index="index"
+                        :key="treatment.id"
                         v-on:openModal="openModal"
                     >
                     </TreamtentForm>
@@ -69,7 +70,7 @@
                     //deletes model
                     this.currentChild.remove();
                     // updates array of models (for DOM)
-                    this.currentChild.deleted = true;
+                    this.treatments.splice(this.currentChild.index, 1);
                     this.currentChild = null;
                 }
                 this.showModal = false;
@@ -82,10 +83,18 @@
                     this.showForm = false;
                     this.showFormText = 'Mostrar Información';
                 }
+            },
+            orderByDate() {
+                this.treatments.reverse();
             }
         },
         created() {
             let self = this;
+
+            //sorting by date desc
+            this.treatmentData.sort(function(a,b){
+                return new Date(a.date) - new Date(b.date);
+            });
 
             //fetch array with models.
             this.treatmentData.forEach(function(el){

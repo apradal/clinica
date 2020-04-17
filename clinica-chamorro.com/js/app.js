@@ -2569,6 +2569,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
 //since vue cant handle collections, create model outside
 var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
@@ -2610,7 +2611,7 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
         //deletes model
         this.currentChild.remove(); // updates array of models (for DOM)
 
-        this.currentChild.deleted = true;
+        this.treatments.splice(this.currentChild.index, 1);
         this.currentChild = null;
       }
 
@@ -2624,10 +2625,17 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
         this.showForm = false;
         this.showFormText = 'Mostrar Información';
       }
+    },
+    orderByDate: function orderByDate() {
+      this.treatments.reverse();
     }
   },
   created: function created() {
-    var self = this; //fetch array with models.
+    var self = this; //sorting by date desc
+
+    this.treatmentData.sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    }); //fetch array with models.
 
     this.treatmentData.forEach(function (el) {
       self.treatments.push(new TreatmentModel(el.id, el.date, el.description, self.patientData.id, false));
@@ -2663,12 +2671,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes', 'treatmentData', 'index'],
   data: function data() {
     return {
-      deleted: false,
       "new": this.treatmentData["new"],
       showBtn: false,
       alertSuccess: false,
@@ -40450,11 +40456,25 @@ var render = function() {
           attrs: { id: "treatment-table" }
         },
         [
-          _vm._m(0),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-12 col-md-2",
+                on: { click: _vm.orderByDate }
+              },
+              [_vm._v("Fecha")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-10" }, [
+              _vm._v("Descripción")
+            ])
+          ]),
           _vm._v(" "),
           _vm._l(_vm.treatments, function(treatment, index) {
             return [
               _c("TreamtentForm", {
+                key: treatment.id,
                 attrs: {
                   routes: _vm.routes,
                   "treatment-data": treatment,
@@ -40493,18 +40513,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-12 col-md-2" }, [_vm._v("Fecha")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-12 col-md-10" }, [_vm._v("Descripción")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -40529,14 +40538,6 @@ var render = function() {
   return _c(
     "form",
     {
-      directives: [
-        {
-          name: "show",
-          rawName: "v-show",
-          value: !this.deleted,
-          expression: "!this.deleted"
-        }
-      ],
       attrs: { action: this.route, method: "post" },
       on: { submit: _vm.formSubmit }
     },
@@ -40654,8 +40655,6 @@ var render = function() {
             }
           }
         }),
-        _vm._v(" "),
-        _c("p", [_vm._v("INDEX: " + _vm._s(this.index))]),
         _vm._v(" "),
         _c(
           "span",
