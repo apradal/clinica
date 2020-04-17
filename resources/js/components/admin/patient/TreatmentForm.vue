@@ -4,7 +4,10 @@
             <h4>Plan de Tratamientos</h4>
             <div id="treatment-table" v-show="showForm">
                 <div class="row">
-                    <div class="col-12 col-md-2" v-on:click="orderByDate">Fecha</div>
+                    <div class="col-12 col-md-2 date-order" v-on:click="orderByDate">
+                        Fecha
+                        <i class="arrow " v-bind:class="{down: sortAsc, up: !sortAsc}"></i>
+                    </div>
                     <div class="col-12 col-md-10">Descripción</div>
                 </div>
                 <template v-for="(treatment, index) in treatments">
@@ -46,7 +49,7 @@
         props: ['routes', 'treatmentData', 'patientData'],
         data: function() {
             return {
-                idToDelete: null,
+                sortAsc: true,
                 showForm: true,
                 showFormText: 'Ocultar Información',
                 showModal: false,
@@ -86,6 +89,7 @@
             },
             orderByDate() {
                 this.treatments.reverse();
+                this.sortAsc = !this.sortAsc;
             }
         },
         created() {

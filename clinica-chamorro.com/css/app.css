@@ -10970,3 +10970,24 @@ textarea {
   cursor: pointer;
 }
 
+#treatment-table .date-order {
+  cursor: pointer;
+}
+
+#treatment-table .date-order .arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+#treatment-table .date-order .arrow.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+#treatment-table .date-order .arrow.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+

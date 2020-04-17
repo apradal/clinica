@@ -2570,6 +2570,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
+//
+//
 //since vue cant handle collections, create model outside
 var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
@@ -2587,7 +2590,7 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   props: ['routes', 'treatmentData', 'patientData'],
   data: function data() {
     return {
-      idToDelete: null,
+      sortAsc: true,
       showForm: true,
       showFormText: 'Ocultar Información',
       showModal: false,
@@ -2628,6 +2631,7 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
     },
     orderByDate: function orderByDate() {
       this.treatments.reverse();
+      this.sortAsc = !this.sortAsc;
     }
   },
   created: function created() {
@@ -40460,10 +40464,16 @@ var render = function() {
             _c(
               "div",
               {
-                staticClass: "col-12 col-md-2",
+                staticClass: "col-12 col-md-2 date-order",
                 on: { click: _vm.orderByDate }
               },
-              [_vm._v("Fecha")]
+              [
+                _vm._v("\n                    Fecha\n                    "),
+                _c("i", {
+                  staticClass: "arrow ",
+                  class: { down: _vm.sortAsc, up: !_vm.sortAsc }
+                })
+              ]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 col-md-10" }, [
