@@ -2202,6 +2202,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData'],
   data: function data() {
@@ -2218,7 +2233,10 @@ __webpack_require__.r(__webpack_exports__);
         phone: this.patientData.phone,
         phone2: this.patientData.phone2,
         address: this.patientData.address,
-        insurance: this.patientData.insurance
+        insurance: this.patientData.insurance,
+        nif: this.patientData.nif,
+        postal_code: this.patientData.postal_code,
+        location: this.patientData.location
       }
     };
   },
@@ -39512,7 +39530,7 @@ var render = function() {
           staticClass: "row"
         },
         [
-          _c("div", { ref: "emailEditable", staticClass: "col-12 col-md-6" }, [
+          _c("div", { ref: "emailEditable", staticClass: "col-12 col-md-4" }, [
             _c(
               "label",
               { staticClass: "col-form-label", attrs: { for: "email" } },
@@ -39554,7 +39572,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { ref: "birthYearEditable", staticClass: "col-12 col-md-6" },
+            { ref: "birthYearEditable", staticClass: "col-12 col-md-4" },
             [
               _c(
                 "label",
@@ -39601,9 +39619,49 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
+          _c("div", { ref: "nifEditable", staticClass: "col-12 col-md-4" }, [
+            _c(
+              "label",
+              { staticClass: "col-form-label", attrs: { for: "nif" } },
+              [_vm._v("Dni:")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.patient.nif,
+                  expression: "patient.nif"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "nif", readonly: "", name: "nif" },
+              domProps: { value: _vm.patient.nif },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.patient, "nif", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                staticClass: "edit-icon",
+                attrs: { "data-target": "nifEditable" },
+                on: { click: _vm.edit }
+              },
+              [_vm._v("edit")]
+            )
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { ref: "addressEditable", staticClass: "col-12 col-md-6" },
+            { ref: "addressEditable", staticClass: "col-12 col-md-4" },
             [
               _c(
                 "label",
@@ -39648,33 +39706,37 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { ref: "insuranceEditable", staticClass: "col-12 col-md-6" },
+            { ref: "locationEditable", staticClass: "col-12 col-md-4" },
             [
               _c(
                 "label",
-                { staticClass: "col-form-label", attrs: { for: "insurance" } },
-                [_vm._v("Aseguradora:")]
+                { staticClass: "col-form-label", attrs: { for: "location" } },
+                [_vm._v("Localidad:")]
               ),
               _vm._v(" "),
-              _c("textarea", {
+              _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.patient.insurance,
-                    expression: "patient.insurance"
+                    value: _vm.patient.location,
+                    expression: "patient.location"
                   }
                 ],
                 staticClass: "form-control",
-                attrs: { id: "insurance", name: "insurance", readonly: "" },
-                domProps: { value: _vm.patient.insurance },
+                attrs: {
+                  type: "text",
+                  id: "location",
+                  readonly: "",
+                  name: "location"
+                },
+                domProps: { value: _vm.patient.location },
                 on: {
-                  keyup: _vm.textAreaAdjust,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.patient, "insurance", $event.target.value)
+                    _vm.$set(_vm.patient, "location", $event.target.value)
                   }
                 }
               }),
@@ -39683,7 +39745,7 @@ var render = function() {
                 "span",
                 {
                   staticClass: "edit-icon",
-                  attrs: { "data-target": "insuranceEditable" },
+                  attrs: { "data-target": "locationEditable" },
                   on: { click: _vm.edit }
                 },
                 [_vm._v("edit")]
@@ -39691,7 +39753,56 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _c("div", { ref: "phoneEditable", staticClass: "col-12 col-md-6" }, [
+          _c(
+            "div",
+            { ref: "postalcodeEditable", staticClass: "col-12 col-md-4" },
+            [
+              _c(
+                "label",
+                { staticClass: "col-form-label", attrs: { for: "location" } },
+                [_vm._v("Código postal:")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.patient.postal_code,
+                    expression: "patient.postal_code"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "postal_code",
+                  readonly: "",
+                  name: "postal_code"
+                },
+                domProps: { value: _vm.patient.postal_code },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.patient, "postal_code", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "edit-icon",
+                  attrs: { "data-target": "postalcodeEditable" },
+                  on: { click: _vm.edit }
+                },
+                [_vm._v("edit")]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { ref: "phoneEditable", staticClass: "col-12 col-md-4" }, [
             _c(
               "label",
               { staticClass: "col-form-label", attrs: { for: "phone" } },
@@ -39736,7 +39847,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { ref: "phone2Editable", staticClass: "col-12 col-md-6" }, [
+          _c("div", { ref: "phone2Editable", staticClass: "col-12 col-md-4" }, [
             _c(
               "label",
               { staticClass: "col-form-label", attrs: { for: "phone2" } },
@@ -39780,6 +39891,51 @@ var render = function() {
               [_vm._v("edit")]
             )
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { ref: "insuranceEditable", staticClass: "col-12 col-md-4" },
+            [
+              _c(
+                "label",
+                { staticClass: "col-form-label", attrs: { for: "insurance" } },
+                [_vm._v("Aseguradora:")]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.patient.insurance,
+                    expression: "patient.insurance"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "insurance", name: "insurance", readonly: "" },
+                domProps: { value: _vm.patient.insurance },
+                on: {
+                  keyup: _vm.textAreaAdjust,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.patient, "insurance", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass: "edit-icon",
+                  attrs: { "data-target": "insuranceEditable" },
+                  on: { click: _vm.edit }
+                },
+                [_vm._v("edit")]
+              )
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "col-12" }, [
             _c("input", {

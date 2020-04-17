@@ -6,37 +6,52 @@
             <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
         </div>
         <div class="row" v-show="showForm">
-            <div class="col-12 col-md-6" ref="emailEditable">
+            <div class="col-12 col-md-4" ref="emailEditable">
                 <label class="col-form-label" for="email">Email:</label>
                 <input v-model="patient.email" id="email" class="form-control" name="email" readonly/>
                 <span class="edit-icon" data-target="emailEditable" v-on:click="edit">edit</span>
             </div>
-            <div class="col-12 col-md-6" ref="birthYearEditable">
+            <div class="col-12 col-md-4" ref="birthYearEditable">
                 <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
                 <input v-model="patient.birth_year" type="date" id="birth_year" class="form-control" readonly name="birth_year"/>
                 <span class="edit-icon" data-target="birthYearEditable" v-on:click="edit">edit</span>
             </div>
-            <div class="col-12 col-md-6" ref="addressEditable">
+            <div class="col-12 col-md-4" ref="nifEditable">
+                <label class="col-form-label" for="nif">Dni:</label>
+                <input v-model="patient.nif" type="text" id="nif" class="form-control" readonly name="nif"/>
+                <span class="edit-icon" data-target="nifEditable" v-on:click="edit">edit</span>
+            </div>
+            <div class="col-12 col-md-4" ref="addressEditable">
                 <label class="col-form-label" for="address">Dirección:</label>
                 <textarea v-model="patient.address" v-on:keyup="textAreaAdjust"
                           id="address" class="form-control" name="address" readonly></textarea>
                 <span class="edit-icon" data-target="addressEditable" v-on:click="edit">edit</span>
             </div>
-            <div class="col-12 col-md-6" ref="insuranceEditable">
-                <label class="col-form-label" for="insurance">Aseguradora:</label>
-                <textarea v-model="patient.insurance" v-on:keyup="textAreaAdjust"
-                          class="form-control" id="insurance" name="insurance" readonly></textarea>
-                <span class="edit-icon" data-target="insuranceEditable" v-on:click="edit">edit</span>
+            <div class="col-12 col-md-4" ref="locationEditable">
+                <label class="col-form-label" for="location">Localidad:</label>
+                <input v-model="patient.location" type="text" id="location" class="form-control" readonly name="location"/>
+                <span class="edit-icon" data-target="locationEditable" v-on:click="edit">edit</span>
             </div>
-            <div class="col-12 col-md-6" ref="phoneEditable">
+            <div class="col-12 col-md-4" ref="postalcodeEditable">
+                <label class="col-form-label" for="location">Código postal:</label>
+                <input v-model="patient.postal_code" type="text" id="postal_code" class="form-control" readonly name="postal_code"/>
+                <span class="edit-icon" data-target="postalcodeEditable" v-on:click="edit">edit</span>
+            </div>
+            <div class="col-12 col-md-4" ref="phoneEditable">
                 <label class="col-form-label" for="phone">Teléfono:</label>
                 <input v-model="patient.phone" type="number" id="phone" class="form-control" name="phone" readonly />
                 <span class="edit-icon" data-target="phoneEditable" v-on:click="edit">edit</span>
             </div>
-            <div class="col-12 col-md-6" ref="phone2Editable">
+            <div class="col-12 col-md-4" ref="phone2Editable">
                 <label class="col-form-label" for="phone2">Teléfono 2:</label>
                 <input v-model="patient.phone2" type="number" class="form-control" id="phone2" name="phone2" readonly />
                 <span class="edit-icon" data-target="phone2Editable" v-on:click="edit">edit</span>
+            </div>
+            <div class="col-12 col-md-4" ref="insuranceEditable">
+                <label class="col-form-label" for="insurance">Aseguradora:</label>
+                <textarea v-model="patient.insurance" v-on:keyup="textAreaAdjust"
+                          class="form-control" id="insurance" name="insurance" readonly></textarea>
+                <span class="edit-icon" data-target="insuranceEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12">
                 <input type="hidden" name="id" :value="patient.id" />
@@ -64,7 +79,10 @@
                     phone: this.patientData.phone,
                     phone2: this.patientData.phone2,
                     address: this.patientData.address,
-                    insurance: this.patientData.insurance
+                    insurance: this.patientData.insurance,
+                    nif: this.patientData.nif,
+                    postal_code: this.patientData.postal_code,
+                    location: this.patientData.location
                 }
             }
         },
