@@ -2586,6 +2586,7 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   props: ['routes', 'treatmentData', 'patientData'],
   data: function data() {
     return {
+      idToDelete: null,
       showForm: true,
       showFormText: 'Ocultar Información',
       showModal: false,
@@ -2606,8 +2607,10 @@ var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
     },
     removeForm: function removeForm(value) {
       if (this.currentChild !== null && value) {
-        this.currentChild.remove();
-        this.treatments.splice(this.currentChild.index, 1);
+        //deletes model
+        this.currentChild.remove(); // updates array of models (for DOM)
+
+        this.currentChild.deleted = true;
         this.currentChild = null;
       }
 
@@ -2660,10 +2663,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes', 'treatmentData', 'index'],
   data: function data() {
     return {
+      deleted: false,
       "new": this.treatmentData["new"],
       showBtn: false,
       alertSuccess: false,
@@ -40493,10 +40498,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "tr" }, [
-      _c("div", { staticClass: "td" }, [_vm._v("Fecha")]),
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-12 col-md-2" }, [_vm._v("Fecha")]),
       _vm._v(" "),
-      _c("div", { staticClass: "td" }, [_vm._v("Descripción")])
+      _c("div", { staticClass: "col-12 col-md-10" }, [_vm._v("Descripción")])
     ])
   }
 ]
@@ -40524,6 +40529,14 @@ var render = function() {
   return _c(
     "form",
     {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: !this.deleted,
+          expression: "!this.deleted"
+        }
+      ],
       attrs: { action: this.route, method: "post" },
       on: { submit: _vm.formSubmit }
     },
@@ -40554,7 +40567,7 @@ var render = function() {
         staticClass: "alert alert-danger"
       }),
       _vm._v(" "),
-      _c("div", { ref: "treatmentEditable", staticClass: "tr" }, [
+      _c("div", { ref: "treatmentEditable", staticClass: "row" }, [
         _c("input", {
           directives: [
             {
@@ -40564,7 +40577,7 @@ var render = function() {
               expression: "treatment.date"
             }
           ],
-          staticClass: "td form-control",
+          staticClass: "form-control col-12 col-md-2",
           attrs: { type: "date", name: "date", readonly: !this.new },
           domProps: { value: _vm.treatment.date },
           on: {
@@ -40586,7 +40599,7 @@ var render = function() {
               expression: "treatment.description"
             }
           ],
-          staticClass: "td form-control",
+          staticClass: "form-control col-12 col-md-10",
           attrs: { name: "description", readonly: !this.new },
           domProps: { value: _vm.treatment.description },
           on: {
@@ -40641,6 +40654,8 @@ var render = function() {
             }
           }
         }),
+        _vm._v(" "),
+        _c("p", [_vm._v("INDEX: " + _vm._s(this.index))]),
         _vm._v(" "),
         _c(
           "span",

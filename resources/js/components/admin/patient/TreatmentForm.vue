@@ -3,9 +3,9 @@
         <div class="col-12">
             <h4>Plan de Tratamientos</h4>
             <div id="treatment-table" v-show="showForm">
-                <div class="tr">
-                    <div class="td">Fecha</div>
-                    <div class="td">Descripción</div>
+                <div class="row">
+                    <div class="col-12 col-md-2">Fecha</div>
+                    <div class="col-12 col-md-10">Descripción</div>
                 </div>
                 <template v-for="(treatment, index) in treatments">
                     <TreamtentForm
@@ -45,6 +45,7 @@
         props: ['routes', 'treatmentData', 'patientData'],
         data: function() {
             return {
+                idToDelete: null,
                 showForm: true,
                 showFormText: 'Ocultar Información',
                 showModal: false,
@@ -65,8 +66,10 @@
             },
             removeForm(value) {
                 if (this.currentChild !== null && value) {
+                    //deletes model
                     this.currentChild.remove();
-                    this.treatments.splice(this.currentChild.index, 1);
+                    // updates array of models (for DOM)
+                    this.currentChild.deleted = true;
                     this.currentChild = null;
                 }
                 this.showModal = false;

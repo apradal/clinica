@@ -1,13 +1,14 @@
 <template>
-    <form :action="this.route" @submit="formSubmit" method="post">
+    <form :action="this.route" @submit="formSubmit" method="post" v-show="!this.deleted">
         <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
         <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
-        <div class="tr" ref="treatmentEditable">
-            <input type="date" v-model="treatment.date" class="td form-control" name="date" :readonly="!this.new" />
+        <div class="row" ref="treatmentEditable">
+            <input type="date" v-model="treatment.date" class="form-control col-12 col-md-2" name="date" :readonly="!this.new" />
             <textarea v-model="treatment.description" v-on:keyup="textAreaAdjust"
-                      class="td form-control" name="description" :readonly="!this.new"></textarea>
+                      class="form-control col-12 col-md-10" name="description" :readonly="!this.new"></textarea>
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
+            <p>INDEX: {{this.index}}</p>
             <span class="edit-icon" v-show="!this.new" data-target="treatmentEditable" v-on:click="edit">edit</span>
             <span class="delete-icon" v-show="!this.new" v-on:click="openModal">delete</span>
             <button type="submit" v-show="showBtn">Guardar</button>
@@ -20,6 +21,7 @@
         props: ['routes', 'treatmentData', 'index'],
         data: function() {
             return {
+                deleted: false,
                 new: this.treatmentData.new,
                 showBtn: false,
                 alertSuccess: false,
