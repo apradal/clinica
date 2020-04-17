@@ -40224,7 +40224,12 @@ var render = function() {
               }
             ],
             staticClass: "form-text",
-            attrs: { id: "name", name: "name", placeholder: "Nombre" },
+            attrs: {
+              id: "name",
+              name: "name",
+              placeholder: "Nombre",
+              autocomplete: "off"
+            },
             domProps: { value: _vm.filter.name },
             on: {
               input: function($event) {
@@ -40246,7 +40251,12 @@ var render = function() {
               }
             ],
             staticClass: "form-text",
-            attrs: { id: "surname", name: "surname", placeholder: "Apellido" },
+            attrs: {
+              id: "surname",
+              name: "surname",
+              placeholder: "Apellido",
+              autocomplete: "off"
+            },
             domProps: { value: _vm.filter.surname },
             on: {
               input: function($event) {
@@ -40268,7 +40278,12 @@ var render = function() {
               }
             ],
             staticClass: "form-text",
-            attrs: { id: "email", name: "email", placeholder: "Email" },
+            attrs: {
+              id: "email",
+              name: "email",
+              placeholder: "Email",
+              autocomplete: "off"
+            },
             domProps: { value: _vm.filter.email },
             on: {
               input: function($event) {
@@ -40290,7 +40305,12 @@ var render = function() {
               }
             ],
             staticClass: "form-text",
-            attrs: { id: "nif", name: "nif", placeholder: "Dni" },
+            attrs: {
+              id: "nif",
+              name: "nif",
+              placeholder: "Dni",
+              autocomplete: "off"
+            },
             domProps: { value: _vm.filter.nif },
             on: {
               input: function($event) {
@@ -40312,7 +40332,12 @@ var render = function() {
               }
             ],
             staticClass: "form-text",
-            attrs: { id: "phone", name: "phone", placeholder: "Teléfono" },
+            attrs: {
+              id: "phone",
+              name: "phone",
+              placeholder: "Teléfono",
+              autocomplete: "off"
+            },
             domProps: { value: _vm.filter.phone },
             on: {
               input: function($event) {

@@ -3,11 +3,11 @@
         <form :action="routes.add" v-on:submit="submitForm" method="get">
             <span>Filtros de búsqueda:</span>
             <div class="flex">
-                <input v-model="filter.name" class="form-text" id="name" name="name" placeholder="Nombre"/>
-                <input v-model="filter.surname" class="form-text" id="surname" name="surname" placeholder="Apellido"/>
-                <input v-model="filter.email" class="form-text" id="email" name="email" placeholder="Email"/>
-                <input v-model="filter.nif" class="form-text" id="nif" name="nif" placeholder="Dni"/>
-                <input v-model="filter.phone" class="form-text" id="phone" name="phone" placeholder="Teléfono"/>
+                <input v-model="filter.name" class="form-text" id="name" name="name" placeholder="Nombre" autocomplete="off"/>
+                <input v-model="filter.surname" class="form-text" id="surname" name="surname" placeholder="Apellido" autocomplete="off"/>
+                <input v-model="filter.email" class="form-text" id="email" name="email" placeholder="Email" autocomplete="off"/>
+                <input v-model="filter.nif" class="form-text" id="nif" name="nif" placeholder="Dni" autocomplete="off"/>
+                <input v-model="filter.phone" class="form-text" id="phone" name="phone" placeholder="Teléfono" autocomplete="off"/>
                 <button type="submit">Buscar</button>
             </div>
         </form>
