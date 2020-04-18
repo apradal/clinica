@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="@yield('body_class')">
     <div id="app">
         @include('includes.admin.header.navbar')
         <main class="py-4">

@@ -1,0 +1,14 @@
+.admin_record_search {
+  .table {
+    position: relative;
+    .no-result {
+      padding: 100px 0;
+    }
+    .spinner {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%
+    }
+  }
+}

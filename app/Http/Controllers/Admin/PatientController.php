@@ -210,7 +210,7 @@ class PatientController extends Controller
             $result = $this->_patientModel->searchByFilter($params);
 
             if ($result->count()) {
-                return response()->json(['success' => true, 'patients' => $result->get()->all()]);
+                return response()->json(['success' => true, 'patients' => $result]);
             } else {
                 return response()->json(['success' => false]);
             }

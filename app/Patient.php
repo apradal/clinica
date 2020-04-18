@@ -106,13 +106,15 @@ class Patient extends Model
             if ($key === 'name' || $key === 'surname') {
                 $condition = 'like';
                 $value = '%' . $value . '%';
+            } elseif ($key === 'page' || $key === 'pager') {
+                continue;
             } else {
                 $condition = '=';
             }
             $where[] = [$key, $condition, $value];
         }
 
-        return $this::where($where);
+        return $this::where($where)->simplePaginate($params['pager']);
     }
 
 }
