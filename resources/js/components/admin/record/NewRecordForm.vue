@@ -1,16 +1,16 @@
 <template>
-    <form :action="this.route" method="post">
+    <form :action="this.route" v-on:submit="formSubmit" ref="form" method="post">
         <div>
             <h4>Datos Personales</h4>
         </div>
         <div class="row">
             <div class="col-12 col-md-3">
                 <label class="col-form-label" for="name">Nombre:</label>
-                <input v-model="patient.name" id="name" class="form-control" name="name"/>
+                <input v-model="patient.name" id="name" class="form-control form-required" name="name"/>
             </div>
             <div class="col-12 col-md-3">
                 <label class="col-form-label" for="surname">Apellidos:</label>
-                <input v-model="patient.surname" class="form-control" id="surname" name="surname"/>
+                <input v-model="patient.surname" class="form-control form-required" id="surname" name="surname"/>
             </div>
             <div class="col-12 col-md-3">
                 <label class="col-form-label" for="nif">DNI:</label>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="phone">Teléfono:</label>
-                <input type="number" v-model="patient.phone" class="form-control" id="phone" name="phone"/>
+                <input type="number" v-model="patient.phone" class="form-control form-required" id="phone" name="phone"/>
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="phone2">Teléfono 2:</label>
@@ -161,8 +161,11 @@
 </template>
 
 <script>
+    import FormValidator from '../../generic/mixins/FormValidator';
+
     export default {
         props: ['route'],
+        mixins: [FormValidator],
         data: function() {
             return {
                 showForm: false,
@@ -228,6 +231,11 @@
             textAreaAdjust(event) {
                 if (event.target.scrollHeight >= 58)
                     event.target.style.height = event.target.scrollHeight + "px";
+            },
+            formSubmit(event) {
+                event.preventDefault();
+
+                if (FormValidator.methods.validate(this.$refs.form)) event.target.submit();
             }
         }
     }

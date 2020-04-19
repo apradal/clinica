@@ -28,7 +28,8 @@ Vue.component('TreamtentForm', require('./components/admin/patient/treatmentForm
 Vue.component('TreamtentModal', require('./components/admin/patient/treatmentForm/ModalDelete.vue').default);
 Vue.component('admin-record-new-form', require('./components/admin/record/NewRecordForm.vue').default);
 Vue.component('admin-patient-search-table', require('./components/admin/patient/SearchTable.vue').default);
-Vue.component('loader', require('./components/Loader.vue').default);
+Vue.component('loader', require('./components/generic/Loader.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
