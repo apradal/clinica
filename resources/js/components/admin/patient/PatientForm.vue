@@ -9,7 +9,7 @@
             <div class="col-12 col-md-4" ref="emailEditable">
                 <label class="col-form-label" for="email">Email:</label>
                 <input v-model="patient.email" id="email" class="form-control" name="email" readonly/>
-                <span class="edit-icon" data-target="emailEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" class="edit-icon" data-target="emailEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-4" ref="birthYearEditable">
                 <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
