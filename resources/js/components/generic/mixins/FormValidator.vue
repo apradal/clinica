@@ -6,6 +6,8 @@
                 validated: null,
                 requiredClass: null,
                 requiredInputs: null,
+                dateClass: null,
+                dateInputs: null,
                 requiredMsgs: null,
             }
         },
@@ -14,12 +16,16 @@
                 this.form = form;
                 this.validated = true;
                 this.requiredClass = '.form-required';
+                this.dateClass = '.form-date';
                 this.requiredInputs = 0;
-                this.requiredMsgs = '*Este campo es obligatorio';
+                this.dateInputs = 0;
+                this.requiredMsg = '*Campo obligatorio';
+                this.dateMsg = '*Fecha introducida errónea'
             },
             validate: function(form) {
                 this.init(form);
                 this._required();
+                this._date();
 
                 return this.validated;
             },
@@ -30,20 +36,33 @@
                     this.requiredInputs.forEach((el, idx) => {
                         if (el.value.length <= 0) {
                             this.validated = false;
-                            self._printRequired(el)
+                            self._printRequired(el, this.requiredMsg)
                         }
                     });
                 }
             },
-            _printRequired: function (el) {
-                let span = document.createElement('span');
+            _date: function() {
+                if ((this.dateInputs = this.form.querySelectorAll(this.dateClass)).length > 0) {
+                    let self = this;
+
+                    this.dateInputs.forEach((el, idx) => {
+                        console.log(el)
+                        if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
+                            this.validated = false;
+                            self._printRequired(el, this.dateMsg)
+                        }
+                    });
+                }
+            },
+            _printRequired: function (el, msg) {
+                let span = document.createElement('p');
                 span.style.color = 'red';
-                span.innerText = this.requiredMsgs;
+                span.innerText = msg;
                 el.style.borderColor = 'red';
                 el.parentNode.insertBefore(span, el.nextSibling);
                 setTimeout(function () {
                     el.style.removeProperty('border-color');
-                    span.remove()
+                    span.remove();
                 }, 3000)
             }
         }

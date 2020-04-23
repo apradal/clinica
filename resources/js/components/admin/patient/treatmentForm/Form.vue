@@ -4,7 +4,7 @@
         <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
         <div class="row" ref="treatmentEditable">
             <div class="col-12 col-md-2">
-                <input type="date" v-model="treatment.date" class="form-control form-required" name="date" :readonly="!this.new" />
+                <input type="date" v-model="treatment.date" class="form-control form-required form-date" name="date" :readonly="!this.new" />
             </div>
             <div class="col-12 col-md-10">
                 <textarea v-model="treatment.description" v-on:keyup="textAreaAdjust"

@@ -2153,6 +2153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../generic/mixins/FormValidator */ "./resources/js/components/generic/mixins/FormValidator.vue");
 //
 //
 //
@@ -2217,8 +2218,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData'],
+  mixins: [_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
       showForm: false,
@@ -2258,22 +2261,25 @@ __webpack_require__.r(__webpack_exports__);
     formSubmit: function formSubmit(event) {
       event.preventDefault();
       var self = this;
-      axios.post(event.target.getAttribute('action'), this.patient).then(function (response) {
-        var inputs = self.$refs.form.querySelectorAll('input, textarea');
 
-        for (var i = 0; i < inputs.length; i++) {
-          inputs[i].setAttribute('readonly', true);
-        }
+      if (_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validate(this.$refs.form)) {
+        axios.post(event.target.getAttribute('action'), this.patient).then(function (response) {
+          var inputs = self.$refs.form.querySelectorAll('input, textarea');
 
-        self.showBtn = false;
-        self.$refs.alertSuccess.innerText = response.data.message;
-        self.alertSuccess = true;
-        setTimeout(function () {
-          return self.alertSuccess = false;
-        }, 3000);
-      })["catch"](function (error) {
-        console.log(error);
-      });
+          for (var i = 0; i < inputs.length; i++) {
+            inputs[i].setAttribute('readonly', true);
+          }
+
+          self.showBtn = false;
+          self.$refs.alertSuccess.innerText = response.data.message;
+          self.alertSuccess = true;
+          setTimeout(function () {
+            return self.alertSuccess = false;
+          }, 3000);
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
     },
     toggleForm: function toggleForm() {
       if (!this.showForm) {
@@ -3138,6 +3144,8 @@ __webpack_require__.r(__webpack_exports__);
       validated: null,
       requiredClass: null,
       requiredInputs: null,
+      dateClass: null,
+      dateInputs: null,
       requiredMsgs: null
     };
   },
@@ -3146,13 +3154,18 @@ __webpack_require__.r(__webpack_exports__);
       this.form = form;
       this.validated = true;
       this.requiredClass = '.form-required';
+      this.dateClass = '.form-date';
       this.requiredInputs = 0;
-      this.requiredMsgs = '*Este campo es obligatorio';
+      this.dateInputs = 0;
+      this.requiredMsg = '*Campo obligatorio';
+      this.dateMsg = '*Fecha introducida errónea';
     },
     validate: function validate(form) {
       this.init(form);
 
       this._required();
+
+      this._date();
 
       return this.validated;
     },
@@ -3165,15 +3178,31 @@ __webpack_require__.r(__webpack_exports__);
           if (el.value.length <= 0) {
             _this.validated = false;
 
-            self._printRequired(el);
+            self._printRequired(el, _this.requiredMsg);
           }
         });
       }
     },
-    _printRequired: function _printRequired(el) {
-      var span = document.createElement('span');
+    _date: function _date() {
+      var _this2 = this;
+
+      if ((this.dateInputs = this.form.querySelectorAll(this.dateClass)).length > 0) {
+        var self = this;
+        this.dateInputs.forEach(function (el, idx) {
+          console.log(el);
+
+          if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
+            _this2.validated = false;
+
+            self._printRequired(el, _this2.dateMsg);
+          }
+        });
+      }
+    },
+    _printRequired: function _printRequired(el, msg) {
+      var span = document.createElement('p');
       span.style.color = 'red';
-      span.innerText = this.requiredMsgs;
+      span.innerText = msg;
       el.style.borderColor = 'red';
       el.parentNode.insertBefore(span, el.nextSibling);
       setTimeout(function () {
@@ -39751,7 +39780,7 @@ var render = function() {
                     expression: "patient.birth_year"
                   }
                 ],
-                staticClass: "form-control",
+                staticClass: "form-control form-date",
                 attrs: {
                   type: "date",
                   id: "birth_year",
@@ -40846,7 +40875,7 @@ var render = function() {
                 expression: "treatment.date"
               }
             ],
-            staticClass: "form-control form-required",
+            staticClass: "form-control form-required form-date",
             attrs: { type: "date", name: "date", readonly: !this.new },
             domProps: { value: _vm.treatment.date },
             on: {
@@ -41189,7 +41218,7 @@ var render = function() {
                 expression: "patient.birth_year"
               }
             ],
-            staticClass: "form-control",
+            staticClass: "form-control form-date",
             attrs: { type: "date", id: "birth_year", name: "birth_year" },
             domProps: { value: _vm.patient.birth_year },
             on: {

@@ -18,7 +18,7 @@
             </div>
             <div class="col-12 col-md-3">
                 <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
-                <input type="date" v-model="patient.birth_year" class="form-control" id="birth_year" name="birth_year"/>
+                <input type="date" v-model="patient.birth_year" class="form-control form-date" id="birth_year" name="birth_year"/>
             </div>
             <div class="col-12 col-md-4">
                 <label class="col-form-label" for="address">Dirección:</label>

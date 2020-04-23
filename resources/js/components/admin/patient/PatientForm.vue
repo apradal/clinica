@@ -13,7 +13,7 @@
             </div>
             <div class="col-12 col-md-4" ref="birthYearEditable">
                 <label class="col-form-label" for="birth_year">Fecha de nacimiento:</label>
-                <input v-model="patient.birth_year" type="date" id="birth_year" class="form-control" readonly name="birth_year"/>
+                <input v-model="patient.birth_year" type="date" id="birth_year" class="form-control form-date" readonly name="birth_year"/>
                 <span class="edit-icon" data-target="birthYearEditable" v-on:click="edit">edit</span>
             </div>
             <div class="col-12 col-md-4" ref="nifEditable">
@@ -63,8 +63,11 @@
 </template>
 
 <script>
+    import FormValidator from '../../generic/mixins/FormValidator';
+
     export default {
         props: ['route', 'patientData'],
+        mixins: [FormValidator],
         data: function() {
             return {
                 showForm: false,
@@ -104,19 +107,21 @@
                 event.preventDefault();
                 let self = this;
 
-                axios.post(event.target.getAttribute('action'), this.patient)
-                    .then(function (response) {
-                        let inputs = self.$refs.form.querySelectorAll('input, textarea');
-                        for (let i = 0; i < inputs.length; i++) inputs[i].setAttribute('readonly', true);
+                if (FormValidator.methods.validate(this.$refs.form)) {
+                    axios.post(event.target.getAttribute('action'), this.patient)
+                        .then(function (response) {
+                            let inputs = self.$refs.form.querySelectorAll('input, textarea');
+                            for (let i = 0; i < inputs.length; i++) inputs[i].setAttribute('readonly', true);
 
-                        self.showBtn = false;
-                        self.$refs.alertSuccess.innerText = response.data.message;
-                        self.alertSuccess = true;
-                        setTimeout(() => self.alertSuccess = false, 3000);
-                    })
-                    .catch(function (error) {
-                        console.log(error)
-                    });
+                            self.showBtn = false;
+                            self.$refs.alertSuccess.innerText = response.data.message;
+                            self.alertSuccess = true;
+                            setTimeout(() => self.alertSuccess = false, 3000);
+                        })
+                        .catch(function (error) {
+                            console.log(error)
+                        });
+                }
             },
             toggleForm() {
                 if (!this.showForm) {
