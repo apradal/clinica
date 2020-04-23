@@ -10,18 +10,18 @@
                 <label for="allergies">Alergias:</label>
                 <textarea v-model="record.allergies" v-on:keyup="textAreaAdjust"
                           class="form-control" id="allergies" name="allergies" readonly></textarea>
-                <span class="edit-icon" data-target="allergiesEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="allergiesEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="treatmentEditable">
                 <label for="treatment">Tratamiento médico:</label>
                 <textarea v-model="record.treatment" v-on:keyup="textAreaAdjust"
                           class="form-control" id="treatment" name="treatment" readonly></textarea>
-                <span class="edit-icon" data-target="treatmentEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="treatmentEditable" v-on:click="edit"/>
             </div>
             <div class="col-12">
                 <input type="hidden" name="id" :value="record.id" />
                 <input type="hidden" name="patient_id" :value="record.patient_id" />
-                <button type="submit" ref="submit" v-show="showBtn">Guardar</button>
+                <button type="submit" ref="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
             </div>
         </div>
         <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>

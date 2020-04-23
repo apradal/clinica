@@ -155,7 +155,7 @@
         </div>
         <div>
             <slot name="csrf"></slot>
-            <button type="submit" ref="submit">Guardar</button>
+            <button type="submit" ref="submit">Guardar <font-awesome-icon icon="save" /></button>
         </div>
     </form>
 </template>

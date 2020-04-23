@@ -14,7 +14,7 @@
                 </select>
                 <textarea v-model="diseases.heart_description" v-show="diseases.heart" v-on:keyup="textAreaAdjust"
                           class="form-control" name="heart_description" readonly></textarea>
-                <span class="edit-icon" data-target="heartEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="heartEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="osteoporosisEditable">
                 <label for="osteoporosis">Osteoporosis:</label>
@@ -24,7 +24,7 @@
                 </select>
                 <textarea v-model="diseases.osteoporosis_description" v-show="diseases.osteoporosis" v-on:keyup="textAreaAdjust"
                           class="form-control" name="osteoporosis_description" readonly></textarea>
-                <span class="edit-icon" data-target="osteoporosisEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="osteoporosisEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="liverEditable">
                 <label for="liver">Hígado:</label>
@@ -34,7 +34,7 @@
                 </select>
                 <textarea v-model="diseases.liver_description" v-show="diseases.liver" v-on:keyup="textAreaAdjust"
                           class="form-control" name="liver_description" readonly></textarea>
-                <span class="edit-icon" data-target="liverEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="liverEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="cancerEditable">
                 <label for="cancer">Cancer:</label>
@@ -44,7 +44,7 @@
                 </select>
                 <textarea v-model="diseases.cancer_description" v-show="diseases.cancer" v-on:keyup="textAreaAdjust"
                           class="form-control" name="cancer_description" readonly></textarea>
-                <span class="edit-icon" data-target="cancerEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="cancerEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="kidneyEditable">
                 <label for="kidney">Riñón:</label>
@@ -54,7 +54,7 @@
                 </select>
                 <textarea v-model="diseases.kidney_description" v-show="diseases.kidney" v-on:keyup="textAreaAdjust"
                           class="form-control" name="kidney_description" readonly></textarea>
-                <span class="edit-icon" data-target="kidneyEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="kidneyEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="hivEditable">
                 <label for="hiv">IVH:</label>
@@ -64,7 +64,7 @@
                 </select>
                 <textarea v-model="diseases.hiv_description" v-show="diseases.hiv" v-on:keyup="textAreaAdjust"
                           class="form-control" name="hiv_description" readonly></textarea>
-                <span class="edit-icon" data-target="hivEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="hivEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="lungEditable">
                 <label for="lung">Pulmón:</label>
@@ -74,7 +74,7 @@
                 </select>
                 <textarea v-model="diseases.lung_description" v-show="diseases.lung" v-on:keyup="textAreaAdjust"
                           class="form-control" name="lung_description" readonly></textarea>
-                <span class="edit-icon" data-target="lungEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="lungEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="hepatitisEditable">
                 <div><span>Hepatitis:</span></div>
@@ -83,7 +83,7 @@
                     <input type="radio" v-model="diseases.hepatitis_description" name="hepatitis_description"
                            :id="'hepatitis_' + radio.label" v-bind:value="radio.value" disabled/>
                 </template>
-                <span class="edit-icon" data-target="hepatitisEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="hepatitisEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="diabetesEditable">
                 <label for="diabetes">Diabetes:</label>
@@ -93,7 +93,7 @@
                 </select>
                 <textarea v-model="diseases.diabetes_description" v-show="diseases.diabetes" v-on:keyup="textAreaAdjust"
                           class="form-control" name="diabetes_description" readonly></textarea>
-                <span class="edit-icon" data-target="diabetesEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="diabetesEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="circulatoryEditable">
                 <label for="circulatory">Circulatorio:</label>
@@ -103,18 +103,18 @@
                 </select>
                 <textarea v-model="diseases.circulatory_description" v-show="diseases.circulatory" v-on:keyup="textAreaAdjust"
                           class="form-control" name="circulatory_description" readonly></textarea>
-                <span class="edit-icon" data-target="circulatoryEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="circulatoryEditable" v-on:click="edit"/>
             </div>
             <div class="col-12 col-md-6" ref="othersEditable">
                 <label for="others_description">Otros:</label>
                 <textarea v-model="diseases.others_description" v-on:keyup="textAreaAdjust"
                           class="form-control" id="others_description" name="others_description" readonly></textarea>
-                <span class="edit-icon" data-target="othersEditable" v-on:click="edit">edit</span>
+                <font-awesome-icon icon="edit" data-target="othersEditable" v-on:click="edit"/>
             </div>
             <div class="col-12">
                 <input type="hidden" name="id" :value="diseases.id" />
                 <input type="hidden" name="record_id" :value="diseases.record_id" />
-                <button type="submit" ref="submit" v-show="showBtn">Guardar</button>
+                <button type="submit" ref="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
             </div>
         </div>
         <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>

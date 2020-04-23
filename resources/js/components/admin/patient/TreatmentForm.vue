@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-12 col-md-2 date-order" v-on:click="orderByDate">
                         Fecha
-                        <i class="arrow " v-bind:class="{down: sortAsc, up: !sortAsc}"></i>
+                        <font-awesome-icon :icon="arrowIcon"/>
                     </div>
                     <div class="col-12 col-md-10">Descripción</div>
                 </div>
@@ -21,7 +21,7 @@
                     </TreamtentForm>
                 </template>
                 <div class="tr" id="btn-row">
-                    <button type="button" v-on:click="renderNewForm">Añadir</button>
+                    <button type="button" v-on:click="renderNewForm">Añadir <font-awesome-icon icon="plus-square" /></button>
                 </div>
             </div>
             <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
@@ -49,7 +49,7 @@
         props: ['routes', 'treatmentData', 'patientData'],
         data: function() {
             return {
-                sortAsc: true,
+                arrowIcon: 'sort-amount-down-alt',
                 showForm: true,
                 showFormText: 'Ocultar Información',
                 showModal: false,
@@ -89,7 +89,7 @@
             },
             orderByDate() {
                 this.treatments.reverse();
-                this.sortAsc = !this.sortAsc;
+                this.arrowIcon = (this.arrowIcon === 'sort-amount-down-alt') ? 'sort-amount-up' : 'sort-amount-down-alt';
             }
         },
         created() {

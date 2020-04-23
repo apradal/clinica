@@ -11,7 +11,7 @@
                 <select v-model="filter.pager" class="form-control" name="pager" id="pager">
                     <option v-for="option in pagerOptions" v-bind:value="option.value">{{option.text}}</option>
                 </select>
-                <button type="submit">Buscar</button>
+                <button type="submit"><font-awesome-icon icon="search"/></button>
             </div>
             <button v-show="prevPage" v-on:click="getPrevPage">Anterior página</button>
             <button v-show="nextPage" v-on:click="getNextPage">Siguiente página</button>

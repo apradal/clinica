@@ -12,9 +12,9 @@
             </div>
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
-            <span class="edit-icon" v-show="!this.new" data-target="treatmentEditable" v-on:click="edit">edit</span>
-            <span class="delete-icon" v-show="!this.new" v-on:click="openModal">delete</span>
-            <button type="submit" v-show="showBtn">Guardar</button>
+            <font-awesome-icon icon="edit" data-target="treatmentEditable" v-on:click="edit"/>
+            <font-awesome-icon icon="trash-alt" v-show="!this.new" v-on:click="openModal"/>
+            <button type="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
         </div>
     </form>
 </template>
