@@ -10899,6 +10899,15 @@ textarea {
   resize: none;
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .spinner {
   width: 50px;
   height: 40px;
@@ -11047,6 +11056,62 @@ textarea {
 #treatment-table .date-order .arrow.up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
+}
+
+.admin #admin-main-container .menus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  height: 100%;
+}
+
+.admin #admin-main-container .menus .records {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  background-color: #ffffff;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin #admin-main-container .menus .records .menu-btn {
+  margin: 10px;
+}
+
+.admin #admin-main-container .menus h2 {
+  border-bottom: 1px solid;
+}
+
+.admin #admin-main-container .menus button {
+  background-color: #232425;
+  border: none;
+  padding: 5px 10px;
+  min-width: 200px;
+  transition: transform 0.2s;
+}
+
+.admin #admin-main-container .menus button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.admin #admin-main-container .menus button a:hover {
+  color: #ffffff;
+}
+
+.admin #admin-main-container .menus button svg {
+  color: white;
+  margin-left: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .admin #admin-main-container .menus .records {
+    width: 80%;
+    margin: auto;
+  }
 }
 
 .admin_record_search .table {
