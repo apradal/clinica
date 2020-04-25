@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/admin') }}">
             {{ config('app.name', 'Laravel') }}
@@ -10,15 +10,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             @if (Auth::user())
-                <ul class="navbar-nav mr-auto">
-                    <li>
+                <div class="navbar-nav mr-auto">
+                    <div class="first-level-list">
                         {{ __('messages.Records') }}
-                        <ul>
+                        <ul class="list-container">
                             <li><a href="{{route('record')}}">{{ __('messages.New Record') }}</a></li>
                             <li><a href="{{route('patient.search')}}">{{ __('messages.Search Record') }}</a></li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             @endif
 
             <!-- Right Side Of Navbar -->

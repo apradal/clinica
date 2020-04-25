@@ -10899,6 +10899,10 @@ textarea {
   resize: none;
 }
 
+ul {
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: #ffffff;
@@ -11111,6 +11115,69 @@ a:hover {
   .admin #admin-main-container .menus .records {
     width: 80%;
     margin: auto;
+  }
+}
+
+.navbar {
+  background-color: #232425;
+  color: #ffffff;
+}
+
+.navbar a {
+  color: #ffffff;
+}
+
+.navbar .navbar-nav .list-container {
+  background-color: #232425;
+}
+
+.navbar .navbar-nav .nav-item.dropdown #navbarDropdown {
+  color: #ffffff;
+}
+
+.navbar .navbar-nav .nav-item.dropdown a {
+  color: #232425;
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar .navbar-nav .first-level-list {
+    min-width: 120px;
+    cursor: pointer;
+    padding: 15px;
+  }
+
+  .navbar .navbar-nav .first-level-list:hover {
+    background-color: #44474a;
+  }
+
+  .navbar .navbar-nav .first-level-list:hover .list-container {
+    display: block;
+  }
+
+  .navbar .navbar-nav .list-container {
+    display: none;
+    position: absolute;
+    text-align: justify;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 15px;
+    padding: 0;
+  }
+
+  .navbar .navbar-nav .list-container li {
+    padding: 10px 15px;
+  }
+
+  .navbar .navbar-nav .list-container li:hover {
+    background-color: #44474a;
   }
 }
 
