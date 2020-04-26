@@ -10886,6 +10886,10 @@ a.text-dark:focus {
   display: flex;
 }
 
+.flex-baseline {
+  align-items: baseline;
+}
+
 .hidden {
   display: none;
 }
@@ -11006,6 +11010,18 @@ a:hover {
   color: white;
 }
 
+textarea.form__field:-moz-read-only {
+  background-color: #e9ecef;
+}
+
+textarea.form__field:read-only {
+  background-color: #e9ecef;
+}
+
+select.form__field:disabled {
+  background-color: #e9ecef;
+}
+
 .form__field {
   font-family: inherit;
   width: 100%;
@@ -11014,9 +11030,20 @@ a:hover {
   outline: 0;
   font-size: 1.3rem;
   color: #495057;
-  padding: 7px 0;
+  padding: 5px 0 7px;
   background: #ffffff;
   transition: border-color 0.2s;
+}
+
+.form__field[type=text]:-moz-read-only, .form__field[type=email]:-moz-read-only, .form__field[type=date]:-moz-read-only, .form__field[type=number]:-moz-read-only {
+  background-color: #e9ecef;
+}
+
+.form__field[type=text]:read-only,
+.form__field[type=email]:read-only,
+.form__field[type=date]:read-only,
+.form__field[type=number]:read-only {
+  background-color: #e9ecef;
 }
 
 .form__field::-webkit-input-placeholder {
@@ -11047,14 +11074,14 @@ a:hover {
 
 .form__label {
   position: absolute;
-  top: 0;
+  top: -5px;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
   color: #9b9b9b;
 }
 
-.form__field:focus {
+.form__field:not([readonly]):focus {
   padding-bottom: 6px;
   font-weight: 700;
   border-width: 3px;
@@ -11063,7 +11090,7 @@ a:hover {
   border-image-slice: 1;
 }
 
-.form__field:focus ~ .form__label {
+.form__field:not([readonly]):focus ~ .form__label {
   padding: 0;
   position: absolute;
   top: -10px;
@@ -11095,6 +11122,26 @@ a:hover {
 }
 
 .dark-white-btn:hover {
+  background-color: orange;
+  transform: scale(1.1);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dark-white-btn-icon {
+  background-color: #232425;
+  border: none;
+  padding: 12px;
+  transition: transform 0.2s;
+  color: white;
+  cursor: pointer;
+}
+
+.dark-white-btn-icon svg {
+  margin: 0;
+  color: white;
+}
+
+.dark-white-btn-icon:hover {
   background-color: orange;
   transform: scale(1.1);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
@@ -11163,31 +11210,32 @@ a:hover {
   transform: scale(1.1);
 }
 
-.show-form {
+.admin_record_index .show-form {
   border-bottom: 1px solid #ced4da;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
   cursor: pointer;
+  padding: 0;
 }
 
-#treatment-table .date-order {
+.admin_record_index #treatment-table .date-order {
   cursor: pointer;
 }
 
-#treatment-table .date-order .arrow {
+.admin_record_index #treatment-table .date-order .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
 }
 
-#treatment-table .date-order .arrow.down {
+.admin_record_index #treatment-table .date-order .arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
 
-#treatment-table .date-order .arrow.up {
+.admin_record_index #treatment-table .date-order .arrow.up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }

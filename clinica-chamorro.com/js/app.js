@@ -12024,6 +12024,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'recordData', 'diseasesData'],
   data: function data() {
@@ -12077,17 +12117,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    edit: function edit(event) {
-      var target = event.target.getAttribute('data-target');
-      var wrapper = this.$refs[target];
+    edit: function edit(dataTarget) {
+      var wrapper = this.$refs[dataTarget];
 
       if (wrapper !== undefined) {
-        for (var i = 0; i < wrapper.children.length; i++) {
-          var elmt = wrapper.children[i];
+        wrapper.querySelectorAll('select, textarea, input[type="radio"]').forEach(function (elmt) {
           if (elmt.hasAttribute('readonly')) elmt.removeAttribute('readonly');
           if (elmt.hasAttribute('disabled')) elmt.removeAttribute('disabled');
-          elmt.focus();
-        }
+          if (elmt.nodeName === 'INPUT' || elmt.nodeName === 'TEXTAREA') elmt.focus();
+        });
       }
 
       this.showBtn = true;
@@ -12211,6 +12249,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData'],
@@ -12237,15 +12293,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    edit: function edit(event) {
-      var target = event.target.getAttribute('data-target');
-      var wrapper = this.$refs[target];
+    edit: function edit(dataTarget) {
+      var wrapper = this.$refs[dataTarget];
 
       if (wrapper !== undefined) {
         for (var i = 0; i < wrapper.children.length; i++) {
           var elmt = wrapper.children[i];
           if (elmt.hasAttribute('readonly')) elmt.removeAttribute('readonly');
-          elmt.focus();
+          if (elmt.nodeName === 'INPUT' || elmt.nodeName === 'TEXTAREA') elmt.focus();
         }
       }
 
@@ -12330,6 +12385,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData', 'recordData'],
   data: function data() {
@@ -12349,15 +12408,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    edit: function edit(event) {
-      var target = event.target.getAttribute('data-target');
-      var wrapper = this.$refs[target];
+    edit: function edit(dataTarget) {
+      var wrapper = this.$refs[dataTarget];
 
       if (wrapper !== undefined) {
         for (var i = 0; i < wrapper.children.length; i++) {
           var elmt = wrapper.children[i];
           if (elmt.hasAttribute('readonly')) elmt.removeAttribute('readonly');
-          elmt.focus();
+          if (elmt.nodeName === 'INPUT' || elmt.nodeName === 'TEXTAREA') elmt.focus();
         }
       }
 
@@ -48590,8 +48648,8 @@ var render = function() {
       on: { submit: _vm.formSubmit }
     },
     [
-      _c("div", [
-        _c("h4", [_vm._v("Enfermedades")]),
+      _c("div", { staticClass: "fieldset-separator" }, [
+        _vm._m(0),
         _vm._v(" "),
         _c("div", {
           directives: [
@@ -48603,7 +48661,7 @@ var render = function() {
             }
           ],
           ref: "alertSuccess",
-          staticClass: "alert alert-success"
+          staticClass: "col-12 alert alert-success"
         }),
         _vm._v(" "),
         _c("div", {
@@ -48616,1014 +48674,1302 @@ var render = function() {
             }
           ],
           ref: "alertError",
-          staticClass: "alert alert-danger"
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showForm,
-              expression: "showForm"
-            }
-          ],
-          staticClass: "row"
-        },
-        [
-          _c(
-            "div",
-            { ref: "heartEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "heart" } }, [_vm._v("Corazón")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+          staticClass: "col-12 alert alert-danger"
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showForm,
+                expression: "showForm"
+              }
+            ],
+            staticClass: "row"
+          },
+          [
+            _c(
+              "div",
+              {
+                ref: "heartEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "heart" } }, [_vm._v("Corazón")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.heart,
+                          expression: "diseases.heart"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "heart", id: "heart", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "heart",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "heart_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("heartEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("heartEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.heart_description,
+                      expression: "diseases.heart_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.heart,
                       expression: "diseases.heart"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "heart", id: "heart", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "heart_description", readonly: "" },
+                  domProps: { value: _vm.diseases.heart_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "heart",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "heart_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.heart_description,
-                    expression: "diseases.heart_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.heart,
-                    expression: "diseases.heart"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "heart_description", readonly: "" },
-                domProps: { value: _vm.diseases.heart_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "heart_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "heart_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "heartEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "osteoporosisEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "osteoporosis" } }, [
-                _vm._v("Osteoporosis:")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "osteoporosisEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "osteoporosis" } }, [
+                  _vm._v("Osteoporosis")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.osteoporosis,
+                          expression: "diseases.osteoporosis"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: {
+                        name: "osteoporosis",
+                        id: "osteoporosis",
+                        disabled: ""
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "osteoporosis",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange(
+                              $event,
+                              "osteoporosis_description"
+                            )
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("osteoporosisEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("osteoporosisEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.osteoporosis_description,
+                      expression: "diseases.osteoporosis_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.osteoporosis,
                       expression: "diseases.osteoporosis"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "osteoporosis",
-                    id: "osteoporosis",
-                    disabled: ""
-                  },
+                  staticClass: "form__field",
+                  attrs: { name: "osteoporosis_description", readonly: "" },
+                  domProps: { value: _vm.diseases.osteoporosis_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "osteoporosis",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "osteoporosis_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.osteoporosis_description,
-                    expression: "diseases.osteoporosis_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.osteoporosis,
-                    expression: "diseases.osteoporosis"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "osteoporosis_description", readonly: "" },
-                domProps: { value: _vm.diseases.osteoporosis_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "osteoporosis_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "osteoporosis_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "osteoporosisEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "liverEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "liver" } }, [_vm._v("Hígado:")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "liverEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "liver" } }, [_vm._v("Hígado")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.liver,
+                          expression: "diseases.liver"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "liver", id: "liver", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "liver",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "liver_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("liverEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("liverEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.liver_description,
+                      expression: "diseases.liver_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.liver,
                       expression: "diseases.liver"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "liver", id: "liver", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "liver_description", readonly: "" },
+                  domProps: { value: _vm.diseases.liver_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "liver",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "liver_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.liver_description,
-                    expression: "diseases.liver_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.liver,
-                    expression: "diseases.liver"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "liver_description", readonly: "" },
-                domProps: { value: _vm.diseases.liver_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "liver_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "liver_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "liverEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "cancerEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "cancer" } }, [_vm._v("Cancer:")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "cancerEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "cancer" } }, [_vm._v("Cancer")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.cancer,
+                          expression: "diseases.cancer"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "cancer", id: "cancer", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "cancer",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "cancer_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("cancerEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("cancerEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.cancer_description,
+                      expression: "diseases.cancer_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.cancer,
                       expression: "diseases.cancer"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "cancer", id: "cancer", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "cancer_description", readonly: "" },
+                  domProps: { value: _vm.diseases.cancer_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "cancer",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "cancer_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.cancer_description,
-                    expression: "diseases.cancer_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.cancer,
-                    expression: "diseases.cancer"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "cancer_description", readonly: "" },
-                domProps: { value: _vm.diseases.cancer_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "cancer_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "cancer_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "cancerEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "kidneyEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "kidney" } }, [_vm._v("Riñón:")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "kidneyEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "kidney" } }, [_vm._v("Riñón")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.kidney,
+                          expression: "diseases.kidney"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "kidney", id: "kidney", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "kidney",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "kidney_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("kidneyEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("kidneyEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.kidney_description,
+                      expression: "diseases.kidney_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.kidney,
                       expression: "diseases.kidney"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "kidney", id: "kidney", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "kidney_description", readonly: "" },
+                  domProps: { value: _vm.diseases.kidney_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "kidney",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "kidney_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.kidney_description,
-                    expression: "diseases.kidney_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.kidney,
-                    expression: "diseases.kidney"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "kidney_description", readonly: "" },
-                domProps: { value: _vm.diseases.kidney_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "kidney_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "kidney_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "kidneyEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "hivEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "hiv" } }, [_vm._v("IVH:")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "hivEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "hiv" } }, [_vm._v("IVH")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.hiv,
+                          expression: "diseases.hiv"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "hiv", id: "hiv", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "hiv",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "hiv_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("hivEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("hivEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.hiv_description,
+                      expression: "diseases.hiv_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.hiv,
                       expression: "diseases.hiv"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "hiv", id: "hiv", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "hiv_description", readonly: "" },
+                  domProps: { value: _vm.diseases.hiv_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "hiv",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "hiv_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.hiv_description,
-                    expression: "diseases.hiv_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.hiv,
-                    expression: "diseases.hiv"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "hiv_description", readonly: "" },
-                domProps: { value: _vm.diseases.hiv_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "hiv_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "hiv_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "hivEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "lungEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "lung" } }, [_vm._v("Pulmón:")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "lungEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "lung" } }, [_vm._v("Pulmón")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.lung,
+                          expression: "diseases.lung"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "lung", id: "lung", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "lung",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "lung_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("lungEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("lungEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.lung_description,
+                      expression: "diseases.lung_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.lung,
                       expression: "diseases.lung"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "lung", id: "lung", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "lung_description", readonly: "" },
+                  domProps: { value: _vm.diseases.lung_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "lung",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "lung_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.lung_description,
-                    expression: "diseases.lung_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.lung,
-                    expression: "diseases.lung"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "lung_description", readonly: "" },
-                domProps: { value: _vm.diseases.lung_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.diseases,
-                      "lung_description",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "lungEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "hepatitisEditable", staticClass: "col-12 col-md-6" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._l(_vm.radioInputs, function(radio) {
-                return [
-                  _c("label", { attrs: { for: "hepatitis_" + radio.label } }, [
-                    _vm._v(_vm._s(radio.label))
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.diseases.hepatitis_description,
-                        expression: "diseases.hepatitis_description"
-                      }
-                    ],
-                    attrs: {
-                      type: "radio",
-                      name: "hepatitis_description",
-                      id: "hepatitis_" + radio.label,
-                      disabled: ""
-                    },
-                    domProps: {
-                      value: radio.value,
-                      checked: _vm._q(
-                        _vm.diseases.hepatitis_description,
-                        radio.value
+                      _vm.$set(
+                        _vm.diseases,
+                        "lung_description",
+                        $event.target.value
                       )
-                    },
-                    on: {
-                      change: function($event) {
-                        return _vm.$set(
-                          _vm.diseases,
-                          "hepatitis_description",
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "hepatitisEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _vm._l(_vm.radioInputs, function(radio) {
+                  return [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.hepatitis_description,
+                          expression: "diseases.hepatitis_description"
+                        }
+                      ],
+                      staticClass: "form__radio",
+                      attrs: {
+                        type: "radio",
+                        name: "hepatitis_description",
+                        id: "hepatitis_" + radio.label,
+                        disabled: ""
+                      },
+                      domProps: {
+                        value: radio.value,
+                        checked: _vm._q(
+                          _vm.diseases.hepatitis_description,
                           radio.value
                         )
+                      },
+                      on: {
+                        change: function($event) {
+                          return _vm.$set(
+                            _vm.diseases,
+                            "hepatitis_description",
+                            radio.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form__label_radio",
+                        attrs: { for: "hepatitis_" + radio.label }
+                      },
+                      [_vm._v(_vm._s(radio.label))]
+                    )
+                  ]
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("hepatitisEditable")
                       }
                     }
-                  })
-                ]
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "hepatitisEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "diabetesEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "diabetes" } }, [
-                _vm._v("Diabetes:")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("hepatitisEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "diabetesEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "diabetes" } }, [
+                  _vm._v("Diabetes")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.diabetes,
+                          expression: "diseases.diabetes"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: { name: "diabetes", id: "diabetes", disabled: "" },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "diabetes",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange($event, "diabetes_description")
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("diabetesEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("diabetesEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.diabetes_description,
+                      expression: "diseases.diabetes_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.diabetes,
                       expression: "diseases.diabetes"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: { name: "diabetes", id: "diabetes", disabled: "" },
+                  staticClass: "form__field",
+                  attrs: { name: "diabetes_description", readonly: "" },
+                  domProps: { value: _vm.diseases.diabetes_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "diabetes",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "diabetes_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.diabetes_description,
-                    expression: "diseases.diabetes_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.diabetes,
-                    expression: "diseases.diabetes"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "diabetes_description", readonly: "" },
-                domProps: { value: _vm.diseases.diabetes_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "diabetes_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "diabetes_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "diabetesEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "circulatoryEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "circulatory" } }, [
-                _vm._v("Circulatorio:")
-              ]),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "circulatoryEditable",
+                staticClass: "col-12 col-md-6 form__group"
+              },
+              [
+                _c("label", { attrs: { for: "circulatory" } }, [
+                  _vm._v("Circulatorio")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex" }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.diseases.circulatory,
+                          expression: "diseases.circulatory"
+                        }
+                      ],
+                      staticClass: "form__field",
+                      attrs: {
+                        name: "circulatory",
+                        id: "circulatory",
+                        disabled: ""
+                      },
+                      on: {
+                        change: [
+                          function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.diseases,
+                              "circulatory",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          },
+                          function($event) {
+                            return _vm.onChange(
+                              $event,
+                              "circulatory_description"
+                            )
+                          }
+                        ]
+                      }
+                    },
+                    _vm._l(_vm.selectOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn-icon",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("circulatoryEditable")
+                        }
+                      }
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.edit("circulatoryEditable")
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
+                      value: _vm.diseases.circulatory_description,
+                      expression: "diseases.circulatory_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
                       value: _vm.diseases.circulatory,
                       expression: "diseases.circulatory"
                     }
                   ],
-                  staticClass: "form-control",
-                  attrs: {
-                    name: "circulatory",
-                    id: "circulatory",
-                    disabled: ""
-                  },
+                  staticClass: "form__field",
+                  attrs: { name: "circulatory_description", readonly: "" },
+                  domProps: { value: _vm.diseases.circulatory_description },
                   on: {
-                    change: [
-                      function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.diseases,
-                          "circulatory",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      },
-                      function($event) {
-                        return _vm.onChange($event, "circulatory_description")
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    ]
-                  }
-                },
-                _vm._l(_vm.selectOptions, function(option) {
-                  return _c("option", { domProps: { value: option.value } }, [
-                    _vm._v(_vm._s(option.text))
-                  ])
-                }),
-                0
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.circulatory_description,
-                    expression: "diseases.circulatory_description"
-                  },
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.diseases.circulatory,
-                    expression: "diseases.circulatory"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "circulatory_description", readonly: "" },
-                domProps: { value: _vm.diseases.circulatory_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                      _vm.$set(
+                        _vm.diseases,
+                        "circulatory_description",
+                        $event.target.value
+                      )
                     }
-                    _vm.$set(
-                      _vm.diseases,
-                      "circulatory_description",
-                      $event.target.value
-                    )
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "circulatoryEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "othersEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "others_description" } }, [
-                _vm._v("Otros:")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.others_description,
-                    expression: "diseases.others_description"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "others_description",
-                  name: "others_description",
-                  readonly: ""
-                },
-                domProps: { value: _vm.diseases.others_description },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(
-                      _vm.diseases,
-                      "others_description",
-                      $event.target.value
-                    )
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "othersEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12" }, [
-            _c("input", {
-              attrs: { type: "hidden", name: "id" },
-              domProps: { value: _vm.diseases.id }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "record_id" },
-              domProps: { value: _vm.diseases.record_id }
-            }),
+                })
+              ]
+            ),
             _vm._v(" "),
             _c(
-              "button",
+              "div",
               {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showBtn,
-                    expression: "showBtn"
-                  }
-                ],
-                ref: "submit",
-                attrs: { type: "submit" }
+                ref: "othersEditable",
+                staticClass: "col-12 col-md-6 form__group flex"
               },
               [
-                _vm._v("Guardar "),
-                _c("font-awesome-icon", { attrs: { icon: "save" } })
-              ],
-              1
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
-        _c("span", [_vm._v(_vm._s(_vm.showFormText))])
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.others_description,
+                      expression: "diseases.others_description"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "others_description",
+                    name: "others_description",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.diseases.others_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "others_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "form__label",
+                    attrs: { for: "others_description" }
+                  },
+                  [_vm._v("Otros")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("othersEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("othersEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 title-separator" }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "id" },
+                domProps: { value: _vm.diseases.id }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "record_id" },
+                domProps: { value: _vm.diseases.record_id }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showBtn,
+                      expression: "showBtn"
+                    }
+                  ],
+                  ref: "submit",
+                  staticClass: "dark-white-btn",
+                  attrs: { type: "submit" }
+                },
+                [
+                  _vm._v("Guardar "),
+                  _c("font-awesome-icon", { attrs: { icon: "save" } })
+                ],
+                1
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-12 show-form", on: { click: _vm.toggleForm } },
+          [_c("span", [_vm._v(_vm._s(_vm.showFormText))])]
+        )
       ])
     ]
   )
@@ -49633,7 +49979,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("span", [_vm._v("Hepatitis:")])])
+    return _c("div", { staticClass: "title-separator" }, [
+      _c("h4", [_vm._v("Enfermedades")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("span", [_vm._v("Hepatitis")])])
   }
 ]
 render._withStripped = true
@@ -49665,8 +50019,8 @@ var render = function() {
       on: { submit: _vm.formSubmit }
     },
     [
-      _c("div", [
-        _c("h4", [_vm._v("Datos Personales")]),
+      _c("div", { staticClass: "fieldset-separator" }, [
+        _vm._m(0),
         _vm._v(" "),
         _c("div", {
           directives: [
@@ -49678,7 +50032,7 @@ var render = function() {
             }
           ],
           ref: "alertSuccess",
-          staticClass: "alert alert-success"
+          staticClass: "col-12 alert alert-success"
         }),
         _vm._v(" "),
         _c("div", {
@@ -49691,448 +50045,676 @@ var render = function() {
             }
           ],
           ref: "alertError",
-          staticClass: "alert alert-danger"
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showForm,
-              expression: "showForm"
-            }
-          ],
-          staticClass: "row"
-        },
-        [
-          _c(
-            "div",
-            { ref: "emailEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "email" } },
-                [_vm._v("Email:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.email,
-                    expression: "patient.email"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "email", name: "email", readonly: "" },
-                domProps: { value: _vm.patient.email },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "email", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "emailEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "birthYearEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "birth_year" } },
-                [_vm._v("Fecha de nacimiento:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.birth_year,
-                    expression: "patient.birth_year"
-                  }
-                ],
-                staticClass: "form-control form-date",
-                attrs: {
-                  type: "date",
-                  id: "birth_year",
-                  readonly: "",
-                  name: "birth_year"
-                },
-                domProps: { value: _vm.patient.birth_year },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "birth_year", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "birthYearEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "nifEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "nif" } },
-                [_vm._v("Dni:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.nif,
-                    expression: "patient.nif"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "nif", readonly: "", name: "nif" },
-                domProps: { value: _vm.patient.nif },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "nif", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "nifEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "addressEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "address" } },
-                [_vm._v("Dirección:")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.address,
-                    expression: "patient.address"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "address", name: "address", readonly: "" },
-                domProps: { value: _vm.patient.address },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "address", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "addressEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "locationEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "location" } },
-                [_vm._v("Localidad:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.location,
-                    expression: "patient.location"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "location",
-                  readonly: "",
-                  name: "location"
-                },
-                domProps: { value: _vm.patient.location },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "location", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "locationEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "postalcodeEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "location" } },
-                [_vm._v("Código postal:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.postal_code,
-                    expression: "patient.postal_code"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "postal_code",
-                  readonly: "",
-                  name: "postal_code"
-                },
-                domProps: { value: _vm.patient.postal_code },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "postal_code", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "postalcodeEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "phoneEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "phone" } },
-                [_vm._v("Teléfono:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.phone,
-                    expression: "patient.phone"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  id: "phone",
-                  name: "phone",
-                  readonly: ""
-                },
-                domProps: { value: _vm.patient.phone },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "phone", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "phoneEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "phone2Editable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "phone2" } },
-                [_vm._v("Teléfono 2:")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.phone2,
-                    expression: "patient.phone2"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  id: "phone2",
-                  name: "phone2",
-                  readonly: ""
-                },
-                domProps: { value: _vm.patient.phone2 },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "phone2", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "phone2Editable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "insuranceEditable", staticClass: "col-12 col-md-4" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-form-label", attrs: { for: "insurance" } },
-                [_vm._v("Aseguradora:")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.insurance,
-                    expression: "patient.insurance"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "insurance", name: "insurance", readonly: "" },
-                domProps: { value: _vm.patient.insurance },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.patient, "insurance", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "insuranceEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12" }, [
-            _c("input", {
-              attrs: { type: "hidden", name: "id" },
-              domProps: { value: _vm.patient.id }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
+          staticClass: "col-12 alert alert-danger"
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
               {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showBtn,
-                    expression: "showBtn"
-                  }
-                ],
-                ref: "submit",
-                attrs: { type: "submit" }
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showForm,
+                expression: "showForm"
+              }
+            ],
+            staticClass: "row"
+          },
+          [
+            _c(
+              "div",
+              {
+                ref: "emailEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
               },
               [
-                _vm._v("Guardar "),
-                _c("font-awesome-icon", { attrs: { icon: "save" } })
-              ],
-              1
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
-        _c("span", [_vm._v(_vm._s(_vm.showFormText))])
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.email,
+                      expression: "patient.email"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "email",
+                    id: "email",
+                    name: "email",
+                    placeholder: "Email",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.patient.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "email", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "email" } },
+                  [_vm._v("Email")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("emailEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("emailEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "birthYearEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.birth_year,
+                      expression: "patient.birth_year"
+                    }
+                  ],
+                  staticClass: "form__field form-date",
+                  attrs: {
+                    type: "date",
+                    id: "birth_year",
+                    readonly: "",
+                    name: "birth_year",
+                    placeholder: "Fecha de nacimiento"
+                  },
+                  domProps: { value: _vm.patient.birth_year },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "birth_year", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "birth_year" } },
+                  [_vm._v("Fecha de nacimiento")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("birthYearEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("birthYearEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "nifEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.nif,
+                      expression: "patient.nif"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    id: "nif",
+                    readonly: "",
+                    name: "nif",
+                    placeholder: "Dni"
+                  },
+                  domProps: { value: _vm.patient.nif },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "nif", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "nif" } },
+                  [_vm._v("Dni")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("nifEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("nifEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "addressEditable",
+                staticClass: "col-12 col-md-4 form__group flex"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.address,
+                      expression: "patient.address"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "address",
+                    placeholder: "Direccion",
+                    name: "address",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.patient.address },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "address", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "address" } },
+                  [_vm._v("Dirección")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("addressEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("addressEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "locationEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.location,
+                      expression: "patient.location"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    id: "location",
+                    placeholder: "Localidad",
+                    readonly: "",
+                    name: "location"
+                  },
+                  domProps: { value: _vm.patient.location },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "location", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "location" } },
+                  [_vm._v("Localidad")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("locationEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("locationEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "postalcodeEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.postal_code,
+                      expression: "patient.postal_code"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    id: "postal_code",
+                    placeholder: "Código postal",
+                    readonly: "",
+                    name: "postal_code"
+                  },
+                  domProps: { value: _vm.patient.postal_code },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "postal_code", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "location" } },
+                  [_vm._v("Código postal")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("postalcodeEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("postalcodeEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "phoneEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.phone,
+                      expression: "patient.phone"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "number",
+                    id: "phone",
+                    name: "phone",
+                    readonly: "",
+                    placeholder: "Teléfono"
+                  },
+                  domProps: { value: _vm.patient.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "phone", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "phone" } },
+                  [_vm._v("Teléfono")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("phoneEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("phoneEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "phone2Editable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.phone2,
+                      expression: "patient.phone2"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "number",
+                    id: "phone2",
+                    name: "phone2",
+                    readonly: "",
+                    placeholder: "Teléfono 2"
+                  },
+                  domProps: { value: _vm.patient.phone2 },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "phone2", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "phone2" } },
+                  [_vm._v("Teléfono 2")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("phone2Editable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("phone2Editable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "insuranceEditable",
+                staticClass: "col-12 col-md-4 form__group flex"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.insurance,
+                      expression: "patient.insurance"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "insurance",
+                    name: "insurance",
+                    readonly: "",
+                    placeholder: "Aseguradora"
+                  },
+                  domProps: { value: _vm.patient.insurance },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "insurance", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "insurance" } },
+                  [_vm._v("Aseguradora")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("insuranceEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("insuranceEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 title-separator" }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "id" },
+                domProps: { value: _vm.patient.id }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showBtn,
+                      expression: "showBtn"
+                    }
+                  ],
+                  ref: "submit",
+                  staticClass: "dark-white-btn",
+                  attrs: { type: "submit" }
+                },
+                [
+                  _vm._v("Guardar "),
+                  _c("font-awesome-icon", { attrs: { icon: "save" } })
+                ],
+                1
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-12 show-form", on: { click: _vm.toggleForm } },
+          [_c("span", [_vm._v(_vm._s(_vm.showFormText))])]
+        )
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title-separator" }, [
+      _c("h4", [_vm._v("Datos Personales")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -50162,8 +50744,8 @@ var render = function() {
       on: { submit: _vm.formSubmit }
     },
     [
-      _c("div", [
-        _c("h4", [_vm._v("Historia")]),
+      _c("div", { staticClass: "fieldset-separator" }, [
+        _vm._m(0),
         _vm._v(" "),
         _c("div", {
           directives: [
@@ -50175,7 +50757,7 @@ var render = function() {
             }
           ],
           ref: "alertSuccess",
-          staticClass: "alert alert-success"
+          staticClass: "col-12 alert alert-success"
         }),
         _vm._v(" "),
         _c("div", {
@@ -50188,144 +50770,212 @@ var render = function() {
             }
           ],
           ref: "alertError",
-          staticClass: "alert alert-danger"
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showForm,
-              expression: "showForm"
-            }
-          ],
-          staticClass: "row"
-        },
-        [
-          _c(
-            "div",
-            { ref: "allergiesEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "allergies" } }, [
-                _vm._v("Alergias:")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.record.allergies,
-                    expression: "record.allergies"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "allergies", name: "allergies", readonly: "" },
-                domProps: { value: _vm.record.allergies },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.record, "allergies", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "allergiesEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { ref: "treatmentEditable", staticClass: "col-12 col-md-6" },
-            [
-              _c("label", { attrs: { for: "treatment" } }, [
-                _vm._v("Tratamiento médico:")
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.record.treatment,
-                    expression: "record.treatment"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { id: "treatment", name: "treatment", readonly: "" },
-                domProps: { value: _vm.record.treatment },
-                on: {
-                  keyup: _vm.textAreaAdjust,
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.record, "treatment", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("font-awesome-icon", {
-                attrs: { icon: "edit", "data-target": "treatmentEditable" },
-                on: { click: _vm.edit }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12" }, [
-            _c("input", {
-              attrs: { type: "hidden", name: "id" },
-              domProps: { value: _vm.record.id }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "patient_id" },
-              domProps: { value: _vm.record.patient_id }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
+          staticClass: "col-12 alert alert-danger"
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            directives: [
               {
-                directives: [
-                  {
-                    name: "show",
-                    rawName: "v-show",
-                    value: _vm.showBtn,
-                    expression: "showBtn"
-                  }
-                ],
-                ref: "submit",
-                attrs: { type: "submit" }
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showForm,
+                expression: "showForm"
+              }
+            ],
+            staticClass: "row"
+          },
+          [
+            _c(
+              "div",
+              {
+                ref: "allergiesEditable",
+                staticClass: "col-12 col-md-6 form__group flex"
               },
               [
-                _vm._v("Guardar "),
-                _c("font-awesome-icon", { attrs: { icon: "save" } })
-              ],
-              1
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
-        _c("span", [_vm._v(_vm._s(_vm.showFormText))])
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.record.allergies,
+                      expression: "record.allergies"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "allergies",
+                    name: "allergies",
+                    readonly: "",
+                    placeholder: "Alergias"
+                  },
+                  domProps: { value: _vm.record.allergies },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.record, "allergies", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "allergies" } },
+                  [_vm._v("Alergias")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("allergiesEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("allergiesEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "treatmentEditable",
+                staticClass: "col-12 col-md-6 form__group flex"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.record.treatment,
+                      expression: "record.treatment"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "treatment",
+                    name: "treatment",
+                    readonly: "",
+                    placeholder: "Tratamiento médico"
+                  },
+                  domProps: { value: _vm.record.treatment },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.record, "treatment", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "treatment" } },
+                  [_vm._v("Tratamiento médico")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("treatmentEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("treatmentEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 title-separator" }, [
+              _c("input", {
+                attrs: { type: "hidden", name: "id" },
+                domProps: { value: _vm.record.id }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "patient_id" },
+                domProps: { value: _vm.record.patient_id }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showBtn,
+                      expression: "showBtn"
+                    }
+                  ],
+                  ref: "submit",
+                  staticClass: "dark-white-btn",
+                  attrs: { type: "submit" }
+                },
+                [
+                  _vm._v("Guardar "),
+                  _c("font-awesome-icon", { attrs: { icon: "save" } })
+                ],
+                1
+              )
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-12 show-form", on: { click: _vm.toggleForm } },
+          [_c("span", [_vm._v(_vm._s(_vm.showFormText))])]
+        )
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title-separator" }, [
+      _c("h4", [_vm._v("Historia")])
+    ])
+  }
+]
 render._withStripped = true
 
 

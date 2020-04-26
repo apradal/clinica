@@ -1,30 +1,34 @@
 <template>
     <form :action="this.route" @submit="formSubmit" method="post" ref="form">
-        <div>
-            <h4>Historia</h4>
-            <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
-            <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
+        <div class="fieldset-separator">
+            <div class="title-separator"><h4>Historia</h4></div>
+            <div class="col-12 alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
+            <div class="col-12 alert alert-danger" ref="alertError" v-show="alertError"></div>
+            <div class="row" v-show="showForm">
+                <div class="col-12 col-md-6 form__group flex" ref="allergiesEditable">
+                    <textarea v-model="record.allergies" v-on:keyup="textAreaAdjust"
+                              class="form__field" id="allergies" name="allergies" readonly placeholder="Alergias"></textarea>
+                    <label class="form__label" for="allergies">Alergias</label>
+                    <button type="button" class="dark-white-btn-icon" v-on:click="edit('allergiesEditable')">
+                        <font-awesome-icon icon="edit" v-on:click="edit('allergiesEditable')" />
+                    </button>
+                </div>
+                <div class="col-12 col-md-6 form__group flex" ref="treatmentEditable">
+                    <textarea v-model="record.treatment" v-on:keyup="textAreaAdjust"
+                              class="form__field" id="treatment" name="treatment" readonly placeholder="Tratamiento médico"></textarea>
+                    <label class="form__label" for="treatment">Tratamiento médico</label>
+                    <button type="button" class="dark-white-btn-icon" v-on:click="edit('treatmentEditable')">
+                        <font-awesome-icon icon="edit" v-on:click="edit('treatmentEditable')" />
+                    </button>
+                </div>
+                <div class="col-12 title-separator">
+                    <input type="hidden" name="id" :value="record.id" />
+                    <input type="hidden" name="patient_id" :value="record.patient_id" />
+                    <button type="submit" class="dark-white-btn" ref="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
+                </div>
+            </div>
+            <div class="col-12 show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
         </div>
-        <div class="row" v-show="showForm">
-            <div class="col-12 col-md-6" ref="allergiesEditable">
-                <label for="allergies">Alergias:</label>
-                <textarea v-model="record.allergies" v-on:keyup="textAreaAdjust"
-                          class="form-control" id="allergies" name="allergies" readonly></textarea>
-                <font-awesome-icon icon="edit" data-target="allergiesEditable" v-on:click="edit"/>
-            </div>
-            <div class="col-12 col-md-6" ref="treatmentEditable">
-                <label for="treatment">Tratamiento médico:</label>
-                <textarea v-model="record.treatment" v-on:keyup="textAreaAdjust"
-                          class="form-control" id="treatment" name="treatment" readonly></textarea>
-                <font-awesome-icon icon="edit" data-target="treatmentEditable" v-on:click="edit"/>
-            </div>
-            <div class="col-12">
-                <input type="hidden" name="id" :value="record.id" />
-                <input type="hidden" name="patient_id" :value="record.patient_id" />
-                <button type="submit" ref="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
-            </div>
-        </div>
-        <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
     </form>
 </template>
 
@@ -48,15 +52,14 @@
             }
         },
         methods: {
-            edit(event) {
-                let target = event.target.getAttribute('data-target');
-                let wrapper = this.$refs[target];
+            edit(dataTarget) {
+                let wrapper = this.$refs[dataTarget];
 
                 if (wrapper !== undefined) {
                     for (let i = 0; i < wrapper.children.length; i++) {
                         let elmt = wrapper.children[i];
                         if (elmt.hasAttribute('readonly')) elmt.removeAttribute('readonly');
-                        elmt.focus();
+                        if (elmt.nodeName === 'INPUT' || elmt.nodeName === 'TEXTAREA') elmt.focus();
                     }
                 }
                 this.showBtn = true;

@@ -1,25 +1,32 @@
-.show-form {
-  border-bottom: 1px solid #ced4da;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-#treatment-table {
-  .date-order {
+.admin_record_index {
+  .show-form {
+    border-bottom: 1px solid #ced4da;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
     cursor: pointer;
-    .arrow {
-      border: solid black;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-      &.down {
-        transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-      }
-      &.up {
-        transform: rotate(-135deg);
-        -webkit-transform: rotate(-135deg);
+    padding: 0;
+  }
+
+  #treatment-table {
+    .date-order {
+      cursor: pointer;
+
+      .arrow {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+
+        &.down {
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+
+        &.up {
+          transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg);
+        }
       }
     }
   }

@@ -2,6 +2,9 @@
 .flex {
   display: flex;
 }
+.flex-baseline {
+  align-items: baseline;
+}
 .hidden {
   display: none;
 }
@@ -109,6 +112,22 @@ a {
   }
 }
 
+textarea {
+  &.form__field {
+    &:read-only {
+      background-color: #e9ecef;
+    }
+  }
+}
+
+select {
+  &.form__field {
+    &:disabled {
+      background-color: #e9ecef;
+    }
+  }
+}
+
 .form__field {
   font-family: inherit;
   width: 100%;
@@ -117,10 +136,14 @@ a {
   outline: 0;
   font-size: 1.3rem;
   color: #495057;
-  padding: 7px 0;
+  padding: 5px 0 7px;
   background: $white;
   transition: border-color 0.2s;
-
+  &[type="text"], &[type="email"], &[type="date"], &[type="number"] {
+    &:read-only {
+      background-color: #e9ecef;
+    }
+  }
   &::placeholder {
     color: transparent;
   }
@@ -134,14 +157,14 @@ a {
 
 .form__label {
   position: absolute;
-  top: 0;
+  top: -5px;
   display: block;
   transition: 0.2s;
   font-size: 1rem;
   color: #9b9b9b;
 }
 
-.form__field:focus {
+.form__field:not([readonly]):focus {
   ~ .form__label {
     padding: 0;
     position: absolute;
@@ -174,6 +197,25 @@ a {
   color: white;
   svg {
     margin-left: 10px;
+    color: white;
+  }
+  &:hover {
+    background-color: orange;
+    transform: scale(1.1);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+// main icon btn
+.dark-white-btn-icon {
+  background-color: #232425;
+  border: none;
+  padding: 12px;
+  transition: transform 0.2s;
+  color: white;
+  cursor: pointer;
+  svg {
+    margin: 0;
     color: white;
   }
   &:hover {
