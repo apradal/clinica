@@ -13035,6 +13035,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route'],
@@ -51072,16 +51076,10 @@ var render = function() {
       on: { submit: _vm.formSubmit }
     },
     [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-3" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "name" } },
-            [_vm._v("Nombre:")]
-          ),
-          _vm._v(" "),
+      _c("div", { staticClass: "row fieldset-separator" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-3 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51091,8 +51089,8 @@ var render = function() {
                 expression: "patient.name"
               }
             ],
-            staticClass: "form-control form-required",
-            attrs: { id: "name", name: "name" },
+            staticClass: "form__field form-required",
+            attrs: { id: "name", name: "name", placeholder: "Nombre" },
             domProps: { value: _vm.patient.name },
             on: {
               input: function($event) {
@@ -51102,16 +51100,14 @@ var render = function() {
                 _vm.$set(_vm.patient, "name", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form__label", attrs: { for: "name" } }, [
+            _vm._v("Nombre")
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-3" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "surname" } },
-            [_vm._v("Apellidos:")]
-          ),
-          _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-3 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51121,8 +51117,8 @@ var render = function() {
                 expression: "patient.surname"
               }
             ],
-            staticClass: "form-control form-required",
-            attrs: { id: "surname", name: "surname" },
+            staticClass: "form__field form-required",
+            attrs: { id: "surname", name: "surname", placeholder: "Apellidos" },
             domProps: { value: _vm.patient.surname },
             on: {
               input: function($event) {
@@ -51132,16 +51128,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "surname", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-3" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "nif" } },
-            [_vm._v("DNI:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "surname" } },
+            [_vm._v("Apellidos")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-3 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51151,8 +51147,8 @@ var render = function() {
                 expression: "patient.nif"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "nif", name: "nif" },
+            staticClass: "form__field",
+            attrs: { id: "nif", name: "nif", placeholder: "DNI" },
             domProps: { value: _vm.patient.nif },
             on: {
               input: function($event) {
@@ -51162,16 +51158,14 @@ var render = function() {
                 _vm.$set(_vm.patient, "nif", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form__label", attrs: { for: "nif" } }, [
+            _vm._v("DNI")
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-3" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "birth_year" } },
-            [_vm._v("Fecha de nacimiento:")]
-          ),
-          _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-3 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51181,8 +51175,13 @@ var render = function() {
                 expression: "patient.birth_year"
               }
             ],
-            staticClass: "form-control form-date",
-            attrs: { type: "date", id: "birth_year", name: "birth_year" },
+            staticClass: "form__field form-date",
+            attrs: {
+              type: "date",
+              id: "birth_year",
+              name: "birth_year",
+              placeholder: "Fecha de nacimiento"
+            },
             domProps: { value: _vm.patient.birth_year },
             on: {
               input: function($event) {
@@ -51192,16 +51191,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "birth_year", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "address" } },
-            [_vm._v("Dirección:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "birth_year" } },
+            [_vm._v("Fecha de nacimiento")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("textarea", {
             directives: [
               {
@@ -51211,8 +51210,13 @@ var render = function() {
                 expression: "patient.address"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "address", name: "address" },
+            staticClass: "form__field",
+            attrs: {
+              placeholder: "Dirección",
+              id: "address",
+              name: "address",
+              rows: "1"
+            },
             domProps: { value: _vm.patient.address },
             on: {
               keyup: _vm.textAreaAdjust,
@@ -51223,16 +51227,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "address", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "location" } },
-            [_vm._v("Localidad:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "address" } },
+            [_vm._v("Dirección")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51242,8 +51246,12 @@ var render = function() {
                 expression: "patient.location"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "location", name: "location" },
+            staticClass: "form__field",
+            attrs: {
+              id: "location",
+              name: "location",
+              placeholder: "Localidad"
+            },
             domProps: { value: _vm.patient.location },
             on: {
               input: function($event) {
@@ -51253,16 +51261,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "location", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "postal_code" } },
-            [_vm._v("Código postal:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "location" } },
+            [_vm._v("Localidad")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51272,8 +51280,13 @@ var render = function() {
                 expression: "patient.postal_code"
               }
             ],
-            staticClass: "form-control",
-            attrs: { type: "number", id: "postal_code", name: "postal_code" },
+            staticClass: "form__field",
+            attrs: {
+              type: "number",
+              id: "postal_code",
+              name: "postal_code",
+              placeholder: "Código postal"
+            },
             domProps: { value: _vm.patient.postal_code },
             on: {
               input: function($event) {
@@ -51283,16 +51296,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "postal_code", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "email" } },
-            [_vm._v("Email:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "postal_code" } },
+            [_vm._v("Código postal")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51302,8 +51315,13 @@ var render = function() {
                 expression: "patient.email"
               }
             ],
-            staticClass: "form-control",
-            attrs: { type: "email", id: "email", name: "email" },
+            staticClass: "form__field",
+            attrs: {
+              type: "email",
+              id: "email",
+              name: "email",
+              placeholder: "Email"
+            },
             domProps: { value: _vm.patient.email },
             on: {
               input: function($event) {
@@ -51313,16 +51331,14 @@ var render = function() {
                 _vm.$set(_vm.patient, "email", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form__label", attrs: { for: "email" } }, [
+            _vm._v("Email")
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "phone" } },
-            [_vm._v("Teléfono:")]
-          ),
-          _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51332,8 +51348,13 @@ var render = function() {
                 expression: "patient.phone"
               }
             ],
-            staticClass: "form-control form-required",
-            attrs: { type: "number", id: "phone", name: "phone" },
+            staticClass: "form__field form-required",
+            attrs: {
+              type: "number",
+              id: "phone",
+              name: "phone",
+              placeholder: "Teléfono"
+            },
             domProps: { value: _vm.patient.phone },
             on: {
               input: function($event) {
@@ -51343,16 +51364,14 @@ var render = function() {
                 _vm.$set(_vm.patient, "phone", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c("label", { staticClass: "form__label", attrs: { for: "phone" } }, [
+            _vm._v("Teléfono")
+          ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "phone2" } },
-            [_vm._v("Teléfono 2:")]
-          ),
-          _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("input", {
             directives: [
               {
@@ -51362,8 +51381,13 @@ var render = function() {
                 expression: "patient.phone2"
               }
             ],
-            staticClass: "form-control",
-            attrs: { type: "number", id: "phone2", name: "phone2" },
+            staticClass: "form__field",
+            attrs: {
+              type: "number",
+              id: "phone2",
+              name: "phone2",
+              placeholder: "Teléfono 2"
+            },
             domProps: { value: _vm.patient.phone2 },
             on: {
               input: function($event) {
@@ -51373,16 +51397,16 @@ var render = function() {
                 _vm.$set(_vm.patient, "phone2", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-4" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "insurance" } },
-            [_vm._v("Aseguradora:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "phone2" } },
+            [_vm._v("Teléfono 2")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-4 form__group" }, [
           _c("textarea", {
             directives: [
               {
@@ -51392,8 +51416,13 @@ var render = function() {
                 expression: "patient.insurance"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "insurance", name: "insurance" },
+            staticClass: "form__field",
+            attrs: {
+              id: "insurance",
+              name: "insurance",
+              placeholder: "Aseguradora",
+              rows: "1"
+            },
             domProps: { value: _vm.patient.insurance },
             on: {
               keyup: _vm.textAreaAdjust,
@@ -51404,20 +51433,20 @@ var render = function() {
                 _vm.$set(_vm.patient, "insurance", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form__label", attrs: { for: "insurance" } },
+            [_vm._v("Aseguradora")]
+          )
         ])
       ]),
       _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 col-md-6" }, [
-          _c(
-            "label",
-            { staticClass: "col-form-label", attrs: { for: "allergies" } },
-            [_vm._v("¿Tiene usted alguna alergia?:")]
-          ),
-          _vm._v(" "),
+      _c("div", { staticClass: "row fieldset-separator" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
           _c("textarea", {
             directives: [
               {
@@ -51427,8 +51456,13 @@ var render = function() {
                 expression: "record.allergies"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "allergies", name: "allergies" },
+            staticClass: "form__field",
+            attrs: {
+              id: "allergies",
+              name: "allergies",
+              placeholder: "Aseguradora",
+              rows: "1"
+            },
             domProps: { value: _vm.record.allergies },
             on: {
               keyup: _vm.textAreaAdjust,
@@ -51439,16 +51473,16 @@ var render = function() {
                 _vm.$set(_vm.record, "allergies", $event.target.value)
               }
             }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-12 col-md-6" }, [
+          }),
+          _vm._v(" "),
           _c(
             "label",
-            { staticClass: "col-form-label", attrs: { for: "treatment" } },
-            [_vm._v("¿Está usted bajo tratamiento médico?:")]
-          ),
-          _vm._v(" "),
+            { staticClass: "form__label", attrs: { for: "allergies" } },
+            [_vm._v("¿Tiene usted alguna alergia?")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
           _c("textarea", {
             directives: [
               {
@@ -51458,8 +51492,13 @@ var render = function() {
                 expression: "record.treatment"
               }
             ],
-            staticClass: "form-control",
-            attrs: { id: "treatment", name: "treatment" },
+            staticClass: "form__field",
+            attrs: {
+              id: "treatment",
+              name: "treatment",
+              placeholder: "Aseguradora",
+              rows: "1"
+            },
             domProps: { value: _vm.record.treatment },
             on: {
               keyup: _vm.textAreaAdjust,
@@ -51470,799 +51509,846 @@ var render = function() {
                 _vm.$set(_vm.record, "treatment", $event.target.value)
               }
             }
-          })
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "form__label", attrs: { for: "treatment" } },
+            [_vm._v("¿Está usted bajo tratamiento médico?")]
+          )
         ])
       ]),
       _vm._v(" "),
-      _c("div", [
-        _c("h4", [_vm._v("Enfermedades")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
-          _c("span", [_vm._v(_vm._s(_vm.showFormText))])
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showForm,
-              expression: "showForm"
-            }
-          ],
-          staticClass: "row"
-        },
-        [
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "heart" } }, [_vm._v("Corazón")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.heart,
-                    expression: "diseases.heart"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "heart", id: "heart" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "heart",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.heart_description,
-                  expression: "diseases.heart_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.heart,
-                  expression: "diseases.heart"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "heart_description" },
-              domProps: { value: _vm.diseases.heart_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "heart_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "osteoporosis" } }, [
-              _vm._v("Osteoporosis:")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.osteoporosis,
-                    expression: "diseases.osteoporosis"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "osteoporosis", id: "osteoporosis" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "osteoporosis",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.osteoporosis_description,
-                  expression: "diseases.osteoporosis_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.osteoporosis,
-                  expression: "diseases.osteoporosis"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "osteoporosis_description" },
-              domProps: { value: _vm.diseases.osteoporosis_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "osteoporosis_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "liver" } }, [_vm._v("Hígado:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.liver,
-                    expression: "diseases.liver"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "liver", id: "liver" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "liver",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.liver_description,
-                  expression: "diseases.liver_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.liver,
-                  expression: "diseases.liver"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "liver_description" },
-              domProps: { value: _vm.diseases.liver_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "liver_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "cancer" } }, [_vm._v("Cancer:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.cancer,
-                    expression: "diseases.cancer"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "cancer", id: "cancer" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "cancer",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.cancer_description,
-                  expression: "diseases.cancer_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.cancer,
-                  expression: "diseases.cancer"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "cancer_description" },
-              domProps: { value: _vm.diseases.cancer_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "cancer_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "kidney" } }, [_vm._v("Riñón:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.kidney,
-                    expression: "diseases.kidney"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "kidney", id: "kidney" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "kidney",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.kidney_description,
-                  expression: "diseases.kidney_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.kidney,
-                  expression: "diseases.kidney"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "kidney_description" },
-              domProps: { value: _vm.diseases.kidney_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "kidney_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "hiv" } }, [_vm._v("IVH:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.hiv,
-                    expression: "diseases.hiv"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "hiv", id: "hiv" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "hiv",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.hiv_description,
-                  expression: "diseases.hiv_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.hiv,
-                  expression: "diseases.hiv"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "hiv_description" },
-              domProps: { value: _vm.diseases.hiv_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.diseases, "hiv_description", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "lung" } }, [_vm._v("Pulmón:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.lung,
-                    expression: "diseases.lung"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "lung", id: "lung" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "lung",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.lung_description,
-                  expression: "diseases.lung_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.lung,
-                  expression: "diseases.lung"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "lung_description" },
-              domProps: { value: _vm.diseases.lung_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "lung_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
+      _c("div", { staticClass: "row fieldset-separator" }, [
+        _c("div", { staticClass: "col-12 col-md-12 title-separator" }, [
+          _c("h4", [_vm._v("Enfermedades")]),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "col-12 col-md-6" },
+            { staticClass: "show-form", on: { click: _vm.toggleForm } },
+            [_c("span", [_vm._v(_vm._s(_vm.showFormText))])]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12" }, [
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.showForm,
+                  expression: "showForm"
+                }
+              ],
+              staticClass: "row"
+            },
             [
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._l(_vm.radioInputs, function(radio) {
-                return [
-                  _c("label", { attrs: { for: "hepatitis_" + radio.label } }, [
-                    _vm._v(_vm._s(radio.label))
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "heart" } }, [_vm._v("Corazón")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.diseases.hepatitis_description,
-                        expression: "diseases.hepatitis_description"
+                        value: _vm.diseases.heart,
+                        expression: "diseases.heart"
                       }
                     ],
-                    attrs: {
-                      type: "radio",
-                      name: "hepatitis_description",
-                      id: "hepatitis_" + radio.label
-                    },
-                    domProps: {
-                      value: radio.value,
-                      checked: _vm._q(
-                        _vm.diseases.hepatitis_description,
-                        radio.value
-                      )
-                    },
+                    staticClass: "form__field",
+                    attrs: { name: "heart", id: "heart" },
                     on: {
                       change: function($event) {
-                        return _vm.$set(
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
                           _vm.diseases,
-                          "hepatitis_description",
-                          radio.value
+                          "heart",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
                         )
                       }
                     }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.heart_description,
+                      expression: "diseases.heart_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.heart,
+                      expression: "diseases.heart"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "heart_description" },
+                  domProps: { value: _vm.diseases.heart_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "heart_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "osteoporosis" } }, [
+                  _vm._v("Osteoporosis")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.osteoporosis,
+                        expression: "diseases.osteoporosis"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "osteoporosis", id: "osteoporosis" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "osteoporosis",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.osteoporosis_description,
+                      expression: "diseases.osteoporosis_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.osteoporosis,
+                      expression: "diseases.osteoporosis"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "osteoporosis_description" },
+                  domProps: { value: _vm.diseases.osteoporosis_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "osteoporosis_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "liver" } }, [_vm._v("Hígado")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.liver,
+                        expression: "diseases.liver"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "liver", id: "liver" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "liver",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.liver_description,
+                      expression: "diseases.liver_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.liver,
+                      expression: "diseases.liver"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "liver_description" },
+                  domProps: { value: _vm.diseases.liver_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "liver_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "cancer" } }, [_vm._v("Cancer")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.cancer,
+                        expression: "diseases.cancer"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "cancer", id: "cancer" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "cancer",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.cancer_description,
+                      expression: "diseases.cancer_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.cancer,
+                      expression: "diseases.cancer"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "cancer_description" },
+                  domProps: { value: _vm.diseases.cancer_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "cancer_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "kidney" } }, [_vm._v("Riñón")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.kidney,
+                        expression: "diseases.kidney"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "kidney", id: "kidney" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "kidney",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.kidney_description,
+                      expression: "diseases.kidney_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.kidney,
+                      expression: "diseases.kidney"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "kidney_description" },
+                  domProps: { value: _vm.diseases.kidney_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "kidney_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "hiv" } }, [_vm._v("IVH")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.hiv,
+                        expression: "diseases.hiv"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "hiv", id: "hiv" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "hiv",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.hiv_description,
+                      expression: "diseases.hiv_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.hiv,
+                      expression: "diseases.hiv"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "hiv_description" },
+                  domProps: { value: _vm.diseases.hiv_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "hiv_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "lung" } }, [_vm._v("Pulmón")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.lung,
+                        expression: "diseases.lung"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "lung", id: "lung" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "lung",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.lung_description,
+                      expression: "diseases.lung_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.lung,
+                      expression: "diseases.lung"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "lung_description" },
+                  domProps: { value: _vm.diseases.lung_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "lung_description",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-12 col-md-6 form__group" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._l(_vm.radioInputs, function(radio) {
+                    return [
+                      _c(
+                        "label",
+                        { attrs: { for: "hepatitis_" + radio.label } },
+                        [_vm._v(_vm._s(radio.label))]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.diseases.hepatitis_description,
+                            expression: "diseases.hepatitis_description"
+                          }
+                        ],
+                        attrs: {
+                          type: "radio",
+                          name: "hepatitis_description",
+                          id: "hepatitis_" + radio.label
+                        },
+                        domProps: {
+                          value: radio.value,
+                          checked: _vm._q(
+                            _vm.diseases.hepatitis_description,
+                            radio.value
+                          )
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$set(
+                              _vm.diseases,
+                              "hepatitis_description",
+                              radio.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   })
-                ]
-              })
-            ],
-            2
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "diabetes" } }, [_vm._v("Diabetes:")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.diabetes,
-                    expression: "diseases.diabetes"
-                  }
                 ],
-                staticClass: "form-control",
-                attrs: { name: "diabetes", id: "diabetes" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "diabetes",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.diabetes_description,
-                  expression: "diseases.diabetes_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.diabetes,
-                  expression: "diseases.diabetes"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "diabetes_description" },
-              domProps: { value: _vm.diseases.diabetes_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "diabetes_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "circulatory" } }, [
-              _vm._v("Circulatorio:")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
+                2
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "diabetes" } }, [
+                  _vm._v("Diabetes")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.diseases.circulatory,
-                    expression: "diseases.circulatory"
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.diabetes,
+                        expression: "diseases.diabetes"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "diabetes", id: "diabetes" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "diabetes",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.diabetes_description,
+                      expression: "diseases.diabetes_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.diabetes,
+                      expression: "diseases.diabetes"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "diabetes_description" },
+                  domProps: { value: _vm.diseases.diabetes_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "diabetes_description",
+                        $event.target.value
+                      )
+                    }
                   }
-                ],
-                staticClass: "form-control",
-                attrs: { name: "circulatory", id: "circulatory" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.diseases,
-                      "circulatory",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("label", { attrs: { for: "circulatory" } }, [
+                  _vm._v("Circulatorio")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.diseases.circulatory,
+                        expression: "diseases.circulatory"
+                      }
+                    ],
+                    staticClass: "form__field",
+                    attrs: { name: "circulatory", id: "circulatory" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.diseases,
+                          "circulatory",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.selectOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.circulatory_description,
+                      expression: "diseases.circulatory_description"
+                    },
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.diseases.circulatory,
+                      expression: "diseases.circulatory"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: { name: "circulatory_description" },
+                  domProps: { value: _vm.diseases.circulatory_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "circulatory_description",
+                        $event.target.value
+                      )
+                    }
                   }
-                }
-              },
-              _vm._l(_vm.selectOptions, function(option) {
-                return _c("option", { domProps: { value: option.value } }, [
-                  _vm._v(_vm._s(option.text))
-                ])
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.circulatory_description,
-                  expression: "diseases.circulatory_description"
-                },
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.diseases.circulatory,
-                  expression: "diseases.circulatory"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "circulatory_description" },
-              domProps: { value: _vm.diseases.circulatory_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-6 form__group" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.diseases.others_description,
+                      expression: "diseases.others_description"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    id: "others_description",
+                    name: "others_description",
+                    placeholder: "Otros"
+                  },
+                  domProps: { value: _vm.diseases.others_description },
+                  on: {
+                    keyup: _vm.textAreaAdjust,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.diseases,
+                        "others_description",
+                        $event.target.value
+                      )
+                    }
                   }
-                  _vm.$set(
-                    _vm.diseases,
-                    "circulatory_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-6" }, [
-            _c("label", { attrs: { for: "others_description" } }, [
-              _vm._v("Otros:")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.diseases.others_description,
-                  expression: "diseases.others_description"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { id: "others_description", name: "others_description" },
-              domProps: { value: _vm.diseases.others_description },
-              on: {
-                keyup: _vm.textAreaAdjust,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.diseases,
-                    "others_description",
-                    $event.target.value
-                  )
-                }
-              }
-            })
-          ])
-        ]
-      ),
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass: "form__label",
+                    attrs: { for: "others_description" }
+                  },
+                  [_vm._v("Otros")]
+                )
+              ])
+            ]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -52271,7 +52357,11 @@ var render = function() {
           _vm._v(" "),
           _c(
             "button",
-            { ref: "submit", attrs: { type: "submit" } },
+            {
+              ref: "submit",
+              staticClass: "dark-white-btn",
+              attrs: { type: "submit" }
+            },
             [
               _vm._v("Guardar "),
               _c("font-awesome-icon", { attrs: { icon: "save" } })
@@ -52289,19 +52379,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h4", [_vm._v("Datos Personales")])])
+    return _c("div", { staticClass: "col-12 col-md-12 title-separator" }, [
+      _c("h4", [_vm._v("Datos Personales")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h4", [_vm._v("Historia")])])
+    return _c("div", { staticClass: "col-12 col-md-12 title-separator" }, [
+      _c("h4", [_vm._v("Historia")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("span", [_vm._v("Hepatitis:")])])
+    return _c("div", [_c("span", [_vm._v("Hepatitis")])])
   }
 ]
 render._withStripped = true

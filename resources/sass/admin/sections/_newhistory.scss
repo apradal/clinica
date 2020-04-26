@@ -1,0 +1,11 @@
+.admin_record_index {
+ .fieldset-separator {
+   background: $white;
+   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
+   padding: 10px 20px 20px;
+   margin: 20px 0;
+   .title-separator {
+     margin-top: 20px;
+   }
+ }
+}
