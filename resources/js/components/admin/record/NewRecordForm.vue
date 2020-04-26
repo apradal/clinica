@@ -128,9 +128,9 @@
                     <div class="col-12 col-md-6 form__group">
                         <div><span>Hepatitis</span></div>
                         <template v-for="radio in radioInputs">
-                            <label :for="'hepatitis_' + radio.label">{{radio.label}}</label>
-                            <input type="radio" v-model="diseases.hepatitis_description" name="hepatitis_description"
+                            <input type="radio" class="form__radio" v-model="diseases.hepatitis_description" name="hepatitis_description"
                                    :id="'hepatitis_' + radio.label" v-bind:value="radio.value"/>
+                            <label class="form__label_radio" :for="'hepatitis_' + radio.label">{{radio.label}}</label>
                         </template>
                     </div>
                     <div class="col-12 col-md-6 form__group">

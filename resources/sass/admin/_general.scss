@@ -81,6 +81,32 @@ a {
   position: relative;
   padding: 15px 15px 0;
   margin-top: 10px;
+  .form__label_radio {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid $dark-grey;
+    border-radius: 4px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: #ffa50099;
+      border-color: orange;
+    }
+  }
+  .form__radio {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+    &:checked + label {
+      background-color: orange;
+      border-color: orange;
+      color: white;
+    }
+  }
 }
 
 .form__field {
@@ -146,7 +172,12 @@ a {
   padding: 10px 20px;
   transition: transform 0.2s;
   color: white;
+  svg {
+    margin-left: 10px;
+    color: white;
+  }
   &:hover {
+    background-color: orange;
     transform: scale(1.1);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
   }

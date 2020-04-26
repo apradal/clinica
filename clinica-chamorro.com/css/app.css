@@ -10976,6 +10976,36 @@ a:hover {
   margin-top: 10px;
 }
 
+.form__group .form__label_radio {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 10px 20px;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #232425;
+  border-radius: 4px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.form__group .form__label_radio:hover {
+  background-color: #ffa50099;
+  border-color: orange;
+}
+
+.form__group .form__radio {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.form__group .form__radio:checked + label {
+  background-color: orange;
+  border-color: orange;
+  color: white;
+}
+
 .form__field {
   font-family: inherit;
   width: 100%;
@@ -11059,7 +11089,13 @@ a:hover {
   color: white;
 }
 
+.dark-white-btn svg {
+  margin-left: 10px;
+  color: white;
+}
+
 .dark-white-btn:hover {
+  background-color: orange;
   transform: scale(1.1);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
 }
@@ -11192,6 +11228,7 @@ a:hover {
 }
 
 .admin #admin-main-container .menus button:hover {
+  background-color: orange;
   transform: scale(1.1);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
 }

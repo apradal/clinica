@@ -52101,12 +52101,6 @@ var render = function() {
                   _vm._v(" "),
                   _vm._l(_vm.radioInputs, function(radio) {
                     return [
-                      _c(
-                        "label",
-                        { attrs: { for: "hepatitis_" + radio.label } },
-                        [_vm._v(_vm._s(radio.label))]
-                      ),
-                      _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
@@ -52116,6 +52110,7 @@ var render = function() {
                             expression: "diseases.hepatitis_description"
                           }
                         ],
+                        staticClass: "form__radio",
                         attrs: {
                           type: "radio",
                           name: "hepatitis_description",
@@ -52137,7 +52132,16 @@ var render = function() {
                             )
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form__label_radio",
+                          attrs: { for: "hepatitis_" + radio.label }
+                        },
+                        [_vm._v(_vm._s(radio.label))]
+                      )
                     ]
                   })
                 ],
