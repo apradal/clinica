@@ -5,6 +5,9 @@
 .flex-baseline {
   align-items: baseline;
 }
+.flex-column {
+  flex-direction: column;
+}
 .hidden {
   display: none;
 }

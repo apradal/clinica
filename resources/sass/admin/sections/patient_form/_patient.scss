@@ -9,6 +9,9 @@
   }
 
   #treatment-table {
+    textarea {
+      overflow: auto;
+    }
     .date-order {
       cursor: pointer;
 
@@ -29,6 +32,26 @@
         }
       }
     }
+    #btn-row {
+      margin: 20px 0;
+      width: 100%;
+    }
+  }
+  #treatment_form_wrapper {
+    .btns-wrapper {
+      button {
+        height: 100%;
+      }
+    }
   }
 }
 
+@media only screen and (min-width: $tablet) {
+  .admin_record_index {
+    #treatment-table {
+      #btn-row {
+        width: auto;
+      }
+    }
+  }
+}

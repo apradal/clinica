@@ -12804,6 +12804,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes', 'treatmentData', 'index'],
@@ -12824,9 +12832,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    edit: function edit(event) {
-      var target = event.target.getAttribute('data-target');
-      var wrapper = this.$refs[target];
+    edit: function edit(dataTarget) {
+      var wrapper = this.$refs[dataTarget];
 
       if (wrapper !== undefined) {
         wrapper.querySelectorAll('input, textarea').forEach(function (elmt) {
@@ -12880,7 +12887,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     textAreaAdjust: function textAreaAdjust(event) {
-      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
+      if (event.target.scrollHeight >= 94) event.target.style.height = event.target.scrollHeight + "px";
     }
   },
   created: function created() {
@@ -51350,75 +51357,83 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-12" }, [
-      _c("h4", [_vm._v("Plan de Tratamientos")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showForm,
-              expression: "showForm"
-            }
-          ],
-          attrs: { id: "treatment-table" }
-        },
-        [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-12 col-md-2 date-order",
-                on: { click: _vm.orderByDate }
-              },
-              [
-                _vm._v("\n                    Fecha\n                    "),
-                _c("font-awesome-icon", { attrs: { icon: _vm.arrowIcon } })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-md-10" }, [
-              _vm._v("Descripción")
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.treatments, function(treatment, index) {
-            return [
-              _c("TreamtentForm", {
-                key: treatment.id,
-                attrs: {
-                  routes: _vm.routes,
-                  "treatment-data": treatment,
-                  index: index
-                },
-                on: { openModal: _vm.openModal }
-              })
-            ]
-          }),
-          _vm._v(" "),
-          _c("div", { staticClass: "tr", attrs: { id: "btn-row" } }, [
-            _c(
-              "button",
-              { attrs: { type: "button" }, on: { click: _vm.renderNewForm } },
-              [
-                _vm._v("Añadir "),
-                _c("font-awesome-icon", { attrs: { icon: "plus-square" } })
-              ],
-              1
-            )
-          ])
+  return _c("div", { staticClass: "fieldset-separator" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showForm,
+            expression: "showForm"
+          }
         ],
-        2
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
-        _c("span", [_vm._v(_vm._s(_vm.showFormText))])
-      ])
+        attrs: { id: "treatment-table" }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "col-12 col-md-2 date-order form__group",
+              on: { click: _vm.orderByDate }
+            },
+            [
+              _c(
+                "button",
+                { staticClass: "dark-white-btn", attrs: { type: "button" } },
+                [
+                  _vm._v("Fecha\n                    "),
+                  _c("font-awesome-icon", { attrs: { icon: _vm.arrowIcon } })
+                ],
+                1
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-12 col-md-10 form__group" }, [
+            _vm._v("Descripción")
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._l(_vm.treatments, function(treatment, index) {
+          return [
+            _c("TreamtentForm", {
+              key: treatment.id,
+              attrs: {
+                routes: _vm.routes,
+                "treatment-data": treatment,
+                index: index
+              },
+              on: { openModal: _vm.openModal }
+            })
+          ]
+        }),
+        _vm._v(" "),
+        _c("div", [
+          _c(
+            "button",
+            {
+              staticClass: "dark-white-btn",
+              attrs: { id: "btn-row", type: "button" },
+              on: { click: _vm.renderNewForm }
+            },
+            [
+              _vm._v("Añadir "),
+              _c("font-awesome-icon", { attrs: { icon: "plus-square" } })
+            ],
+            1
+          )
+        ])
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "show-form", on: { click: _vm.toggleForm } }, [
+      _c("span", [_vm._v(_vm._s(_vm.showFormText))])
     ]),
     _vm._v(" "),
     _c(
@@ -51433,7 +51448,16 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "title-separator" }, [
+      _c("h4", [_vm._v("Plan de Tratamientos")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -51491,9 +51515,13 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { ref: "treatmentEditable", staticClass: "row" },
+        {
+          ref: "treatmentEditable",
+          staticClass: "row flex",
+          attrs: { id: "treatment_form_wrapper" }
+        },
         [
-          _c("div", { staticClass: "col-12 col-md-2" }, [
+          _c("div", { staticClass: "col-12 col-md-2 form__group" }, [
             _c("input", {
               directives: [
                 {
@@ -51503,7 +51531,7 @@ var render = function() {
                   expression: "treatment.date"
                 }
               ],
-              staticClass: "form-control form-required form-date",
+              staticClass: "form__field form-required form-date",
               attrs: { type: "date", name: "date", readonly: !this.new },
               domProps: { value: _vm.treatment.date },
               on: {
@@ -51517,7 +51545,7 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12 col-md-10" }, [
+          _c("div", { staticClass: "col-12 col-md-10 form__group flex" }, [
             _c("textarea", {
               directives: [
                 {
@@ -51527,7 +51555,7 @@ var render = function() {
                   expression: "treatment.description"
                 }
               ],
-              staticClass: "form-control",
+              staticClass: "form__field",
               attrs: { name: "description", readonly: !this.new },
               domProps: { value: _vm.treatment.description },
               on: {
@@ -51539,7 +51567,83 @@ var render = function() {
                   _vm.$set(_vm.treatment, "description", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-column btns-wrapper" }, [
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !this.new,
+                      expression: "!this.new"
+                    }
+                  ],
+                  staticClass: "dark-white-btn-icon",
+                  attrs: { type: "button" },
+                  on: { click: _vm.openModal }
+                },
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: "trash-alt" },
+                    on: { click: _vm.openModal }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: !this.new,
+                      expression: "!this.new"
+                    }
+                  ],
+                  staticClass: "dark-white-btn-icon",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.edit("treatmentEditable")
+                    }
+                  }
+                },
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: "edit" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("treatmentEditable")
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.showBtn,
+                      expression: "showBtn"
+                    }
+                  ],
+                  staticClass: "dark-white-btn-icon",
+                  attrs: { type: "submit" }
+                },
+                [_c("font-awesome-icon", { attrs: { icon: "save" } })],
+                1
+              )
+            ])
           ]),
           _vm._v(" "),
           _c("input", {
@@ -51582,47 +51686,8 @@ var render = function() {
                 _vm.$set(_vm.treatment, "patient_id", $event.target.value)
               }
             }
-          }),
-          _vm._v(" "),
-          _c("font-awesome-icon", {
-            attrs: { icon: "edit", "data-target": "treatmentEditable" },
-            on: { click: _vm.edit }
-          }),
-          _vm._v(" "),
-          _c("font-awesome-icon", {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !this.new,
-                expression: "!this.new"
-              }
-            ],
-            attrs: { icon: "trash-alt" },
-            on: { click: _vm.openModal }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.showBtn,
-                  expression: "showBtn"
-                }
-              ],
-              attrs: { type: "submit" }
-            },
-            [
-              _vm._v("Guardar "),
-              _c("font-awesome-icon", { attrs: { icon: "save" } })
-            ],
-            1
-          )
-        ],
-        1
+          })
+        ]
       )
     ]
   )

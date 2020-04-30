@@ -2,19 +2,27 @@
     <form :action="this.route" @submit="formSubmit" ref="form" method="post" >
         <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
         <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
-        <div class="row" ref="treatmentEditable">
-            <div class="col-12 col-md-2">
-                <input type="date" v-model="treatment.date" class="form-control form-required form-date" name="date" :readonly="!this.new" />
+        <div id="treatment_form_wrapper" class="row flex" ref="treatmentEditable">
+            <div class="col-12 col-md-2 form__group">
+                <input type="date" v-model="treatment.date" class="form__field form-required form-date" name="date" :readonly="!this.new" />
             </div>
-            <div class="col-12 col-md-10">
+            <div class="col-12 col-md-10 form__group flex">
                 <textarea v-model="treatment.description" v-on:keyup="textAreaAdjust"
-                          class="form-control" name="description" :readonly="!this.new"></textarea>
+                          class="form__field" name="description" :readonly="!this.new"></textarea>
+                <div class="flex flex-column btns-wrapper">
+                    <button type="button" v-show="!this.new" v-on:click="openModal" class="dark-white-btn-icon">
+                        <font-awesome-icon icon="trash-alt" v-on:click="openModal" />
+                    </button>
+                    <button type="button" v-show="!this.new" class="dark-white-btn-icon" v-on:click="edit('treatmentEditable')">
+                        <font-awesome-icon icon="edit" v-on:click="edit('treatmentEditable')" />
+                    </button>
+                    <button type="submit" v-show="showBtn" class="dark-white-btn-icon">
+                        <font-awesome-icon icon="save" />
+                    </button>
+                </div>
             </div>
             <input v-model="treatment.id" type="hidden" name="id" />
             <input v-model="treatment.patient_id" type="hidden" name="patient_id" />
-            <font-awesome-icon icon="edit" data-target="treatmentEditable" v-on:click="edit"/>
-            <font-awesome-icon icon="trash-alt" v-show="!this.new" v-on:click="openModal"/>
-            <button type="submit" v-show="showBtn">Guardar <font-awesome-icon icon="save" /></button>
         </div>
     </form>
 </template>
@@ -41,9 +49,8 @@
             }
         },
         methods: {
-            edit(event) {
-                let target = event.target.getAttribute('data-target');
-                let wrapper = this.$refs[target];
+            edit(dataTarget) {
+                let wrapper = this.$refs[dataTarget];
 
                 if (wrapper !== undefined) {
                     wrapper.querySelectorAll('input, textarea').forEach(function (elmt) {
@@ -95,7 +102,7 @@
                 }
             },
             textAreaAdjust(event) {
-                if (event.target.scrollHeight >= 58)
+                if (event.target.scrollHeight >= 94)
                     event.target.style.height = event.target.scrollHeight + "px";
             }
         },

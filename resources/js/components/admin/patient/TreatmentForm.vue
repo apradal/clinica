@@ -1,31 +1,31 @@
 <template>
-    <div class="row">
-        <div class="col-12">
-            <h4>Plan de Tratamientos</h4>
-            <div id="treatment-table" v-show="showForm">
-                <div class="row">
-                    <div class="col-12 col-md-2 date-order" v-on:click="orderByDate">
-                        Fecha
-                        <font-awesome-icon :icon="arrowIcon"/>
-                    </div>
-                    <div class="col-12 col-md-10">Descripción</div>
+    <div class="fieldset-separator">
+        <div class="title-separator"><h4>Plan de Tratamientos</h4></div>
+        <div id="treatment-table" v-show="showForm">
+            <div class="row">
+                <div class="col-12 col-md-2 date-order form__group" v-on:click="orderByDate">
+                    <button type="button" class="dark-white-btn">Fecha
+                        <font-awesome-icon :icon="arrowIcon"/></button>
+
                 </div>
-                <template v-for="(treatment, index) in treatments">
-                    <TreamtentForm
-                        :routes="routes"
-                        :treatment-data="treatment"
-                        :index="index"
-                        :key="treatment.id"
-                        v-on:openModal="openModal"
-                    >
-                    </TreamtentForm>
-                </template>
-                <div class="tr" id="btn-row">
-                    <button type="button" v-on:click="renderNewForm">Añadir <font-awesome-icon icon="plus-square" /></button>
-                </div>
+                <div class="col-12 col-md-10 form__group">Descripción</div>
             </div>
-            <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
+            <template v-for="(treatment, index) in treatments">
+                <TreamtentForm
+                    :routes="routes"
+                    :treatment-data="treatment"
+                    :index="index"
+                    :key="treatment.id"
+                    v-on:openModal="openModal"
+                >
+                </TreamtentForm>
+            </template>
+            <div>
+                <button id="btn-row" class="dark-white-btn" type="button" v-on:click="renderNewForm">Añadir <font-awesome-icon icon="plus-square" /></button>
+            </div>
         </div>
+        <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
+
         <div class="col-12">
             <TreamtentModal v-if="showModal" v-on:closeModal="removeForm">
             </TreamtentModal>

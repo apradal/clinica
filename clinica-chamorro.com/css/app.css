@@ -10890,6 +10890,10 @@ a.text-dark:focus {
   align-items: baseline;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .hidden {
   display: none;
 }
@@ -11219,6 +11223,10 @@ select.form__field:disabled {
   padding: 0;
 }
 
+.admin_record_index #treatment-table textarea {
+  overflow: auto;
+}
+
 .admin_record_index #treatment-table .date-order {
   cursor: pointer;
 }
@@ -11238,6 +11246,21 @@ select.form__field:disabled {
 .admin_record_index #treatment-table .date-order .arrow.up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
+}
+
+.admin_record_index #treatment-table #btn-row {
+  margin: 20px 0;
+  width: 100%;
+}
+
+.admin_record_index #treatment_form_wrapper .btns-wrapper button {
+  height: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .admin_record_index #treatment-table #btn-row {
+    width: auto;
+  }
 }
 
 .admin #admin-main-container .menus {
