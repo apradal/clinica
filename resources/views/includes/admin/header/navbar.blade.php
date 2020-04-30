@@ -18,6 +18,15 @@
                             <li><a href="{{route('patient.search')}}">{{ __('messages.Search Record') }}</a></li>
                         </ul>
                     </div>
+                    @if (Auth::user()->role === 'administrator')
+                        <div class="first-level-list">
+                            {{ __('Usuarios') }}
+                            <ul class="list-container">
+                                <li><a href="{{route('user')}}">{{ __('Crear usuario') }}</a></li>
+                                <li><a href="{{route('user')}}">{{ __('Editar usuario') }}</a></li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             @endif
 
