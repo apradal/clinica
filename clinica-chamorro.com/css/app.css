@@ -11383,8 +11383,46 @@ select.form__field:disabled {
   }
 }
 
+.admin_record_search #filters_search {
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.admin_record_search #filters_search input {
+  width: 100%;
+}
+
+.admin_record_search #filters_search button {
+  width: 100%;
+  margin: 10px 0;
+}
+
 .admin_record_search .table {
   position: relative;
+}
+
+.admin_record_search .table thead {
+  display: none;
+}
+
+.admin_record_search .table tr {
+  border-bottom: 3px solid #ddd;
+  display: block;
+  margin-bottom: 0.625em;
+}
+
+.admin_record_search .table td {
+  border-bottom: 1px solid #ddd;
+  display: block;
+  text-align: right;
+}
+
+.admin_record_search .table td::before {
+  content: attr(data-label);
+  float: left;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .admin_record_search .table .no-result {
@@ -11396,6 +11434,45 @@ select.form__field:disabled {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+@media only screen and (min-width: 600px) {
+  .admin_record_search .table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  .admin_record_search .table thead {
+    display: table-header-group;
+  }
+
+  .admin_record_search .table tr {
+    display: table-row;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 0.35em;
+  }
+
+  .admin_record_search .table td::before {
+    content: none;
+  }
+
+  .admin_record_search .table th,
+  .admin_record_search .table td {
+    padding: 0.625em;
+    text-align: center;
+    display: table-cell;
+  }
+
+  .admin_record_search .table th {
+    font-size: 0.85em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
 }
 
 .admin_record_index .fieldset-separator {

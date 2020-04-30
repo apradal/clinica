@@ -12531,6 +12531,26 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes'],
   data: function data() {
@@ -51013,190 +51033,221 @@ var render = function() {
         on: { submit: _vm.submitForm }
       },
       [
-        _c("span", [_vm._v("Filtros de búsqueda:")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filter.name,
-                expression: "filter.name"
-              }
-            ],
-            staticClass: "form-text",
-            attrs: {
-              id: "name",
-              name: "name",
-              placeholder: "Nombre",
-              autocomplete: "off"
-            },
-            domProps: { value: _vm.filter.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.filter, "name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filter.surname,
-                expression: "filter.surname"
-              }
-            ],
-            staticClass: "form-text",
-            attrs: {
-              id: "surname",
-              name: "surname",
-              placeholder: "Apellido",
-              autocomplete: "off"
-            },
-            domProps: { value: _vm.filter.surname },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.filter, "surname", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filter.email,
-                expression: "filter.email"
-              }
-            ],
-            staticClass: "form-text",
-            attrs: {
-              id: "email",
-              name: "email",
-              placeholder: "Email",
-              autocomplete: "off"
-            },
-            domProps: { value: _vm.filter.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.filter, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filter.nif,
-                expression: "filter.nif"
-              }
-            ],
-            staticClass: "form-text",
-            attrs: {
-              id: "nif",
-              name: "nif",
-              placeholder: "Dni",
-              autocomplete: "off"
-            },
-            domProps: { value: _vm.filter.nif },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.filter, "nif", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.filter.phone,
-                expression: "filter.phone"
-              }
-            ],
-            staticClass: "form-text",
-            attrs: {
-              id: "phone",
-              name: "phone",
-              placeholder: "Teléfono",
-              autocomplete: "off"
-            },
-            domProps: { value: _vm.filter.phone },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.filter, "phone", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filter.pager,
-                  expression: "filter.pager"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { name: "pager", id: "pager" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.filter,
-                    "pager",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            _vm._l(_vm.pagerOptions, function(option) {
-              return _c("option", { domProps: { value: option.value } }, [
-                _vm._v(_vm._s(option.text))
+        _c(
+          "div",
+          { staticClass: "row flex", attrs: { id: "filters_search" } },
+          [
+            _c("div", { staticClass: "col-12 col-md-8 row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.name,
+                      expression: "filter.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "name",
+                    name: "name",
+                    placeholder: "Nombre",
+                    autocomplete: "off"
+                  },
+                  domProps: { value: _vm.filter.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.surname,
+                      expression: "filter.surname"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "surname",
+                    name: "surname",
+                    placeholder: "Apellido",
+                    autocomplete: "off"
+                  },
+                  domProps: { value: _vm.filter.surname },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "surname", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.email,
+                      expression: "filter.email"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "email",
+                    name: "email",
+                    placeholder: "Email",
+                    autocomplete: "off"
+                  },
+                  domProps: { value: _vm.filter.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "email", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.nif,
+                      expression: "filter.nif"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "nif",
+                    name: "nif",
+                    placeholder: "Dni",
+                    autocomplete: "off"
+                  },
+                  domProps: { value: _vm.filter.nif },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "nif", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 col-md-4" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.filter.phone,
+                      expression: "filter.phone"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    id: "phone",
+                    name: "phone",
+                    placeholder: "Teléfono",
+                    autocomplete: "off"
+                  },
+                  domProps: { value: _vm.filter.phone },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.filter, "phone", $event.target.value)
+                    }
+                  }
+                })
               ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            { attrs: { type: "submit" } },
-            [_c("font-awesome-icon", { attrs: { icon: "search" } })],
-            1
-          )
-        ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-12 col-md-4 row" }, [
+              _c("div", { staticClass: "col-12" }, [
+                _c("label", { attrs: { for: "pager" } }, [
+                  _vm._v("Resultados por página")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.filter.pager,
+                        expression: "filter.pager"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "pager", id: "pager" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.filter,
+                          "pager",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  _vm._l(_vm.pagerOptions, function(option) {
+                    return _c("option", { domProps: { value: option.value } }, [
+                      _vm._v(_vm._s(option.text))
+                    ])
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "dark-white-btn", attrs: { type: "submit" } },
+                  [
+                    _vm._v("Buscar "),
+                    _c("font-awesome-icon", { attrs: { icon: "search" } })
+                  ],
+                  1
+                )
+              ])
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "button",
@@ -51231,7 +51282,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("table", { staticClass: "table table-hover" }, [
-          _vm._m(0),
+          _vm._m(1),
           _vm._v(" "),
           _c(
             "tbody",
@@ -51275,17 +51326,27 @@ var render = function() {
               _vm._l(_vm.patients, function(patient) {
                 return [
                   _c("tr", [
-                    _c("th", { attrs: { scope: "row" } }, [
-                      _vm._v(_vm._s(patient.name))
+                    _c(
+                      "td",
+                      { attrs: { "data-label": "Nombre", scope: "row" } },
+                      [_vm._v(_vm._s(patient.name))]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { attrs: { "data-label": "Apellidos" } }, [
+                      _vm._v(_vm._s(patient.surname))
                     ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.surname))]),
+                    _c("td", { attrs: { "data-label": "Dni" } }, [
+                      _vm._v(_vm._s(patient.nif))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.nif))]),
+                    _c("td", { attrs: { "data-label": "Email" } }, [
+                      _vm._v(_vm._s(patient.email))
+                    ]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.email))]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(patient.phone))]),
+                    _c("td", { attrs: { "data-label": "Teléfono" } }, [
+                      _vm._v(_vm._s(patient.phone))
+                    ]),
                     _vm._v(" "),
                     _c("td", [
                       _c(
@@ -51297,9 +51358,14 @@ var render = function() {
                             domProps: { value: patient.id }
                           }),
                           _vm._v(" "),
-                          _c("button", { attrs: { type: "submit" } }, [
-                            _vm._v("Ir a Historia")
-                          ])
+                          _c(
+                            "button",
+                            {
+                              staticClass: "dark-white-btn",
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Ir a Historia")]
+                          )
                         ]
                       )
                     ])
@@ -51315,6 +51381,14 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12" }, [
+      _c("span", [_vm._v("Filtros de búsqueda")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

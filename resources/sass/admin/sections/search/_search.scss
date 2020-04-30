@@ -1,5 +1,36 @@
 .admin_record_search {
+  #filters_search {
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    input {
+      width: 100%;
+    }
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
   .table {
+    thead {
+      display: none;
+    }
+    tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      text-align: right;
+      &::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
     position: relative;
     .no-result {
       padding: 100px 0;
@@ -9,6 +40,43 @@
       position: absolute;
       top: 50%;
       left: 50%
+    }
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .admin_record_search {
+    .table {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      table-layout: fixed;
+      thead {
+        display: table-header-group;
+      }
+      tr {
+        display: table-row;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .35em;
+      }
+      td {
+        &::before {
+          content: none;
+        }
+      }
+      th, td {
+        padding: .625em;
+        text-align: center;
+        display: table-cell;
+      }
+      th {
+        font-size: .85em;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
     }
   }
 }

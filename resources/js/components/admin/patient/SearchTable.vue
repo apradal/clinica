@@ -1,17 +1,37 @@
 <template>
     <div>
         <form :action="routes.add" v-on:submit="submitForm" ref="form" method="get">
-            <span>Filtros de búsqueda:</span>
-            <div class="flex">
-                <input v-model="filter.name" class="form-text" id="name" name="name" placeholder="Nombre" autocomplete="off"/>
-                <input v-model="filter.surname" class="form-text" id="surname" name="surname" placeholder="Apellido" autocomplete="off"/>
-                <input v-model="filter.email" class="form-text" id="email" name="email" placeholder="Email" autocomplete="off"/>
-                <input v-model="filter.nif" class="form-text" id="nif" name="nif" placeholder="Dni" autocomplete="off"/>
-                <input v-model="filter.phone" class="form-text" id="phone" name="phone" placeholder="Teléfono" autocomplete="off"/>
-                <select v-model="filter.pager" class="form-control" name="pager" id="pager">
-                    <option v-for="option in pagerOptions" v-bind:value="option.value">{{option.text}}</option>
-                </select>
-                <button type="submit"><font-awesome-icon icon="search"/></button>
+            <div id="filters_search" class="row flex">
+                <div class="col-12 col-md-8 row">
+                    <div class="col-12">
+                        <span>Filtros de búsqueda</span>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input class="form-control" v-model="filter.name" id="name" name="name" placeholder="Nombre" autocomplete="off"/>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input class="form-control" v-model="filter.surname" id="surname" name="surname" placeholder="Apellido" autocomplete="off"/>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input class="form-control" v-model="filter.email" id="email" name="email" placeholder="Email" autocomplete="off"/>
+                    </div>
+                    <div class="col-12 col-md-4"></div>
+                    <div class="col-12 col-md-4">
+                        <input class="form-control" v-model="filter.nif" id="nif" name="nif" placeholder="Dni" autocomplete="off"/>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <input class="form-control" v-model="filter.phone" id="phone" name="phone" placeholder="Teléfono" autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 row">
+                    <div class="col-12">
+                        <label for="pager">Resultados por página</label>
+                        <select v-model="filter.pager" class="form-control" name="pager" id="pager">
+                            <option v-for="option in pagerOptions" v-bind:value="option.value">{{option.text}}</option>
+                        </select>
+                        <button type="submit" class="dark-white-btn">Buscar <font-awesome-icon icon="search"/></button>
+                    </div>
+                </div>
             </div>
             <button v-show="prevPage" v-on:click="getPrevPage">Anterior página</button>
             <button v-show="nextPage" v-on:click="getNextPage">Siguiente página</button>
@@ -35,15 +55,15 @@
                     </tr>
                     <template v-for="patient in patients">
                         <tr>
-                            <th scope="row">{{patient.name}}</th>
-                            <td>{{patient.surname}}</td>
-                            <td>{{patient.nif}}</td>
-                            <td>{{patient.email}}</td>
-                            <td>{{patient.phone}}</td>
+                            <td data-label="Nombre" scope="row">{{patient.name}}</td>
+                            <td data-label="Apellidos">{{patient.surname}}</td>
+                            <td data-label="Dni">{{patient.nif}}</td>
+                            <td data-label="Email">{{patient.email}}</td>
+                            <td data-label="Teléfono">{{patient.phone}}</td>
                             <td>
                                 <form method="get" :action="routes.record">
                                     <input type="hidden" name="id" :value="patient.id">
-                                    <button type="submit">Ir a Historia</button>
+                                    <button type="submit" class="dark-white-btn">Ir a Historia</button>
                                 </form>
                             </td>
                         </tr>
