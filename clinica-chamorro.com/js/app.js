@@ -12551,6 +12551,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['routes'],
   data: function data() {
@@ -51188,97 +51194,125 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-12 col-md-4 row" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("label", { attrs: { for: "pager" } }, [
-                  _vm._v("Resultados por página")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.filter.pager,
-                        expression: "filter.pager"
+            _c(
+              "div",
+              {
+                staticClass: "col-12 col-md-4 row",
+                attrs: { id: "pagination" }
+              },
+              [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("label", { attrs: { for: "pager" } }, [
+                    _vm._v("Resultados por página")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.filter.pager,
+                          expression: "filter.pager"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "pager", id: "pager" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.filter,
+                            "pager",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
                       }
+                    },
+                    _vm._l(_vm.pagerOptions, function(option) {
+                      return _c(
+                        "option",
+                        { domProps: { value: option.value } },
+                        [_vm._v(_vm._s(option.text))]
+                      )
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn col-12",
+                      attrs: { type: "submit" }
+                    },
+                    [
+                      _vm._v("Buscar "),
+                      _c("font-awesome-icon", { attrs: { icon: "search" } })
                     ],
-                    staticClass: "form-control",
-                    attrs: { name: "pager", id: "pager" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.filter,
-                          "pager",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  _vm._l(_vm.pagerOptions, function(option) {
-                    return _c("option", { domProps: { value: option.value } }, [
-                      _vm._v(_vm._s(option.text))
-                    ])
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  { staticClass: "dark-white-btn", attrs: { type: "submit" } },
-                  [
-                    _vm._v("Buscar "),
-                    _c("font-awesome-icon", { attrs: { icon: "search" } })
-                  ],
-                  1
-                )
-              ])
-            ])
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex arrows" }, [
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.prevPage,
+                            expression: "prevPage"
+                          }
+                        ],
+                        staticClass: "dark-white-btn",
+                        on: { click: _vm.getPrevPage }
+                      },
+                      [
+                        _vm._v("\n                            Anterior "),
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "angle-double-left" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.nextPage,
+                            expression: "nextPage"
+                          }
+                        ],
+                        staticClass: "dark-white-btn",
+                        on: { click: _vm.getNextPage }
+                      },
+                      [
+                        _vm._v("\n                            Siguiente "),
+                        _c("font-awesome-icon", {
+                          attrs: { icon: "angle-double-right" }
+                        })
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ]
+            )
           ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.prevPage,
-                expression: "prevPage"
-              }
-            ],
-            on: { click: _vm.getPrevPage }
-          },
-          [_vm._v("Anterior página")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.nextPage,
-                expression: "nextPage"
-              }
-            ],
-            on: { click: _vm.getNextPage }
-          },
-          [_vm._v("Siguiente página")]
         ),
         _vm._v(" "),
         _c("table", { staticClass: "table table-hover" }, [

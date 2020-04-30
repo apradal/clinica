@@ -11032,7 +11032,6 @@ select.form__field:disabled {
   border: 0;
   border-bottom: 2px solid #9b9b9b;
   outline: 0;
-  font-size: 1.3rem;
   color: #495057;
   padding: 5px 0 7px;
   background: #ffffff;
@@ -11212,6 +11211,10 @@ select.form__field:disabled {
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
   transform: scale(1.1);
+}
+
+.admin_record_index input {
+  padding: 12px 0 10px;
 }
 
 .admin_record_index .show-form {
@@ -11394,8 +11397,11 @@ select.form__field:disabled {
 }
 
 .admin_record_search #filters_search button {
-  width: 100%;
   margin: 10px 0;
+}
+
+.admin_record_search #filters_search #pagination .arrows {
+  justify-content: space-between;
 }
 
 .admin_record_search .table {

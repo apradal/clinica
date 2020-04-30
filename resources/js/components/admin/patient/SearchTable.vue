@@ -23,18 +23,24 @@
                         <input class="form-control" v-model="filter.phone" id="phone" name="phone" placeholder="Teléfono" autocomplete="off"/>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 row">
+                <div id="pagination" class="col-12 col-md-4 row">
                     <div class="col-12">
                         <label for="pager">Resultados por página</label>
                         <select v-model="filter.pager" class="form-control" name="pager" id="pager">
                             <option v-for="option in pagerOptions" v-bind:value="option.value">{{option.text}}</option>
                         </select>
-                        <button type="submit" class="dark-white-btn">Buscar <font-awesome-icon icon="search"/></button>
+                        <button type="submit" class="dark-white-btn col-12">Buscar <font-awesome-icon icon="search"/></button>
+                        <div class="flex arrows">
+                            <button v-show="prevPage" class="dark-white-btn" v-on:click="getPrevPage">
+                                Anterior <font-awesome-icon icon="angle-double-left" />
+                            </button>
+                            <button v-show="nextPage" class="dark-white-btn" v-on:click="getNextPage">
+                                Siguiente <font-awesome-icon icon="angle-double-right" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button v-show="prevPage" v-on:click="getPrevPage">Anterior página</button>
-            <button v-show="nextPage" v-on:click="getNextPage">Siguiente página</button>
             <table class="table table-hover">
                 <thead>
                     <tr>
