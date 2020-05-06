@@ -11514,8 +11514,16 @@ select.form__field:disabled {
   padding: 20px;
 }
 
-.admin_user_index .new_user_container button {
+.admin_user_index .new_user_container button[type=submit] {
   width: 100%;
   margin-top: 20px;
+}
+
+.admin_user_index .new_user_container .form__group {
+  flex-direction: column;
+}
+
+.admin_user_index .new_user_container .form__group #password {
+  padding: 12px 0 10px;
 }
 

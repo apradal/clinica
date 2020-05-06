@@ -7,9 +7,15 @@
   }
   .new_user_container {
     padding: 20px;
-    button {
+    button[type=submit] {
       width: 100%;
       margin-top: 20px;
+    }
+    .form__group {
+      flex-direction: column;
+      #password {
+        padding: 12px 0 10px;
+      }
     }
   }
 }

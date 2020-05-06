@@ -13225,6 +13225,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../generic/mixins/FormValidator */ "./resources/js/components/generic/mixins/FormValidator.vue");
 //
 //
 //
@@ -13252,14 +13253,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route'],
   data: function data() {
     return {
-      user: []
+      alertSuccess: false,
+      alertError: false,
+      passwordIcon: 'eye',
+      user: {
+        name: null,
+        email: null,
+        password: null,
+        role: 'general'
+      },
+      selectOptions: [{
+        text: 'General',
+        value: 'general'
+      }, {
+        text: 'Administrador',
+        value: 'administrator'
+      }]
     };
   },
-  methods: {}
+  methods: {
+    formSubmit: function formSubmit(event) {
+      event.preventDefault();
+      var self = this;
+
+      if (_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validate(this.$refs.form)) {
+        axios.post(event.target.getAttribute('action'), this.user).then(function (response) {
+          console.log(response);
+
+          if (response.data.error) {
+            self.$refs.alertError.innerHTML = response.data.message;
+            self.alertError = true;
+            setTimeout(function () {
+              return self.alertError = false;
+            }, 3000);
+          } else {
+            self.$refs.alertSuccess.innerText = response.data.message;
+            self.alertSuccess = true;
+            setTimeout(function () {
+              return self.alertSuccess = false;
+            }, 3000);
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    showPassword: function showPassword(dataTarget) {
+      var elmt = this.$refs[dataTarget];
+
+      if (elmt !== undefined) {
+        elmt.setAttribute('type', 'text');
+        this.passwordIcon = 'eye-slash';
+      }
+    },
+    hidePassword: function hidePassword(dataTarget) {
+      var elmt = this.$refs[dataTarget];
+
+      if (elmt !== undefined) {
+        elmt.setAttribute('type', 'password');
+        this.passwordIcon = 'eye';
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -53307,96 +53378,105 @@ var render = function() {
           _c("div", { staticClass: "new_user_container" }, [
             _c("h2", [_vm._v("Usuario")]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                ref: "emailEditable",
-                staticClass: "form__group flex flex-baseline"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.name,
-                      expression: "user.name"
-                    }
-                  ],
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "text",
-                    id: "name",
-                    name: "name",
-                    placeholder: "Nombre"
-                  },
-                  domProps: { value: _vm.user.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "name", $event.target.value)
-                    }
+            _c("div", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.alertSuccess,
+                  expression: "alertSuccess"
+                }
+              ],
+              ref: "alertSuccess",
+              staticClass: "col-12 alert alert-success"
+            }),
+            _vm._v(" "),
+            _c("div", {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.alertError,
+                  expression: "alertError"
+                }
+              ],
+              ref: "alertError",
+              staticClass: "col-12 alert alert-danger"
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "form__group flex flex-baseline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.name,
+                    expression: "user.name"
                   }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "name" } },
-                  [_vm._v("Nombre")]
-                )
-              ]
-            ),
+                ],
+                staticClass: "form__field form-required",
+                attrs: {
+                  type: "text",
+                  id: "name",
+                  name: "name",
+                  placeholder: "Nombre"
+                },
+                domProps: { value: _vm.user.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "name", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "form__label", attrs: { for: "name" } },
+                [_vm._v("Nombre")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form__group flex flex-baseline" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.email,
+                    expression: "user.email"
+                  }
+                ],
+                staticClass: "form__field form-required",
+                attrs: {
+                  type: "email",
+                  id: "email",
+                  name: "email",
+                  placeholder: "Email"
+                },
+                domProps: { value: _vm.user.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "email", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "form__label", attrs: { for: "email" } },
+                [_vm._v("Email")]
+              )
+            ]),
             _vm._v(" "),
             _c(
               "div",
-              {
-                ref: "emailEditable",
-                staticClass: "form__group flex flex-baseline"
-              },
-              [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.user.email,
-                      expression: "user.email"
-                    }
-                  ],
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "email",
-                    id: "email",
-                    name: "email",
-                    placeholder: "Email"
-                  },
-                  domProps: { value: _vm.user.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.user, "email", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "email" } },
-                  [_vm._v("Email")]
-                )
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                ref: "emailEditable",
-                staticClass: "form__group flex flex-baseline"
-              },
+              { staticClass: "form__group flex flex-baseline flex-row" },
               [
                 _c("input", {
                   directives: [
@@ -53407,9 +53487,10 @@ var render = function() {
                       expression: "user.password"
                     }
                   ],
-                  staticClass: "form__field",
+                  ref: "password",
+                  staticClass: "form__field form-required",
                   attrs: {
-                    type: "text",
+                    type: "password",
                     id: "password",
                     name: "password",
                     placeholder: "Contraseña"
@@ -53429,9 +53510,88 @@ var render = function() {
                   "label",
                   { staticClass: "form__label", attrs: { for: "password" } },
                   [_vm._v("Contraseña")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      mousedown: function($event) {
+                        return _vm.showPassword("password")
+                      },
+                      mouseup: function($event) {
+                        return _vm.hidePassword("password")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: _vm.passwordIcon },
+                      on: {
+                        mousedown: function($event) {
+                          return _vm.showPassword("password")
+                        },
+                        mouseup: function($event) {
+                          return _vm.hidePassword("password")
+                        }
+                      }
+                    })
+                  ],
+                  1
                 )
               ]
             ),
+            _vm._v(" "),
+            _c("div", { staticClass: "form__group flex flex-baseline" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.role,
+                      expression: "user.role"
+                    }
+                  ],
+                  staticClass: "form__field form-required",
+                  attrs: { name: "role", id: "role" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.user,
+                        "role",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.selectOptions, function(option) {
+                  return _c("option", { domProps: { value: option.value } }, [
+                    _vm._v(_vm._s(option.text))
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "form__label", attrs: { for: "role" } },
+                [_vm._v("Rol")]
+              )
+            ]),
             _vm._v(" "),
             _c(
               "button",
