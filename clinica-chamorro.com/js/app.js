@@ -12267,6 +12267,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData'],
@@ -12280,6 +12295,8 @@ __webpack_require__.r(__webpack_exports__);
       alertError: false,
       patient: {
         id: this.patientData.id,
+        name: this.patientData.name,
+        surname: this.patientData.surname,
         email: this.patientData.email,
         birth_year: this.patientData.birth_year,
         phone: this.patientData.phone,
@@ -13396,12 +13413,12 @@ __webpack_require__.r(__webpack_exports__);
       if ((this.dateInputs = this.form.querySelectorAll(this.dateClass)).length > 0) {
         var self = this;
         this.dateInputs.forEach(function (el, idx) {
-          console.log(el);
+          if (el.value.length > 0) {
+            if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
+              _this2.validated = false;
 
-          if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
-            _this2.validated = false;
-
-            self._printRequired(el, _this2.dateMsg);
+              self._printRequired(el, _this2.dateMsg);
+            }
           }
         });
       }
@@ -50214,6 +50231,144 @@ var render = function() {
             staticClass: "row"
           },
           [
+            _c(
+              "div",
+              {
+                ref: "nameEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.name,
+                      expression: "patient.name"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    id: "name",
+                    name: "name",
+                    placeholder: "Nombre",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.patient.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "name" } },
+                  [_vm._v("Nombre")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("nameEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("nameEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                ref: "surnameEditable",
+                staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.surname,
+                      expression: "patient.surname"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    id: "surname",
+                    name: "surname",
+                    placeholder: "Apellidos",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.patient.surname },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.patient, "surname", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "surname" } },
+                  [_vm._v("Apellidos")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "dark-white-btn-icon",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        return _vm.edit("surnameEditable")
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      attrs: { icon: "edit" },
+                      on: {
+                        click: function($event) {
+                          return _vm.edit("surnameEditable")
+                        }
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "col-12 col-md-4 form__group flex flex-baseline"
+            }),
+            _vm._v(" "),
             _c(
               "div",
               {

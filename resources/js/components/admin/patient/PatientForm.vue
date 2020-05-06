@@ -5,6 +5,21 @@
             <div class="col-12 alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
             <div class="col-12 alert alert-danger" ref="alertError" v-show="alertError"></div>
             <div class="row" v-show="showForm">
+                <div class="col-12 col-md-4 form__group flex flex-baseline" ref="nameEditable">
+                    <input type="text" v-model="patient.name" id="name" class="form__field" name="name" placeholder="Nombre" readonly/>
+                    <label class="form__label" for="name">Nombre</label>
+                    <button type="button" class="dark-white-btn-icon" v-on:click="edit('nameEditable')">
+                        <font-awesome-icon icon="edit" v-on:click="edit('nameEditable')" />
+                    </button>
+                </div>
+                <div class="col-12 col-md-4 form__group flex flex-baseline" ref="surnameEditable">
+                    <input type="text" v-model="patient.surname" id="surname" class="form__field" name="surname" placeholder="Apellidos" readonly/>
+                    <label class="form__label" for="surname">Apellidos</label>
+                    <button type="button" class="dark-white-btn-icon" v-on:click="edit('surnameEditable')">
+                        <font-awesome-icon icon="edit" v-on:click="edit('surnameEditable')" />
+                    </button>
+                </div>
+                <div class="col-12 col-md-4 form__group flex flex-baseline"></div>
                 <div class="col-12 col-md-4 form__group flex flex-baseline" ref="emailEditable">
                     <input type="email" v-model="patient.email" id="email" class="form__field" name="email" placeholder="Email" readonly/>
                     <label class="form__label" for="email">Email</label>
@@ -95,6 +110,8 @@
                 alertError: false,
                 patient: {
                     id: this.patientData.id,
+                    name: this.patientData.name,
+                    surname: this.patientData.surname,
                     email: this.patientData.email,
                     birth_year: this.patientData.birth_year,
                     phone: this.patientData.phone,

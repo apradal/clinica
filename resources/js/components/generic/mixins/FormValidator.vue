@@ -46,10 +46,11 @@
                     let self = this;
 
                     this.dateInputs.forEach((el, idx) => {
-                        console.log(el)
-                        if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
-                            this.validated = false;
-                            self._printRequired(el, this.dateMsg)
+                        if (el.value.length > 0) {
+                            if (!el.value.match(/^\d{4}\-\d{1,2}\-\d{1,2}$/g)) {
+                                this.validated = false;
+                                self._printRequired(el, this.dateMsg)
+                            }
                         }
                     });
                 }
