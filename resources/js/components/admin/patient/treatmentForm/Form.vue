@@ -10,14 +10,14 @@
                 <textarea v-model="treatment.description" v-on:keyup="textAreaAdjust"
                           class="form__field" name="description" :readonly="!this.new"></textarea>
                 <div class="flex flex-column btns-wrapper">
-                    <button type="button" v-show="!this.new" v-on:click="openModal" class="dark-white-btn-icon">
-                        <font-awesome-icon icon="trash-alt" v-on:click="openModal" />
+                    <button type="submit" v-show="showBtn" class="dark-white-btn-icon">
+                        <font-awesome-icon icon="save" />
                     </button>
                     <button type="button" v-show="!this.new" class="dark-white-btn-icon" v-on:click="edit('treatmentEditable')">
                         <font-awesome-icon icon="edit" v-on:click="edit('treatmentEditable')" />
                     </button>
-                    <button type="submit" v-show="showBtn" class="dark-white-btn-icon">
-                        <font-awesome-icon icon="save" />
+                    <button type="button" v-show="!this.new" v-on:click="openModal" class="dark-white-btn-icon">
+                        <font-awesome-icon icon="trash-alt" v-on:click="openModal" />
                     </button>
                 </div>
             </div>

@@ -6,7 +6,6 @@
                 <div class="col-12 col-md-2 date-order form__group" v-on:click="orderByDate">
                     <button type="button" class="dark-white-btn">Fecha
                         <font-awesome-icon :icon="arrowIcon"/></button>
-
                 </div>
                 <div class="col-12 col-md-10 form__group">Descripción</div>
             </div>

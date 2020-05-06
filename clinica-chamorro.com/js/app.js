@@ -12739,7 +12739,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
-//
 //since vue cant handle collections, create model outside
 var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
@@ -12949,6 +12948,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -51959,20 +51962,14 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: !this.new,
-                      expression: "!this.new"
+                      value: _vm.showBtn,
+                      expression: "showBtn"
                     }
                   ],
                   staticClass: "dark-white-btn-icon",
-                  attrs: { type: "button" },
-                  on: { click: _vm.openModal }
+                  attrs: { type: "submit" }
                 },
-                [
-                  _c("font-awesome-icon", {
-                    attrs: { icon: "trash-alt" },
-                    on: { click: _vm.openModal }
-                  })
-                ],
+                [_c("font-awesome-icon", { attrs: { icon: "save" } })],
                 1
               ),
               _vm._v(" "),
@@ -52015,14 +52012,20 @@ var render = function() {
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.showBtn,
-                      expression: "showBtn"
+                      value: !this.new,
+                      expression: "!this.new"
                     }
                   ],
                   staticClass: "dark-white-btn-icon",
-                  attrs: { type: "submit" }
+                  attrs: { type: "button" },
+                  on: { click: _vm.openModal }
                 },
-                [_c("font-awesome-icon", { attrs: { icon: "save" } })],
+                [
+                  _c("font-awesome-icon", {
+                    attrs: { icon: "trash-alt" },
+                    on: { click: _vm.openModal }
+                  })
+                ],
                 1
               )
             ])
@@ -52102,38 +52105,42 @@ var render = function() {
         _c("div", { staticClass: "modal-container" }, [
           _c(
             "div",
-            { staticClass: "modal-body" },
+            { staticClass: "modal-body flex flex-column" },
             [
               _vm._t("body", [
-                _c("p", [
-                  _vm._v("¿Estás seguro de eliminar este tratamiento?")
+                _c("div", [
+                  _c("p", [
+                    _vm._v("¿Estás seguro de eliminar este tratamiento?")
+                  ])
                 ]),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "modal-default-button",
-                    on: {
-                      click: function($event) {
-                        return _vm.$emit("closeModal", true)
+                _c("div", { staticClass: "flex btn-container" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.$emit("closeModal", true)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("Si")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "modal-default-button",
-                    on: {
-                      click: function($event) {
-                        return _vm.$emit("closeModal", false)
+                    },
+                    [_vm._v("Si")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "dark-white-btn",
+                      on: {
+                        click: function($event) {
+                          return _vm.$emit("closeModal", false)
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("No")]
-                )
+                    },
+                    [_vm._v("No")]
+                  )
+                ])
               ])
             ],
             2

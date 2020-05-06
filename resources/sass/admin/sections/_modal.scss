@@ -33,6 +33,9 @@
 
 .modal-body {
   margin: 20px 0;
+  .btn-container {
+    justify-content: space-around;
+  }
 }
 
 .modal-default-button {

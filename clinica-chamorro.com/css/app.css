@@ -11197,6 +11197,10 @@ select.form__field:disabled {
   margin: 20px 0;
 }
 
+.modal-body .btn-container {
+  justify-content: space-around;
+}
+
 .modal-default-button {
   float: right;
 }
