@@ -12175,6 +12175,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../generic/mixins/FormValidator */ "./resources/js/components/generic/mixins/FormValidator.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['route', 'patientData'],
+  mixins: [_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      showModal: false,
+      modalWidth: '90%',
+      appointment: {
+        date: null,
+        description: null
+      }
+    };
+  },
+  methods: {
+    openModal: function openModal() {
+      this.showModal = true;
+    },
+    textAreaAdjust: function textAreaAdjust(event) {
+      if (event.target.scrollHeight >= 58) event.target.style.height = event.target.scrollHeight + "px";
+    },
+    formSubmit: function formSubmit(event) {
+      event.preventDefault();
+      var self = this;
+      console.log(this.appointment);
+      if (_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validate(this.$refs.form)) event.target.submit();
+    },
+    calculateModalWidth: function calculateModalWidth() {
+      var viewport = document.documentElement.clientWidth;
+
+      if (viewport > 720) {
+        this.modalWidth = '70%';
+      } else if (viewport > 1020) {
+        this.modalWidth = '50%';
+      } else if (viewport > 1220) {
+        this.modalWidth = '30%';
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.calculateModalWidth();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/PatientForm.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/PatientForm.vue?vue&type=script&lang=js& ***!
@@ -12739,6 +12827,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //since vue cant handle collections, create model outside
 var TreatmentModel = function TreatmentModel(id, date, description, patientId) {
   var isNew = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
@@ -12948,6 +13045,14 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 //
 //
 //
@@ -12963,14 +13068,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['styles'],
+  data: function data() {
+    return {
+      css: ''
+    };
+  },
+  methods: {
+    prepareStyles: function prepareStyles() {
+      var _this = this;
+
+      //foreach Json
+      Object.entries(this.styles).forEach(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            key = _ref2[0],
+            value = _ref2[1];
+
+        _this.css += key + ':' + value + ';';
+      });
+    }
+  },
+  mounted: function mounted() {
+    if (this.styles !== undefined) this.prepareStyles();
+  }
+});
 
 /***/ }),
 
@@ -50168,6 +50290,174 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "button",
+      {
+        staticClass: "dark-white-btn-icon",
+        attrs: { type: "button", id: "new-appointment-btn" },
+        on: { click: _vm.openModal }
+      },
+      [
+        _vm._v("\n        Nueva Cita "),
+        _c("font-awesome-icon", { attrs: { icon: "calendar-check" } })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        ref: "form",
+        attrs: { action: this.route, method: "post" },
+        on: { submit: _vm.formSubmit }
+      },
+      [
+        _vm.showModal
+          ? _c(
+              "GenericModal",
+              { attrs: { styles: { width: "500px" } } },
+              [
+                _c("template", { slot: "close" }, [
+                  _c(
+                    "div",
+                    { staticClass: "close-icon-modal click-icon" },
+                    [
+                      _c("font-awesome-icon", {
+                        attrs: { icon: "times" },
+                        on: {
+                          click: function($event) {
+                            _vm.showModal = false
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
+                _c("template", { slot: "body" }, [
+                  _c("div", { staticClass: "col-12 form__group" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.appointment.date,
+                          expression: "appointment.date"
+                        }
+                      ],
+                      staticClass: "form__field form-date form-required",
+                      attrs: {
+                        type: "date",
+                        id: "date",
+                        name: "date",
+                        placeholder: "Fecha"
+                      },
+                      domProps: { value: _vm.appointment.date },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.appointment, "date", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "form__label", attrs: { for: "date" } },
+                      [_vm._v("Fecha")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 form__group" }, [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.appointment.description,
+                          expression: "appointment.description"
+                        }
+                      ],
+                      staticClass: "form__field form-required",
+                      attrs: {
+                        id: "description",
+                        placeholder: "Descripción",
+                        name: "description"
+                      },
+                      domProps: { value: _vm.appointment.description },
+                      on: {
+                        keyup: _vm.textAreaAdjust,
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.appointment,
+                            "description",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form__label",
+                        attrs: { for: "description" }
+                      },
+                      [_vm._v("Descripción")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt_20" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex btn-container" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "dark-white-btn",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Guardar")]
+                    )
+                  ])
+                ])
+              ],
+              2
+            )
+          : _vm._e()
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/PatientForm.vue?vue&type=template&id=4885bb44&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/PatientForm.vue?vue&type=template&id=4885bb44& ***!
@@ -51826,7 +52116,47 @@ var render = function() {
       { staticClass: "col-12" },
       [
         _vm.showModal
-          ? _c("TreamtentModal", { on: { closeModal: _vm.removeForm } })
+          ? _c(
+              "GenericModal",
+              [
+                _c("template", { slot: "body" }, [
+                  _c("div", [
+                    _c("p", [
+                      _vm._v("¿Estás seguro de eliminar este tratamiento?")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex btn-container" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "dark-white-btn",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeForm(true)
+                          }
+                        }
+                      },
+                      [_vm._v("Si")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "dark-white-btn",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeForm(false)
+                          }
+                        }
+                      },
+                      [_vm._v("No")]
+                    )
+                  ])
+                ])
+              ],
+              2
+            )
           : _vm._e()
       ],
       1
@@ -52102,50 +52432,21 @@ var render = function() {
   return _c("transition", { attrs: { name: "modal" } }, [
     _c("div", { staticClass: "modal-mask" }, [
       _c("div", { staticClass: "modal-wrapper" }, [
-        _c("div", { staticClass: "modal-container" }, [
-          _c(
-            "div",
-            { staticClass: "modal-body flex flex-column" },
-            [
-              _vm._t("body", [
-                _c("div", [
-                  _c("p", [
-                    _vm._v("¿Estás seguro de eliminar este tratamiento?")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex btn-container" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "dark-white-btn",
-                      on: {
-                        click: function($event) {
-                          return _vm.$emit("closeModal", true)
-                        }
-                      }
-                    },
-                    [_vm._v("Si")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "dark-white-btn",
-                      on: {
-                        click: function($event) {
-                          return _vm.$emit("closeModal", false)
-                        }
-                      }
-                    },
-                    [_vm._v("No")]
-                  )
-                ])
-              ])
-            ],
-            2
-          )
-        ])
+        _c(
+          "div",
+          { staticClass: "modal-container", style: this.css },
+          [
+            _vm._t("close"),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-body flex flex-column" },
+              [_vm._t("body")],
+              2
+            )
+          ],
+          2
+        )
       ])
     ])
   ])
@@ -65984,6 +66285,7 @@ module.exports = function(module) {
 
 var map = {
 	"./components/admin/patient/DiseasesForm.vue": "./resources/js/components/admin/patient/DiseasesForm.vue",
+	"./components/admin/patient/NewAppointment.vue": "./resources/js/components/admin/patient/NewAppointment.vue",
 	"./components/admin/patient/PatientForm.vue": "./resources/js/components/admin/patient/PatientForm.vue",
 	"./components/admin/patient/RecordForm.vue": "./resources/js/components/admin/patient/RecordForm.vue",
 	"./components/admin/patient/SearchTable.vue": "./resources/js/components/admin/patient/SearchTable.vue",
@@ -66065,11 +66367,12 @@ Vue.component('admin-patient-record-form', __webpack_require__(/*! ./components/
 Vue.component('admin-patient-diseases-form', __webpack_require__(/*! ./components/admin/patient/DiseasesForm.vue */ "./resources/js/components/admin/patient/DiseasesForm.vue")["default"]);
 Vue.component('admin-patient-treatment-form', __webpack_require__(/*! ./components/admin/patient/TreatmentForm.vue */ "./resources/js/components/admin/patient/TreatmentForm.vue")["default"]);
 Vue.component('TreamtentForm', __webpack_require__(/*! ./components/admin/patient/treatmentForm/Form.vue */ "./resources/js/components/admin/patient/treatmentForm/Form.vue")["default"]);
-Vue.component('TreamtentModal', __webpack_require__(/*! ./components/admin/patient/treatmentForm/ModalDelete.vue */ "./resources/js/components/admin/patient/treatmentForm/ModalDelete.vue")["default"]);
+Vue.component('GenericModal', __webpack_require__(/*! ./components/admin/patient/treatmentForm/ModalDelete.vue */ "./resources/js/components/admin/patient/treatmentForm/ModalDelete.vue")["default"]);
 Vue.component('admin-record-new-form', __webpack_require__(/*! ./components/admin/record/NewRecordForm.vue */ "./resources/js/components/admin/record/NewRecordForm.vue")["default"]);
 Vue.component('admin-patient-search-table', __webpack_require__(/*! ./components/admin/patient/SearchTable.vue */ "./resources/js/components/admin/patient/SearchTable.vue")["default"]);
 Vue.component('loader', __webpack_require__(/*! ./components/generic/Loader.vue */ "./resources/js/components/generic/Loader.vue")["default"]);
 Vue.component('admin-user-new-form', __webpack_require__(/*! ./components/admin/user/CreateForm.vue */ "./resources/js/components/admin/user/CreateForm.vue")["default"]);
+Vue.component('admin-patient-new-appointment', __webpack_require__(/*! ./components/admin/patient/NewAppointment.vue */ "./resources/js/components/admin/patient/NewAppointment.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -66191,6 +66494,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DiseasesForm_vue_vue_type_template_id_885824e0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DiseasesForm_vue_vue_type_template_id_885824e0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/NewAppointment.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/admin/patient/NewAppointment.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewAppointment.vue?vue&type=template&id=20b00254& */ "./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254&");
+/* harmony import */ var _NewAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewAppointment.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NewAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/patient/NewAppointment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewAppointment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewAppointment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NewAppointment.vue?vue&type=template&id=20b00254& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/NewAppointment.vue?vue&type=template&id=20b00254&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewAppointment_vue_vue_type_template_id_20b00254___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

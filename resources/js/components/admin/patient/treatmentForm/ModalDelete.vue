@@ -2,17 +2,10 @@
     <transition name="modal">
         <div class="modal-mask">
             <div class="modal-wrapper">
-                <div class="modal-container">
+                <div class="modal-container" :style=this.css>
+                    <slot name="close"/>
                     <div class="modal-body flex flex-column">
-                        <slot name="body">
-                            <div>
-                                <p>¿Estás seguro de eliminar este tratamiento?</p>
-                            </div>
-                            <div class="flex btn-container">
-                                <button class="dark-white-btn" @click="$emit('closeModal', true)">Si</button>
-                                <button class="dark-white-btn" @click="$emit('closeModal', false)">No</button>
-                            </div>
-                        </slot>
+                        <slot name="body"/>
                     </div>
                 </div>
             </div>
@@ -22,5 +15,22 @@
 
 <script>
     export default {
+        props: ['styles'],
+        data: function() {
+            return {
+                css: ''
+            }
+        },
+        methods: {
+            prepareStyles() {
+                //foreach Json
+                Object.entries(this.styles).forEach(([key, value]) => {
+                    this.css += key + ':' + value + ';';
+                });
+            }
+        },
+        mounted() {
+            if (this.styles !== undefined) this.prepareStyles();
+        }
     }
 </script>

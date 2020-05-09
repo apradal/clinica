@@ -26,8 +26,17 @@
         <div class="show-form" v-on:click="toggleForm"><span>{{showFormText}}</span></div>
 
         <div class="col-12">
-            <TreamtentModal v-if="showModal" v-on:closeModal="removeForm">
-            </TreamtentModal>
+            <GenericModal v-if="showModal">
+                <template slot="body">
+                    <div>
+                        <p>¿Estás seguro de eliminar este tratamiento?</p>
+                    </div>
+                    <div class="flex btn-container">
+                        <button class="dark-white-btn" v-on:click="removeForm(true)">Si</button>
+                        <button class="dark-white-btn" v-on:click="removeForm(false)">No</button>
+                    </div>
+                </template>
+            </GenericModal>
         </div>
     </div>
 </template>

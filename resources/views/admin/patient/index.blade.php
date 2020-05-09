@@ -13,7 +13,15 @@
                 @if(session('message'))
                     <div id="message" class="alert alert-success">{{session('message')}}</div>
                 @endif
-                <h1>{{$patient['name']}} {{$patient['surname']}}</h1>
+                    <div class="row">
+                        <h1 class="col-12 col-md-10">{{$patient['name']}} {{$patient['surname']}}</h1>
+                        <div class="col-12 col-md-2">
+                            <admin-patient-new-appointment
+                                :route="{{json_encode('misco')}}"
+                            >
+                            </admin-patient-new-appointment>
+                        </div>
+                    </div>
                 <!-- Patient -->
                 {{--//VUEEEE--}}
                 <admin-patient-patient-form

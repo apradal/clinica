@@ -10902,6 +10902,14 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.m_20 {
+  margin: 20px;
+}
+
+.mt_20 {
+  margin-top: 20px;
+}
+
 textarea {
   overflow: hidden;
   resize: none;
@@ -11160,6 +11168,19 @@ select.form__field:disabled {
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2), 0 0 5px 0 rgba(0, 0, 0, 0.19);
 }
 
+.click-icon {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.click-icon:hover {
+  transform: scale(1.2);
+}
+
+.click-icon:hover svg {
+  color: orange;
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -11175,6 +11196,11 @@ select.form__field:disabled {
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
+}
+
+.close-icon-modal {
+  float: right;
+  cursor: pointer;
 }
 
 .modal-container {
@@ -11529,5 +11555,9 @@ select.form__field:disabled {
 
 .admin_user_index .new_user_container .form__group #password {
   padding: 12px 0 10px;
+}
+
+#new-appointment-btn {
+  float: right;
 }
 
