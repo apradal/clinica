@@ -12217,17 +12217,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'patientData'],
   mixins: [_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
+      alertSuccess: false,
+      alertError: false,
       showModal: false,
       modalWidth: '90%',
       appointment: {
         date: null,
-        description: null
+        description: null,
+        patient_id: this.patientData.id
       }
     };
   },
@@ -12241,8 +12247,36 @@ __webpack_require__.r(__webpack_exports__);
     formSubmit: function formSubmit(event) {
       event.preventDefault();
       var self = this;
-      console.log(this.appointment);
-      if (_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validate(this.$refs.form)) event.target.submit();
+
+      if (_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"].methods.validate(this.$refs.form)) {
+        axios.post(event.target.getAttribute('action'), this.appointment).then(function (response) {
+          var data = response.data;
+
+          if (data.success) {
+            self.$refs.alertSuccess.innerText = data.message;
+            self.alertSuccess = true;
+            setTimeout(function () {
+              return self.alertSuccess = false;
+            }, 3000);
+          } else if (data.success === false) {
+            self.$refs.alertError.innerText = data.message;
+            self.alertError = true;
+            setTimeout(function () {
+              return self.alertError = false;
+            }, 3000);
+          }
+        })["catch"](function (error) {
+          var data = error.response.data;
+
+          if (data.error) {
+            self.$refs.alertError.innerText = data.message;
+            self.alertError = true;
+            setTimeout(function () {
+              return self.alertError = false;
+            }, 3000);
+          }
+        });
+      }
     },
     calculateModalWidth: function calculateModalWidth() {
       var viewport = document.documentElement.clientWidth;
@@ -12376,7 +12410,7 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_generic_mixins_FormValidator__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
-      showForm: false,
+      showForm: true,
       showFormText: 'Mostrar Información',
       showBtn: false,
       alertSuccess: false,
@@ -50352,6 +50386,32 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("template", { slot: "body" }, [
+                  _c("div", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.alertSuccess,
+                        expression: "alertSuccess"
+                      }
+                    ],
+                    ref: "alertSuccess",
+                    staticClass: "alert alert-success"
+                  }),
+                  _vm._v(" "),
+                  _c("div", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.alertError,
+                        expression: "alertError"
+                      }
+                    ],
+                    ref: "alertError",
+                    staticClass: "alert alert-danger"
+                  }),
+                  _vm._v(" "),
                   _c("div", { staticClass: "col-12 form__group" }, [
                     _c("input", {
                       directives: [
@@ -50428,6 +50488,31 @@ var render = function() {
                       [_vm._v("Descripción")]
                     )
                   ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.appointment.patient_id,
+                        expression: "appointment.patient_id"
+                      }
+                    ],
+                    attrs: { type: "hidden", name: "patient_id" },
+                    domProps: { value: _vm.appointment.patient_id },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.appointment,
+                          "patient_id",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
                   _vm._v(" "),
                   _c("div", { staticClass: "mt_20" }),
                   _vm._v(" "),

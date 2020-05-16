@@ -12,6 +12,8 @@
                         </div>
                     </template>
                     <template slot="body">
+                        <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
+                        <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
                         <div class="col-12 form__group">
                             <input v-model="appointment.date" type="date" id="date" class="form__field form-date form-required" name="date" placeholder="Fecha"/>
                             <label class="form__label" for="date">Fecha</label>
@@ -20,6 +22,7 @@
                             <textarea v-model="appointment.description" v-on:keyup="textAreaAdjust" id="description" class="form__field form-required" placeholder="Descripción" name="description"></textarea>
                             <label class="form__label" for="description">Descripción</label>
                         </div>
+                        <input v-model="appointment.patient_id" type="hidden" name="patient_id" />
                         <div class="mt_20"></div>
                         <div class="flex btn-container">
                             <button type="submit" class="dark-white-btn">Guardar</button>
@@ -38,11 +41,14 @@
         mixins: [FormValidator],
         data: function() {
             return {
+                alertSuccess: false,
+                alertError: false,
                 showModal: false,
                 modalWidth: '90%',
                 appointment: {
                     date: null,
-                    description: null
+                    description: null,
+                    patient_id: this.patientData.id
                 }
             }
         },
@@ -57,9 +63,30 @@
             formSubmit(event) {
                 event.preventDefault();
                 let self = this;
-                console.log(this.appointment);
 
-                if (FormValidator.methods.validate(this.$refs.form)) event.target.submit();
+                if (FormValidator.methods.validate(this.$refs.form)) {
+                    axios.post(event.target.getAttribute('action'), this.appointment)
+                        .then(function (response) {
+                            let data = response.data;
+                            if (data.success) {
+                                self.$refs.alertSuccess.innerText = data.message;
+                                self.alertSuccess = true;
+                                setTimeout(() => self.alertSuccess = false, 3000);
+                            } else if (data.success === false) {
+                                self.$refs.alertError.innerText = data.message;
+                                self.alertError = true;
+                                setTimeout(() => self.alertError = false, 3000)
+                            }
+                        })
+                        .catch(function (error) {
+                            let data = error.response.data;
+                            if (data.error) {
+                                self.$refs.alertError.innerText = data.message;
+                                self.alertError = true;
+                                setTimeout(() => self.alertError = false, 3000);
+                            }
+                        });
+                }
             },
             calculateModalWidth() {
                 let viewport = document.documentElement.clientWidth;

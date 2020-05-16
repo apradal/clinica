@@ -17,7 +17,8 @@
                         <h1 class="col-12 col-md-10">{{$patient['name']}} {{$patient['surname']}}</h1>
                         <div class="col-12 col-md-2">
                             <admin-patient-new-appointment
-                                :route="{{json_encode('misco')}}"
+                                :route="{{json_encode(route('appointment.create.ajax'))}}"
+                                :patient-data="{{ json_encode($patient) }}"
                             >
                             </admin-patient-new-appointment>
                         </div>

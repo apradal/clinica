@@ -103,7 +103,7 @@
         mixins: [FormValidator],
         data: function() {
             return {
-                showForm: false,
+                showForm: true,
                 showFormText: 'Mostrar Información',
                 showBtn: false,
                 alertSuccess: false,

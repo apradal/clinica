@@ -60,6 +60,16 @@ class Patient extends Model
     }
 
     /**
+     * Get the appointments for the patient.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function appointments()
+    {
+        return $this->hasMany('App\Appointment');
+    }
+
+    /**
      * Returns an array with patient, record and diseasses attributes.
      * @param $id
      * @return array
