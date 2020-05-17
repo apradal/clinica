@@ -63,4 +63,23 @@ class AppointmentController extends Controller
         return response()->json(['error' => true], 500);
     }
 
+    public function getAllAppointmentsAjax(Request $request)
+    {
+        if ($request->ajax()) {
+            $where = [
+                ['date', '<=', date("Y-m-d")],
+                ['revised', '=', 0]
+            ];
+            $result = $this->_appointmentModel->getAll($where);
+
+            if ($result->count()) {
+                return response()->json(['success' => true, 'appointments' => $result]);
+            } else {
+                return response()->json(['success' => false]);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
 }

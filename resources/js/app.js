@@ -38,6 +38,7 @@ Vue.component('admin-patient-search-table', require('./components/admin/patient/
 Vue.component('loader', require('./components/generic/Loader.vue').default);
 Vue.component('admin-user-new-form', require('./components/admin/user/CreateForm.vue').default);
 Vue.component('admin-patient-new-appointment', require('./components/admin/patient/NewAppointment.vue').default);
+Vue.component('admin-appointments-navbar', require('./components/admin/apointment/ApointmentNavbar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

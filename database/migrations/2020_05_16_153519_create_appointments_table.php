@@ -18,6 +18,7 @@ class CreateAppointmentsTable extends Migration
             $table->date('date');
             $table->string('description')->nullable();
             $table->string('patient_id');
+            $table->tinyInteger('revised')->default(0);
         });
     }
 

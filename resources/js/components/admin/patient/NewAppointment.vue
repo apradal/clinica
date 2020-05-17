@@ -6,28 +6,28 @@
 
         <form :action="this.route" @submit="formSubmit" method="post" ref="form">
             <GenericModal v-if="showModal" v-bind:styles="{width: '500px'}">
-                    <template slot="close">
-                        <div class="close-icon-modal click-icon">
-                            <font-awesome-icon icon="times" v-on:click="showModal = false"/>
-                        </div>
-                    </template>
-                    <template slot="body">
-                        <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
-                        <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
-                        <div class="col-12 form__group">
-                            <input v-model="appointment.date" type="date" id="date" class="form__field form-date form-required" name="date" placeholder="Fecha"/>
-                            <label class="form__label" for="date">Fecha</label>
-                        </div>
-                        <div class="col-12 form__group">
-                            <textarea v-model="appointment.description" v-on:keyup="textAreaAdjust" id="description" class="form__field form-required" placeholder="Descripción" name="description"></textarea>
-                            <label class="form__label" for="description">Descripción</label>
-                        </div>
-                        <input v-model="appointment.patient_id" type="hidden" name="patient_id" />
-                        <div class="mt_20"></div>
-                        <div class="flex btn-container">
-                            <button type="submit" class="dark-white-btn">Guardar</button>
-                        </div>
-                    </template>
+                <template slot="close">
+                    <div class="close-icon-modal click-icon">
+                        <font-awesome-icon icon="times" v-on:click="showModal = false"/>
+                    </div>
+                </template>
+                <template slot="body">
+                    <div class="alert alert-success" ref="alertSuccess" v-show="alertSuccess"></div>
+                    <div class="alert alert-danger" ref="alertError" v-show="alertError"></div>
+                    <div class="col-12 form__group">
+                        <input v-model="appointment.date" type="date" id="date" class="form__field form-date form-required" name="date" placeholder="Fecha"/>
+                        <label class="form__label" for="date">Fecha</label>
+                    </div>
+                    <div class="col-12 form__group">
+                        <textarea v-model="appointment.description" v-on:keyup="textAreaAdjust" id="description" class="form__field form-required" placeholder="Descripción" name="description"></textarea>
+                        <label class="form__label" for="description">Descripción</label>
+                    </div>
+                    <input v-model="appointment.patient_id" type="hidden" name="patient_id" />
+                    <div class="mt_20"></div>
+                    <div class="flex btn-container">
+                        <button type="submit" class="dark-white-btn">Guardar</button>
+                    </div>
+                </template>
             </GenericModal>
         </form>
     </div>

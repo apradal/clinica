@@ -47,4 +47,20 @@ class Appointment extends Model
         return $this->belongsTo('App\Patient', 'patient_id');
     }
 
+    /**
+     * Get appointments
+     * @param null $where
+     * @return Appointment[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getAll($where = null)
+    {
+        if (is_array($where)) {
+            return $this::where($where)->with('patient')->orderBy('date', 'DESC')->get();
+        } elseif ($where) {
+            return $this::all()->where($where)->with('patient');
+        } else {
+            return $this::all()->with('patient');
+        }
+    }
+
 }

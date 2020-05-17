@@ -37,8 +37,9 @@ Route::group(['middleware' => 'auth.admin'], function (){
     //users
     Route::get('admin/user', 'Admin\UserController@index')->name('user');
     Route::post('admin/user/create', 'Admin\UserController@create')->name('user.create');
-    //apoiments
+    //appointments
     Route::post('admin/appointment/create-ajax', 'Admin\AppointmentController@createAppointmentAjax')->name('appointment.create.ajax');
+    Route::get('admin/appointment/get-all-ajax', 'Admin\AppointmentController@getAllAppointmentsAjax')->name('appointment.get.all.ajax');
 });
 
 //let this routers open to login.
