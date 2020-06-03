@@ -93,7 +93,6 @@
                             if (data.success) {
                                 self.appointments.forEach(function (e, idx) {
                                     if (e.id === appointment.id) {
-                                        console.log(idx, self.appointments[idx]);
                                         self.appointments.splice(idx, 1);
                                     }
                                 })
@@ -112,29 +111,32 @@
                 }
                 this.showModal = false;
             },
+            getAllAppointments() {
+                let self = this;
+                axios.get(this.routes.all)
+                    .then(function (response) {
+                        let data = response.data;
+                        if (data.success) {
+                            data.appointments.forEach(function (el) {
+                                let date = self._formatDate(el.date);
+                                self.appointments.push(new AppointmentModel(el.id, date, el.description, el.patient_id, el.revised, el.patient.name, el.patient.surname));
+                            });
+                        } else if (data.success === false) {
+
+                        }
+                    })
+                    .catch(function (error) {
+                        let data = error.response.data;
+                        if (data.error) {
+                            self.$refs.alertError.innerText = data.message;
+                            self.alertError = true;
+                            setTimeout(() => self.alertError = false, 3000);
+                        }
+                    });
+            }
         },
         created() {
-            let self = this;
-            axios.get(this.routes.all)
-                .then(function (response) {
-                    let data = response.data;
-                    if (data.success) {
-                        data.appointments.forEach(function (el) {
-                            let date = self._formatDate(el.date);
-                            self.appointments.push(new AppointmentModel(el.id, date, el.description, el.patient_id, el.revised, el.patient.name, el.patient.surname));
-                        });
-                    } else if (data.success === false) {
-
-                    }
-                })
-                .catch(function (error) {
-                    let data = error.response.data;
-                    if (data.error) {
-                        self.$refs.alertError.innerText = data.message;
-                        self.alertError = true;
-                        setTimeout(() => self.alertError = false, 3000);
-                    }
-                });
+            this.getAllAppointments();
         }
     }
 </script>
