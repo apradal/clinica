@@ -82,4 +82,23 @@ class AppointmentController extends Controller
         return response()->json(['error' => true], 500);
     }
 
+    public function deleteAppointmentsAjax(Request $request)
+    {
+        if ($request->ajax()) {
+            $params = $request->all();
+            if (isset($params['id'])) {
+                try {
+                    $this->_appointmentModel->destroy($params['id']);
+                    return response()->json(['success' => true, 'appointments' => '']);
+                } catch (\Exception $e) {
+                    return response()->json(['error' => true, 'message' => $e->getMessage()], 500);
+                }
+            } else {
+                return response()->json(['success' => false]);
+            }
+        }
+
+        return response()->json(['error' => true], 500);
+    }
+
 }

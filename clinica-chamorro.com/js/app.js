@@ -11943,6 +11943,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 //
 //
 //
+//
+//
+//
+//
+//
 //since vue cant handle collections, create model outside
 var AppointmentModel = function AppointmentModel(id, date, description, patientId, revised, patientName, patientSurname) {
   _classCallCheck(this, AppointmentModel);
@@ -11965,6 +11970,7 @@ var AppointmentModel = function AppointmentModel(id, date, description, patientI
       alertSuccess: false,
       alertError: false,
       showTab: false,
+      appointment: null,
       appointments: []
     };
   },
@@ -11978,15 +11984,37 @@ var AppointmentModel = function AppointmentModel(id, date, description, patientI
       var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
       return day + '/' + month + '/' + date.getFullYear();
     },
-    openModal: function openModal(id) {
-      this.patientId = id;
+    openModal: function openModal(appointment) {
+      this.appointment = appointment;
       this.showModal = true;
     },
     removeAppointment: function removeAppointment(value) {
-      var patientId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var appointment = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-      if (value && patientId) {
-        console.log('hago ajax para borrar');
+      if (value && appointment) {
+        var self = this;
+        axios.post(this.routes["delete"], appointment).then(function (response) {
+          var data = response.data;
+
+          if (data.success) {
+            self.appointments.forEach(function (e, idx) {
+              if (e.id === appointment.id) {
+                console.log(idx, self.appointments[idx]);
+                self.appointments.splice(idx, 1);
+              }
+            });
+          } else if (data.success === false) {}
+        })["catch"](function (error) {
+          var data = error.response.data;
+
+          if (data.error) {
+            self.$refs.alertError.innerText = data.message;
+            self.alertError = true;
+            setTimeout(function () {
+              return self.alertError = false;
+            }, 3000);
+          }
+        });
       }
 
       this.showModal = false;
@@ -49128,51 +49156,60 @@ var render = function() {
         [
           _c("h3", [_vm._v("Citas")]),
           _vm._v(" "),
-          _c(
-            "div",
-            _vm._l(_vm.appointments, function(appointment, index) {
-              return _c("div", { staticClass: "col-12 flex appointment-row" }, [
-                _c("p", [_vm._v(_vm._s(appointment.date))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(appointment.patient_name))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(appointment.patient_surname))]),
-                _vm._v(" "),
-                _c("p", { staticClass: "description" }, [
-                  _vm._v(_vm._s(appointment.description))
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "dark-white-btn-icon",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          return _vm.openModal(appointment.id)
-                        }
-                      }
-                    },
-                    [
-                      _c("font-awesome-icon", {
-                        staticClass: "icon",
-                        attrs: { icon: "times" },
-                        on: {
-                          click: function($event) {
-                            return _vm.openModal(appointment.id)
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ])
-            }),
-            0
-          )
-        ]
+          _vm.appointments.length
+            ? [
+                _c(
+                  "div",
+                  _vm._l(_vm.appointments, function(appointment, index) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-12 flex appointment-row" },
+                      [
+                        _c("p", [_vm._v(_vm._s(appointment.date))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(appointment.patient_name))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(appointment.patient_surname))]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "description" }, [
+                          _vm._v(_vm._s(appointment.description))
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "dark-white-btn-icon",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.openModal(appointment)
+                                }
+                              }
+                            },
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "icon",
+                                attrs: { icon: "times" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.openModal(appointment)
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]
+            : [_c("p", [_vm._v("No existen citas actualmente")])]
+        ],
+        2
       ),
       _vm._v(" "),
       _vm.showModal
@@ -49209,7 +49246,7 @@ var render = function() {
                       staticClass: "dark-white-btn",
                       on: {
                         click: function($event) {
-                          return _vm.removeAppointment(true, _vm.patientId)
+                          return _vm.removeAppointment(true, _vm.appointment)
                         }
                       }
                     },

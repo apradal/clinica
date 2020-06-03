@@ -38,6 +38,7 @@
                         <admin-appointments-navbar
                             :routes="{{ json_encode([
                                 'all' => route('appointment.get.all.ajax'),
+                                'delete' => route('appointment.delete.ajax'),
                             ]) }}"
                         ></admin-appointments-navbar>
                     </li>
