@@ -13,8 +13,11 @@ $lightSize: 75;
 $blurLevel: 2;
 
 body {
-  #three {
-    display: none;
+  #three-container {
+    position: relative;
+    #three {
+      display: none;
+    }
   }
   &.christmas {
     background-image: -webkit-gradient(linear, right bottom, left top, from(#0A0707), color-stop(50%, #110C0D), to(#0C090A));
@@ -148,8 +151,10 @@ body {
 @media only screen and (min-width: $tablet) {
   body {
     &.christmas {
-      #three {
-        display: block;
+      #three-container {
+        #three {
+          display: block;
+        }
       }
     }
   }

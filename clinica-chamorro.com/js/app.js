@@ -12050,6 +12050,57 @@ var AppointmentModel = function AppointmentModel(id, date, description, patientI
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      checked: null,
+      bodyElement: document.querySelector("body")
+    };
+  },
+  methods: {
+    checkStorage: function checkStorage() {
+      return !!localStorage.getItem("christmas");
+    },
+    onoff: function onoff(event) {
+      if (event.target.checked) {
+        if (!this.bodyElement.classList.contains('christmas')) {
+          this.bodyElement.classList.add("christmas");
+          this.controlStorageChristmas();
+        }
+      } else {
+        if (this.bodyElement.classList.contains('christmas')) {
+          this.bodyElement.classList.remove("christmas");
+          this.controlStorageChristmas();
+        }
+      }
+    },
+    controlStorageChristmas: function controlStorageChristmas() {
+      if (this.bodyElement.classList.contains('christmas')) {
+        localStorage.setItem("christmas", true);
+      } else {
+        localStorage.removeItem("christmas");
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.checked = this.checkStorage();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/DiseasesForm.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/DiseasesForm.vue?vue&type=script&lang=js& ***!
@@ -49283,6 +49334,69 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("input", {
+    directives: [
+      {
+        name: "model",
+        rawName: "v-model",
+        value: _vm.checked,
+        expression: "checked"
+      }
+    ],
+    attrs: {
+      type: "checkbox",
+      id: "christmass-switch",
+      name: "christmass-switch"
+    },
+    domProps: {
+      checked: Array.isArray(_vm.checked)
+        ? _vm._i(_vm.checked, null) > -1
+        : _vm.checked
+    },
+    on: {
+      click: _vm.onoff,
+      change: function($event) {
+        var $$a = _vm.checked,
+          $$el = $event.target,
+          $$c = $$el.checked ? true : false
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v)
+          if ($$el.checked) {
+            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+          } else {
+            $$i > -1 &&
+              (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+          }
+        } else {
+          _vm.checked = $$c
+        }
+      }
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/patient/DiseasesForm.vue?vue&type=template&id=885824e0&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/patient/DiseasesForm.vue?vue&type=template&id=885824e0& ***!
@@ -66700,6 +66814,7 @@ module.exports = function(module) {
 
 var map = {
 	"./components/admin/apointment/ApointmentNavbar.vue": "./resources/js/components/admin/apointment/ApointmentNavbar.vue",
+	"./components/admin/christmas/onoff.vue": "./resources/js/components/admin/christmas/onoff.vue",
 	"./components/admin/patient/DiseasesForm.vue": "./resources/js/components/admin/patient/DiseasesForm.vue",
 	"./components/admin/patient/NewAppointment.vue": "./resources/js/components/admin/patient/NewAppointment.vue",
 	"./components/admin/patient/PatientForm.vue": "./resources/js/components/admin/patient/PatientForm.vue",
@@ -66790,6 +66905,7 @@ Vue.component('loader', __webpack_require__(/*! ./components/generic/Loader.vue 
 Vue.component('admin-user-new-form', __webpack_require__(/*! ./components/admin/user/CreateForm.vue */ "./resources/js/components/admin/user/CreateForm.vue")["default"]);
 Vue.component('admin-patient-new-appointment', __webpack_require__(/*! ./components/admin/patient/NewAppointment.vue */ "./resources/js/components/admin/patient/NewAppointment.vue")["default"]);
 Vue.component('admin-appointments-navbar', __webpack_require__(/*! ./components/admin/apointment/ApointmentNavbar.vue */ "./resources/js/components/admin/apointment/ApointmentNavbar.vue")["default"]);
+Vue.component('admin-christmas-onoff', __webpack_require__(/*! ./components/admin/christmas/onoff.vue */ "./resources/js/components/admin/christmas/onoff.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -66911,6 +67027,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApointmentNavbar_vue_vue_type_template_id_544c8564___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ApointmentNavbar_vue_vue_type_template_id_544c8564___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/christmas/onoff.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/christmas/onoff.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./onoff.vue?vue&type=template&id=a1c83630& */ "./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630&");
+/* harmony import */ var _onoff_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./onoff.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _onoff_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/christmas/onoff.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_onoff_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./onoff.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/christmas/onoff.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_onoff_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./onoff.vue?vue&type=template&id=a1c83630& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/christmas/onoff.vue?vue&type=template&id=a1c83630&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_onoff_vue_vue_type_template_id_a1c83630___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
