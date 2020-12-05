@@ -19,8 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="@yield('body_class')">
+<body class="@yield('body_class') christmas">
     <div id="app">
+        @include('includes.christmas')
         @include('includes.admin.header.navbar')
         <main class="py-4">
             @yield('content')
