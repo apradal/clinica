@@ -106,7 +106,7 @@ body {
       }
       .three-msg {
         font-family: 'Mountains of Christmas', cursive;
-        font-size: 1em;
+        font-size: 2em;
         color: #fff;
         text-align: center;
       }
@@ -126,6 +126,21 @@ body {
       }
       border-image: linear-gradient(to right, #0F8A5F, #05593c);
       border-image-slice: 1;
+    }
+    #admin-main-container {
+      .menus {
+        button {
+          background-color: #0F8A5F;
+          &:hover {
+            background-color: #CC231E;
+          }
+        }
+      }
+    }
+    #filters_search {
+      span, label {
+        color: #fff;
+      }
     }
   }
 }

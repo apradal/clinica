@@ -17,18 +17,18 @@
                 <div class="col-md-4 col-xs-12">
                     <div class="records">
                         <h2>{{ __('messages.Records') }}</h2>
-                        <div class="menu-btn">
+                        <form class="menu-btn" action="{{route('record')}}">
                             <button>
                                 <a href="{{route('record')}}">{{ __('messages.New Record') }}</a>
                                 <font-awesome-icon icon="plus-circle"/>
                             </button>
-                        </div>
-                        <div class="menu-btn">
+                        </form>
+                        <form class="menu-btn" action="{{route('patient.search')}}">
                             <button>
                                 <a href="{{route('patient.search')}}">{{ __('messages.Search Record') }}</a>
                                 <font-awesome-icon icon="search"/>
                             </button>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12"></div>

@@ -11457,12 +11457,13 @@ select.form__field:disabled {
     padding: 0;
   }
 
-  .navbar .navbar-nav .list-container li {
-    padding: 10px 15px;
-  }
-
   .navbar .navbar-nav .list-container li:hover {
     background-color: #44474a;
+  }
+
+  .navbar .navbar-nav .list-container li a {
+    display: block;
+    padding: 10px 15px;
   }
 }
 
@@ -11632,1522 +11633,322 @@ body.christmas .light {
 }
 
 body.christmas .light:nth-child(1) {
-  width: 88px;
-  height: 88px;
-  top: 16%;
-  left: 20%;
-  background: #6B0D05;
+  width: 78px;
+  height: 78px;
+  top: 76%;
+  left: 9%;
+  background: #DB1913;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 11s light3 linear infinite;
-          animation: 11s light3 linear infinite;
+  -webkit-animation: 13s light2 linear infinite;
+          animation: 13s light2 linear infinite;
 }
 
 body.christmas .light:nth-child(2) {
-  width: 83px;
-  height: 83px;
-  top: 99%;
-  left: 89%;
-  background: #63C13B;
+  width: 88px;
+  height: 88px;
+  top: 83%;
+  left: 61%;
+  background: #FEE34A;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 19s light5 linear infinite;
-          animation: 19s light5 linear infinite;
+  -webkit-animation: 32s light3 linear infinite;
+          animation: 32s light3 linear infinite;
 }
 
 body.christmas .light:nth-child(3) {
-  width: 90px;
-  height: 90px;
-  top: 68%;
-  left: 68%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 25s light4 linear infinite;
-          animation: 25s light4 linear infinite;
+  width: 86px;
+  height: 86px;
+  top: 59%;
+  left: 35%;
+  background: #DB1913;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 20s light6 linear infinite;
+          animation: 20s light6 linear infinite;
 }
 
 body.christmas .light:nth-child(4) {
-  width: 100px;
-  height: 100px;
-  top: 15%;
-  left: 100%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 21s light2 linear infinite;
-          animation: 21s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(5) {
-  width: 77px;
-  height: 77px;
-  top: 5%;
-  left: 60%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 16s light5 linear infinite;
-          animation: 16s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(6) {
-  width: 89px;
-  height: 89px;
-  top: 21%;
-  left: 2%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 31s light6 linear infinite;
-          animation: 31s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(7) {
-  width: 95px;
-  height: 95px;
+  width: 91px;
+  height: 91px;
   top: 31%;
-  left: 13%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 32s light2 linear infinite;
-          animation: 32s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(8) {
-  width: 99px;
-  height: 99px;
-  top: 43%;
-  left: 79%;
+  left: 12%;
   background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 26s light2 linear infinite;
-          animation: 26s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(9) {
-  width: 88px;
-  height: 88px;
-  top: 40%;
-  left: 95%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 19s light3 linear infinite;
-          animation: 19s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(10) {
-  width: 92px;
-  height: 92px;
-  top: 27%;
-  left: 19%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 12s light6 linear infinite;
-          animation: 12s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(11) {
-  width: 83px;
-  height: 83px;
-  top: 69%;
-  left: 44%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 30s light4 linear infinite;
-          animation: 30s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(12) {
-  width: 91px;
-  height: 91px;
-  top: 32%;
-  left: 60%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 20s light2 linear infinite;
-          animation: 20s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(13) {
-  width: 95px;
-  height: 95px;
-  top: 56%;
-  left: 50%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 24s light4 linear infinite;
-          animation: 24s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(14) {
-  width: 81px;
-  height: 81px;
-  top: 94%;
-  left: 72%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 11s light3 linear infinite;
-          animation: 11s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(15) {
-  width: 99px;
-  height: 99px;
-  top: 26%;
-  left: 40%;
-  background: #7D0006;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(16) {
-  width: 91px;
-  height: 91px;
-  top: 92%;
-  left: 70%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 24s light5 linear infinite;
-          animation: 24s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(17) {
-  width: 92px;
-  height: 92px;
-  top: 82%;
-  left: 82%;
-  background: #FEC641;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 18s light2 linear infinite;
-          animation: 18s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(18) {
-  width: 95px;
-  height: 95px;
-  top: 95%;
-  left: 41%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 18s light3 linear infinite;
-          animation: 18s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(19) {
-  width: 99px;
-  height: 99px;
-  top: 12%;
-  left: 45%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 15s light6 linear infinite;
-          animation: 15s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(20) {
-  width: 92px;
-  height: 92px;
-  top: 14%;
-  left: 61%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 22s light3 linear infinite;
-          animation: 22s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(21) {
-  width: 98px;
-  height: 98px;
-  top: 64%;
-  left: 13%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 19s light2 linear infinite;
-          animation: 19s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(22) {
-  width: 87px;
-  height: 87px;
-  top: 70%;
-  left: 93%;
-  background: #FE0016;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 12s light6 linear infinite;
-          animation: 12s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(23) {
-  width: 80px;
-  height: 80px;
-  top: 56%;
-  left: 30%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 30s light6 linear infinite;
-          animation: 30s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(24) {
-  width: 94px;
-  height: 94px;
-  top: 29%;
-  left: 56%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light6 linear infinite;
-          animation: 12s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(25) {
-  width: 76px;
-  height: 76px;
-  top: 46%;
-  left: 49%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 27s light6 linear infinite;
-          animation: 27s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(26) {
-  width: 80px;
-  height: 80px;
-  top: 5%;
-  left: 15%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 22s light3 linear infinite;
-          animation: 22s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(27) {
-  width: 88px;
-  height: 88px;
-  top: 38%;
-  left: 58%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 31s light6 linear infinite;
-          animation: 31s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(28) {
-  width: 87px;
-  height: 87px;
-  top: 15%;
-  left: 83%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 30s light6 linear infinite;
-          animation: 30s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(29) {
-  width: 86px;
-  height: 86px;
-  top: 24%;
-  left: 88%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 34s light4 linear infinite;
-          animation: 34s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(30) {
-  width: 80px;
-  height: 80px;
-  top: 99%;
-  left: 40%;
-  background: #FE0016;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 19s light2 linear infinite;
-          animation: 19s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(31) {
-  width: 98px;
-  height: 98px;
-  top: 50%;
-  left: 82%;
-  background: #FEC641;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 14s light4 linear infinite;
-          animation: 14s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(32) {
-  width: 96px;
-  height: 96px;
-  top: 85%;
-  left: 81%;
-  background: #5C6C94;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 29s light4 linear infinite;
-          animation: 29s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(33) {
-  width: 79px;
-  height: 79px;
-  top: 78%;
-  left: 57%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 24s light3 linear infinite;
-          animation: 24s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(34) {
-  width: 81px;
-  height: 81px;
-  top: 56%;
-  left: 65%;
-  background: #7D0006;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 33s light5 linear infinite;
-          animation: 33s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(35) {
-  width: 97px;
-  height: 97px;
-  top: 85%;
-  left: 91%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 23s light6 linear infinite;
-          animation: 23s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(36) {
-  width: 92px;
-  height: 92px;
-  top: 32%;
-  left: 28%;
-  background: #FEE34A;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 24s light4 linear infinite;
-          animation: 24s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(37) {
-  width: 83px;
-  height: 83px;
-  top: 44%;
-  left: 26%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 19s light2 linear infinite;
-          animation: 19s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(38) {
-  width: 98px;
-  height: 98px;
-  top: 53%;
-  left: 39%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 11s light2 linear infinite;
-          animation: 11s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(39) {
-  width: 90px;
-  height: 90px;
-  top: 82%;
-  left: 41%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 19s light5 linear infinite;
-          animation: 19s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(40) {
-  width: 88px;
-  height: 88px;
-  top: 14%;
-  left: 48%;
-  background: #6B0D05;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 19s light6 linear infinite;
-          animation: 19s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(41) {
-  width: 89px;
-  height: 89px;
-  top: 76%;
-  left: 96%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 31s light3 linear infinite;
-          animation: 31s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(42) {
-  width: 86px;
-  height: 86px;
-  top: 74%;
-  left: 25%;
-  background: #7D0006;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 11s light4 linear infinite;
-          animation: 11s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(43) {
-  width: 94px;
-  height: 94px;
-  top: 62%;
-  left: 94%;
-  background: #FEE34A;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 35s light5 linear infinite;
-          animation: 35s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(44) {
-  width: 84px;
-  height: 84px;
-  top: 62%;
-  left: 40%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light3 linear infinite;
-          animation: 33s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(45) {
-  width: 97px;
-  height: 97px;
-  top: 13%;
-  left: 72%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 34s light4 linear infinite;
-          animation: 34s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(46) {
-  width: 92px;
-  height: 92px;
-  top: 6%;
-  left: 68%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light6 linear infinite;
-          animation: 11s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(47) {
-  width: 91px;
-  height: 91px;
-  top: 96%;
-  left: 42%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 24s light3 linear infinite;
-          animation: 24s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(48) {
-  width: 85px;
-  height: 85px;
-  top: 16%;
-  left: 82%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 22s light3 linear infinite;
-          animation: 22s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(49) {
-  width: 82px;
-  height: 82px;
-  top: 81%;
-  left: 84%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 21s light6 linear infinite;
-          animation: 21s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(50) {
-  width: 95px;
-  height: 95px;
-  top: 33%;
-  left: 36%;
-  background: #7D0006;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: 25s light5 linear infinite;
           animation: 25s light5 linear infinite;
 }
 
-body.christmas .light:nth-child(51) {
-  width: 94px;
-  height: 94px;
-  top: 18%;
-  left: 87%;
-  background: #FEE34A;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 26s light4 linear infinite;
-          animation: 26s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(52) {
-  width: 80px;
-  height: 80px;
-  top: 16%;
-  left: 52%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light2 linear infinite;
-          animation: 33s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(53) {
-  width: 77px;
-  height: 77px;
-  top: 22%;
-  left: 63%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 25s light6 linear infinite;
-          animation: 25s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(54) {
-  width: 80px;
-  height: 80px;
-  top: 10%;
-  left: 67%;
-  background: #5C6C94;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 16s light3 linear infinite;
-          animation: 16s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(55) {
-  width: 81px;
-  height: 81px;
-  top: 45%;
-  left: 35%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 14s light3 linear infinite;
-          animation: 14s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(56) {
-  width: 84px;
-  height: 84px;
-  top: 35%;
-  left: 71%;
-  background: #7D0006;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 25s light3 linear infinite;
-          animation: 25s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(57) {
-  width: 99px;
-  height: 99px;
-  top: 76%;
-  left: 37%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 19s light6 linear infinite;
-          animation: 19s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(58) {
-  width: 95px;
-  height: 95px;
-  top: 50%;
-  left: 87%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 21s light2 linear infinite;
-          animation: 21s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(59) {
+body.christmas .light:nth-child(5) {
   width: 83px;
   height: 83px;
-  top: 35%;
-  left: 12%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 23s light3 linear infinite;
-          animation: 23s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(60) {
-  width: 81px;
-  height: 81px;
-  top: 12%;
-  left: 59%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 29s light3 linear infinite;
-          animation: 29s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(61) {
-  width: 91px;
-  height: 91px;
-  top: 77%;
-  left: 93%;
-  background: #6B0D05;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 15s light2 linear infinite;
-          animation: 15s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(62) {
-  width: 84px;
-  height: 84px;
-  top: 1%;
-  left: 100%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 18s light2 linear infinite;
-          animation: 18s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(63) {
-  width: 95px;
-  height: 95px;
-  top: 61%;
-  left: 90%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 32s light5 linear infinite;
-          animation: 32s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(64) {
-  width: 82px;
-  height: 82px;
-  top: 64%;
-  left: 41%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 23s light2 linear infinite;
-          animation: 23s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(65) {
-  width: 87px;
-  height: 87px;
-  top: 45%;
-  left: 48%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light5 linear infinite;
-          animation: 11s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(66) {
-  width: 81px;
-  height: 81px;
-  top: 5%;
-  left: 50%;
-  background: #7D0006;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light6 linear infinite;
-          animation: 12s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(67) {
-  width: 77px;
-  height: 77px;
-  top: 86%;
-  left: 20%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 16s light4 linear infinite;
-          animation: 16s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(68) {
-  width: 84px;
-  height: 84px;
-  top: 13%;
-  left: 91%;
-  background: #5C6C94;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 12s light5 linear infinite;
-          animation: 12s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(69) {
-  width: 94px;
-  height: 94px;
-  top: 64%;
-  left: 79%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light6 linear infinite;
-          animation: 33s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(70) {
-  width: 79px;
-  height: 79px;
-  top: 92%;
-  left: 18%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light5 linear infinite;
-          animation: 11s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(71) {
-  width: 82px;
-  height: 82px;
-  top: 3%;
-  left: 3%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(72) {
-  width: 98px;
-  height: 98px;
-  top: 21%;
-  left: 29%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light3 linear infinite;
-          animation: 12s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(73) {
-  width: 83px;
-  height: 83px;
-  top: 9%;
-  left: 25%;
+  top: 43%;
+  left: 43%;
   background: #D00010;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 31s light5 linear infinite;
-          animation: 31s light5 linear infinite;
+  -webkit-animation: 35s light3 linear infinite;
+          animation: 35s light3 linear infinite;
 }
 
-body.christmas .light:nth-child(74) {
-  width: 99px;
-  height: 99px;
-  top: 44%;
-  left: 98%;
-  background: #5C6C94;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 32s light5 linear infinite;
-          animation: 32s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(75) {
-  width: 76px;
-  height: 76px;
-  top: 71%;
-  left: 3%;
-  background: #6B0D05;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 32s light2 linear infinite;
-          animation: 32s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(76) {
+body.christmas .light:nth-child(6) {
   width: 91px;
   height: 91px;
   top: 17%;
-  left: 72%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 31s light5 linear infinite;
-          animation: 31s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(77) {
-  width: 76px;
-  height: 76px;
-  top: 14%;
-  left: 69%;
-  background: #2F8A27;
+  left: 1%;
+  background: #7D0006;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 27s light3 linear infinite;
-          animation: 27s light3 linear infinite;
+  -webkit-animation: 35s light4 linear infinite;
+          animation: 35s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(78) {
-  width: 98px;
-  height: 98px;
-  top: 35%;
-  left: 22%;
-  background: #7D0006;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light3 linear infinite;
-          animation: 12s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(79) {
-  width: 89px;
-  height: 89px;
-  top: 63%;
-  left: 33%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 27s light5 linear infinite;
-          animation: 27s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(80) {
-  width: 90px;
-  height: 90px;
-  top: 40%;
-  left: 19%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 35s light6 linear infinite;
-          animation: 35s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(81) {
-  width: 91px;
-  height: 91px;
-  top: 25%;
-  left: 65%;
+body.christmas .light:nth-child(7) {
+  width: 85px;
+  height: 85px;
+  top: 22%;
+  left: 46%;
   background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 22s light4 linear infinite;
-          animation: 22s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(82) {
-  width: 90px;
-  height: 90px;
-  top: 91%;
-  left: 57%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 20s light2 linear infinite;
-          animation: 20s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(83) {
-  width: 98px;
-  height: 98px;
-  top: 55%;
-  left: 59%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 24s light5 linear infinite;
-          animation: 24s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(84) {
-  width: 89px;
-  height: 89px;
-  top: 41%;
-  left: 26%;
-  background: #6B0D05;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 32s light4 linear infinite;
-          animation: 32s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(85) {
-  width: 96px;
-  height: 96px;
-  top: 5%;
-  left: 53%;
-  background: #7D0006;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 17s light5 linear infinite;
-          animation: 17s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(86) {
-  width: 90px;
-  height: 90px;
-  top: 62%;
-  left: 51%;
-  background: #FE0016;
   -webkit-filter: blur(3px);
           filter: blur(3px);
   -webkit-animation: 16s light5 linear infinite;
           animation: 16s light5 linear infinite;
 }
 
-body.christmas .light:nth-child(87) {
-  width: 88px;
-  height: 88px;
-  top: 35%;
-  left: 63%;
-  background: #FEE34A;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light6 linear infinite;
-          animation: 11s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(88) {
+body.christmas .light:nth-child(8) {
   width: 78px;
   height: 78px;
-  top: 94%;
-  left: 66%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 24s light6 linear infinite;
-          animation: 24s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(89) {
-  width: 85px;
-  height: 85px;
-  top: 26%;
-  left: 6%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 30s light4 linear infinite;
-          animation: 30s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(90) {
-  width: 96px;
-  height: 96px;
-  top: 94%;
-  left: 87%;
-  background: #FEC641;
+  top: 21%;
+  left: 30%;
+  background: #6B0D05;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 28s light6 linear infinite;
-          animation: 28s light6 linear infinite;
+  -webkit-animation: 13s light5 linear infinite;
+          animation: 13s light5 linear infinite;
 }
 
-body.christmas .light:nth-child(91) {
-  width: 85px;
-  height: 85px;
-  top: 93%;
-  left: 36%;
-  background: #FEE34A;
+body.christmas .light:nth-child(9) {
+  width: 76px;
+  height: 76px;
+  top: 25%;
+  left: 63%;
+  background: #D00010;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 12s light2 linear infinite;
-          animation: 12s light2 linear infinite;
+  -webkit-animation: 28s light4 linear infinite;
+          animation: 28s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(92) {
+body.christmas .light:nth-child(10) {
   width: 98px;
   height: 98px;
-  top: 52%;
-  left: 28%;
+  top: 99%;
+  left: 2%;
+  background: #5C6C94;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 14s light2 linear infinite;
+          animation: 14s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(11) {
+  width: 100px;
+  height: 100px;
+  top: 60%;
+  left: 16%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 28s light5 linear infinite;
+          animation: 28s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(12) {
+  width: 87px;
+  height: 87px;
+  top: 97%;
+  left: 43%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 13s light5 linear infinite;
+          animation: 13s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(13) {
+  width: 99px;
+  height: 99px;
+  top: 96%;
+  left: 86%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 19s light4 linear infinite;
+          animation: 19s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(14) {
+  width: 82px;
+  height: 82px;
+  top: 46%;
+  left: 19%;
+  background: #2F8A27;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 22s light5 linear infinite;
+          animation: 22s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(15) {
+  width: 95px;
+  height: 95px;
+  top: 3%;
+  left: 55%;
+  background: #FE0016;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 29s light4 linear infinite;
+          animation: 29s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(16) {
+  width: 82px;
+  height: 82px;
+  top: 79%;
+  left: 38%;
+  background: #63C13B;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light5 linear infinite;
+          animation: 23s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(17) {
+  width: 93px;
+  height: 93px;
+  top: 38%;
+  left: 96%;
   background: #7D0006;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 13s light2 linear infinite;
-          animation: 13s light2 linear infinite;
+  -webkit-animation: 21s light4 linear infinite;
+          animation: 21s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(93) {
-  width: 98px;
-  height: 98px;
-  top: 24%;
-  left: 22%;
-  background: #2F8A27;
+body.christmas .light:nth-child(18) {
+  width: 97px;
+  height: 97px;
+  top: 78%;
+  left: 3%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 31s light6 linear infinite;
+          animation: 31s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(19) {
+  width: 93px;
+  height: 93px;
+  top: 60%;
+  left: 7%;
+  background: #FE0016;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 14s light6 linear infinite;
+          animation: 14s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(20) {
+  width: 100px;
+  height: 100px;
+  top: 58%;
+  left: 40%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 17s light2 linear infinite;
+          animation: 17s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(21) {
+  width: 99px;
+  height: 99px;
+  top: 73%;
+  left: 73%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 32s light4 linear infinite;
+          animation: 32s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(22) {
+  width: 93px;
+  height: 93px;
+  top: 63%;
+  left: 17%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 34s light5 linear infinite;
+          animation: 34s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(23) {
+  width: 81px;
+  height: 81px;
+  top: 40%;
+  left: 21%;
+  background: #5C6C94;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: 19s light6 linear infinite;
           animation: 19s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(94) {
-  width: 99px;
-  height: 99px;
-  top: 86%;
-  left: 14%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 31s light5 linear infinite;
-          animation: 31s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(95) {
+body.christmas .light:nth-child(24) {
   width: 83px;
   height: 83px;
-  top: 61%;
-  left: 90%;
-  background: #FEC641;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light4 linear infinite;
-          animation: 11s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(96) {
-  width: 79px;
-  height: 79px;
-  top: 51%;
-  left: 81%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 33s light6 linear infinite;
-          animation: 33s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(97) {
-  width: 83px;
-  height: 83px;
-  top: 70%;
-  left: 43%;
-  background: #2F8A27;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 19s light5 linear infinite;
-          animation: 19s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(98) {
-  width: 96px;
-  height: 96px;
-  top: 4%;
-  left: 40%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 27s light2 linear infinite;
-          animation: 27s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(99) {
-  width: 96px;
-  height: 96px;
-  top: 37%;
-  left: 80%;
-  background: #FEE34A;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 15s light3 linear infinite;
-          animation: 15s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(100) {
-  width: 87px;
-  height: 87px;
-  top: 31%;
-  left: 1%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 22s light2 linear infinite;
-          animation: 22s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(101) {
-  width: 99px;
-  height: 99px;
-  top: 61%;
-  left: 23%;
-  background: #D00010;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 23s light6 linear infinite;
-          animation: 23s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(102) {
-  width: 97px;
-  height: 97px;
-  top: 80%;
-  left: 42%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 24s light3 linear infinite;
-          animation: 24s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(103) {
-  width: 92px;
-  height: 92px;
-  top: 39%;
-  left: 25%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 21s light6 linear infinite;
-          animation: 21s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(104) {
-  width: 87px;
-  height: 87px;
-  top: 56%;
-  left: 68%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 14s light5 linear infinite;
-          animation: 14s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(105) {
-  width: 89px;
-  height: 89px;
-  top: 16%;
-  left: 83%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 21s light6 linear infinite;
-          animation: 21s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(106) {
-  width: 86px;
-  height: 86px;
-  top: 9%;
-  left: 70%;
-  background: #6B0D05;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 24s light4 linear infinite;
-          animation: 24s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(107) {
-  width: 99px;
-  height: 99px;
-  top: 42%;
-  left: 65%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 16s light3 linear infinite;
-          animation: 16s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(108) {
-  width: 83px;
-  height: 83px;
-  top: 27%;
-  left: 58%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 26s light6 linear infinite;
-          animation: 26s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(109) {
-  width: 78px;
-  height: 78px;
-  top: 88%;
-  left: 73%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light6 linear infinite;
-          animation: 33s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(110) {
-  width: 79px;
-  height: 79px;
-  top: 3%;
-  left: 82%;
-  background: #FE0016;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 23s light6 linear infinite;
-          animation: 23s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(111) {
-  width: 85px;
-  height: 85px;
-  top: 5%;
-  left: 34%;
-  background: #FEC641;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(112) {
-  width: 93px;
-  height: 93px;
-  top: 21%;
-  left: 97%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 24s light3 linear infinite;
-          animation: 24s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(113) {
-  width: 94px;
-  height: 94px;
-  top: 70%;
-  left: 38%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(114) {
-  width: 78px;
-  height: 78px;
-  top: 8%;
-  left: 37%;
+  top: 53%;
+  left: 48%;
   background: #7D0006;
   -webkit-filter: blur(4px);
           filter: blur(4px);
+  -webkit-animation: 30s light6 linear infinite;
+          animation: 30s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(25) {
+  width: 81px;
+  height: 81px;
+  top: 74%;
+  left: 94%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
   -webkit-animation: 33s light6 linear infinite;
           animation: 33s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(115) {
-  width: 89px;
-  height: 89px;
-  top: 63%;
-  left: 1%;
+body.christmas .light:nth-child(26) {
+  width: 76px;
+  height: 76px;
+  top: 91%;
+  left: 82%;
   background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 21s light4 linear infinite;
-          animation: 21s light4 linear infinite;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 27s light4 linear infinite;
+          animation: 27s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(116) {
+body.christmas .light:nth-child(27) {
   width: 97px;
   height: 97px;
-  top: 35%;
-  left: 41%;
-  background: #5C6C94;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 17s light2 linear infinite;
-          animation: 17s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(117) {
-  width: 93px;
-  height: 93px;
-  top: 71%;
-  left: 52%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 11s light6 linear infinite;
-          animation: 11s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(118) {
-  width: 89px;
-  height: 89px;
-  top: 58%;
-  left: 23%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 11s light3 linear infinite;
-          animation: 11s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(119) {
-  width: 91px;
-  height: 91px;
-  top: 67%;
-  left: 60%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 15s light6 linear infinite;
-          animation: 15s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(120) {
-  width: 90px;
-  height: 90px;
-  top: 89%;
-  left: 82%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 25s light6 linear infinite;
-          animation: 25s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(121) {
-  width: 90px;
-  height: 90px;
-  top: 68%;
-  left: 49%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 21s light2 linear infinite;
-          animation: 21s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(122) {
-  width: 93px;
-  height: 93px;
-  top: 86%;
-  left: 66%;
-  background: #DB1913;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 35s light2 linear infinite;
-          animation: 35s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(123) {
-  width: 85px;
-  height: 85px;
-  top: 10%;
-  left: 37%;
-  background: #63C13B;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 17s light5 linear infinite;
-          animation: 17s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(124) {
-  width: 90px;
-  height: 90px;
-  top: 38%;
-  left: 1%;
-  background: #FE0016;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 29s light3 linear infinite;
-          animation: 29s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(125) {
-  width: 100px;
-  height: 100px;
-  top: 88%;
-  left: 60%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 29s light3 linear infinite;
-          animation: 29s light3 linear infinite;
-}
-
-body.christmas .light:nth-child(126) {
-  width: 89px;
-  height: 89px;
-  top: 90%;
-  left: 49%;
-  background: #DB1913;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 28s light5 linear infinite;
-          animation: 28s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(127) {
-  width: 91px;
-  height: 91px;
-  top: 8%;
-  left: 21%;
+  top: 76%;
+  left: 76%;
   background: #FEE34A;
   -webkit-filter: blur(3px);
           filter: blur(3px);
@@ -13155,119 +11956,35 @@ body.christmas .light:nth-child(127) {
           animation: 32s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(128) {
-  width: 81px;
-  height: 81px;
-  top: 46%;
-  left: 16%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light2 linear infinite;
-          animation: 12s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(129) {
-  width: 82px;
-  height: 82px;
-  top: 57%;
-  left: 84%;
-  background: #5C6C94;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 28s light2 linear infinite;
-          animation: 28s light2 linear infinite;
-}
-
-body.christmas .light:nth-child(130) {
-  width: 86px;
-  height: 86px;
-  top: 25%;
-  left: 59%;
-  background: #DB1913;
+body.christmas .light:nth-child(28) {
+  width: 100px;
+  height: 100px;
+  top: 42%;
+  left: 69%;
+  background: #FEC641;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 16s light6 linear infinite;
-          animation: 16s light6 linear infinite;
+  -webkit-animation: 30s light2 linear infinite;
+          animation: 30s light2 linear infinite;
 }
 
-body.christmas .light:nth-child(131) {
-  width: 76px;
-  height: 76px;
-  top: 93%;
-  left: 22%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 20s light6 linear infinite;
-          animation: 20s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(132) {
-  width: 84px;
-  height: 84px;
-  top: 25%;
-  left: 7%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 12s light4 linear infinite;
-          animation: 12s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(133) {
+body.christmas .light:nth-child(29) {
   width: 78px;
   height: 78px;
-  top: 83%;
-  left: 39%;
+  top: 26%;
+  left: 55%;
   background: #2F8A27;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 22s light2 linear infinite;
-          animation: 22s light2 linear infinite;
+  -webkit-animation: 25s light6 linear infinite;
+          animation: 25s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(134) {
-  width: 88px;
-  height: 88px;
-  top: 27%;
-  left: 90%;
-  background: #6B0D05;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(135) {
-  width: 88px;
-  height: 88px;
-  top: 28%;
-  left: 91%;
-  background: #D00010;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 13s light4 linear infinite;
-          animation: 13s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(136) {
+body.christmas .light:nth-child(30) {
   width: 78px;
   height: 78px;
-  top: 17%;
-  left: 59%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 23s light4 linear infinite;
-          animation: 23s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(137) {
-  width: 86px;
-  height: 86px;
-  top: 95%;
-  left: 85%;
+  top: 6%;
+  left: 10%;
   background: #7D0006;
   -webkit-filter: blur(3px);
           filter: blur(3px);
@@ -13275,107 +11992,1367 @@ body.christmas .light:nth-child(137) {
           animation: 15s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(138) {
-  width: 92px;
-  height: 92px;
-  top: 36%;
-  left: 84%;
+body.christmas .light:nth-child(31) {
+  width: 93px;
+  height: 93px;
+  top: 66%;
+  left: 82%;
   background: #5C6C94;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 11s light2 linear infinite;
-          animation: 11s light2 linear infinite;
+  -webkit-animation: 26s light6 linear infinite;
+          animation: 26s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(139) {
+body.christmas .light:nth-child(32) {
   width: 80px;
   height: 80px;
-  top: 10%;
-  left: 92%;
+  top: 71%;
+  left: 96%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 13s light2 linear infinite;
+          animation: 13s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(33) {
+  width: 89px;
+  height: 89px;
+  top: 63%;
+  left: 4%;
+  background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 19s light6 linear infinite;
+          animation: 19s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(34) {
+  width: 82px;
+  height: 82px;
+  top: 86%;
+  left: 98%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 28s light4 linear infinite;
+          animation: 28s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(35) {
+  width: 88px;
+  height: 88px;
+  top: 96%;
+  left: 78%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 22s light4 linear infinite;
+          animation: 22s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(36) {
+  width: 84px;
+  height: 84px;
+  top: 25%;
+  left: 14%;
+  background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 30s light3 linear infinite;
+          animation: 30s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(37) {
+  width: 84px;
+  height: 84px;
+  top: 73%;
+  left: 20%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 32s light5 linear infinite;
+          animation: 32s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(38) {
+  width: 82px;
+  height: 82px;
+  top: 72%;
+  left: 9%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 19s light3 linear infinite;
+          animation: 19s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(39) {
+  width: 77px;
+  height: 77px;
+  top: 44%;
+  left: 84%;
+  background: #63C13B;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 18s light4 linear infinite;
+          animation: 18s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(40) {
+  width: 89px;
+  height: 89px;
+  top: 99%;
+  left: 72%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 19s light3 linear infinite;
+          animation: 19s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(41) {
+  width: 78px;
+  height: 78px;
+  top: 55%;
+  left: 43%;
+  background: #FEE34A;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 33s light6 linear infinite;
+          animation: 33s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(42) {
+  width: 79px;
+  height: 79px;
+  top: 73%;
+  left: 47%;
+  background: #2F8A27;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 21s light2 linear infinite;
+          animation: 21s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(43) {
+  width: 82px;
+  height: 82px;
+  top: 38%;
+  left: 91%;
+  background: #2F8A27;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 11s light6 linear infinite;
+          animation: 11s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(44) {
+  width: 92px;
+  height: 92px;
+  top: 68%;
+  left: 13%;
+  background: #5C6C94;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 31s light5 linear infinite;
+          animation: 31s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(45) {
+  width: 78px;
+  height: 78px;
+  top: 98%;
+  left: 57%;
+  background: #2F8A27;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 35s light5 linear infinite;
+          animation: 35s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(46) {
+  width: 94px;
+  height: 94px;
+  top: 79%;
+  left: 99%;
+  background: #6B0D05;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 29s light5 linear infinite;
+          animation: 29s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(47) {
+  width: 98px;
+  height: 98px;
+  top: 34%;
+  left: 49%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 26s light4 linear infinite;
+          animation: 26s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(48) {
+  width: 89px;
+  height: 89px;
+  top: 38%;
+  left: 45%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 15s light4 linear infinite;
+          animation: 15s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(49) {
+  width: 92px;
+  height: 92px;
+  top: 30%;
+  left: 8%;
+  background: #5C6C94;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 21s light3 linear infinite;
+          animation: 21s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(50) {
+  width: 78px;
+  height: 78px;
+  top: 29%;
+  left: 63%;
+  background: #2F8A27;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 19s light2 linear infinite;
+          animation: 19s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(51) {
+  width: 94px;
+  height: 94px;
+  top: 45%;
+  left: 77%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 13s light4 linear infinite;
+          animation: 13s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(52) {
+  width: 77px;
+  height: 77px;
+  top: 97%;
+  left: 3%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 26s light3 linear infinite;
+          animation: 26s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(53) {
+  width: 100px;
+  height: 100px;
+  top: 81%;
+  left: 37%;
   background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 15s light6 linear infinite;
+          animation: 15s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(54) {
+  width: 93px;
+  height: 93px;
+  top: 71%;
+  left: 60%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 31s light5 linear infinite;
+          animation: 31s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(55) {
+  width: 84px;
+  height: 84px;
+  top: 64%;
+  left: 54%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 30s light3 linear infinite;
+          animation: 30s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(56) {
+  width: 85px;
+  height: 85px;
+  top: 77%;
+  left: 86%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 31s light4 linear infinite;
+          animation: 31s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(57) {
+  width: 79px;
+  height: 79px;
+  top: 14%;
+  left: 97%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 27s light6 linear infinite;
+          animation: 27s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(58) {
+  width: 77px;
+  height: 77px;
+  top: 77%;
+  left: 57%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 20s light5 linear infinite;
+          animation: 20s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(59) {
+  width: 78px;
+  height: 78px;
+  top: 14%;
+  left: 42%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light6 linear infinite;
+          animation: 23s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(60) {
+  width: 85px;
+  height: 85px;
+  top: 38%;
+  left: 93%;
+  background: #FEE34A;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 22s light3 linear infinite;
+          animation: 22s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(61) {
+  width: 76px;
+  height: 76px;
+  top: 4%;
+  left: 53%;
+  background: #2F8A27;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 24s light3 linear infinite;
+          animation: 24s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(62) {
+  width: 83px;
+  height: 83px;
+  top: 10%;
+  left: 45%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 22s light4 linear infinite;
+          animation: 22s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(63) {
+  width: 84px;
+  height: 84px;
+  top: 37%;
+  left: 72%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 13s light4 linear infinite;
+          animation: 13s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(64) {
+  width: 83px;
+  height: 83px;
+  top: 46%;
+  left: 94%;
+  background: #FEE34A;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 23s light4 linear infinite;
+          animation: 23s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(65) {
+  width: 98px;
+  height: 98px;
+  top: 40%;
+  left: 17%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 21s light5 linear infinite;
+          animation: 21s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(66) {
+  width: 98px;
+  height: 98px;
+  top: 84%;
+  left: 5%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 31s light2 linear infinite;
+          animation: 31s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(67) {
+  width: 79px;
+  height: 79px;
+  top: 37%;
+  left: 11%;
+  background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 11s light5 linear infinite;
+          animation: 11s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(68) {
+  width: 91px;
+  height: 91px;
+  top: 55%;
+  left: 43%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 22s light2 linear infinite;
+          animation: 22s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(69) {
+  width: 81px;
+  height: 81px;
+  top: 85%;
+  left: 13%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 21s light5 linear infinite;
+          animation: 21s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(70) {
+  width: 97px;
+  height: 97px;
+  top: 56%;
+  left: 18%;
+  background: #7D0006;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: 17s light6 linear infinite;
           animation: 17s light6 linear infinite;
 }
 
-body.christmas .light:nth-child(140) {
-  width: 99px;
-  height: 99px;
-  top: 32%;
-  left: 27%;
+body.christmas .light:nth-child(71) {
+  width: 83px;
+  height: 83px;
+  top: 87%;
+  left: 86%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light4 linear infinite;
+          animation: 23s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(72) {
+  width: 80px;
+  height: 80px;
+  top: 61%;
+  left: 84%;
+  background: #63C13B;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 18s light2 linear infinite;
+          animation: 18s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(73) {
+  width: 78px;
+  height: 78px;
+  top: 86%;
+  left: 99%;
+  background: #63C13B;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 32s light4 linear infinite;
+          animation: 32s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(74) {
+  width: 77px;
+  height: 77px;
+  top: 13%;
+  left: 59%;
   background: #7D0006;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 34s light5 linear infinite;
-          animation: 34s light5 linear infinite;
+  -webkit-animation: 24s light2 linear infinite;
+          animation: 24s light2 linear infinite;
 }
 
-body.christmas .light:nth-child(141) {
-  width: 90px;
-  height: 90px;
-  top: 75%;
-  left: 94%;
-  background: #6B0D05;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 33s light4 linear infinite;
-          animation: 33s light4 linear infinite;
-}
-
-body.christmas .light:nth-child(142) {
-  width: 90px;
-  height: 90px;
-  top: 20%;
-  left: 59%;
-  background: #FEE34A;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 26s light6 linear infinite;
-          animation: 26s light6 linear infinite;
-}
-
-body.christmas .light:nth-child(143) {
-  width: 91px;
-  height: 91px;
-  top: 26%;
-  left: 52%;
-  background: #5C6C94;
+body.christmas .light:nth-child(75) {
+  width: 81px;
+  height: 81px;
+  top: 39%;
+  left: 61%;
+  background: #63C13B;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: 11s light4 linear infinite;
           animation: 11s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(144) {
-  width: 100px;
-  height: 100px;
-  top: 36%;
-  left: 12%;
-  background: #63C13B;
-  -webkit-filter: blur(4px);
-          filter: blur(4px);
-  -webkit-animation: 17s light5 linear infinite;
-          animation: 17s light5 linear infinite;
-}
-
-body.christmas .light:nth-child(145) {
+body.christmas .light:nth-child(76) {
   width: 88px;
   height: 88px;
-  top: 11%;
-  left: 94%;
+  top: 55%;
+  left: 51%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 27s light6 linear infinite;
+          animation: 27s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(77) {
+  width: 95px;
+  height: 95px;
+  top: 34%;
+  left: 36%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 17s light6 linear infinite;
+          animation: 17s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(78) {
+  width: 97px;
+  height: 97px;
+  top: 76%;
+  left: 77%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 28s light2 linear infinite;
+          animation: 28s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(79) {
+  width: 87px;
+  height: 87px;
+  top: 96%;
+  left: 62%;
+  background: #2F8A27;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 29s light3 linear infinite;
+          animation: 29s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(80) {
+  width: 94px;
+  height: 94px;
+  top: 85%;
+  left: 95%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 30s light5 linear infinite;
+          animation: 30s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(81) {
+  width: 87px;
+  height: 87px;
+  top: 54%;
+  left: 12%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 35s light6 linear infinite;
+          animation: 35s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(82) {
+  width: 92px;
+  height: 92px;
+  top: 22%;
+  left: 3%;
+  background: #FEE34A;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 16s light2 linear infinite;
+          animation: 16s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(83) {
+  width: 82px;
+  height: 82px;
+  top: 9%;
+  left: 50%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 29s light3 linear infinite;
+          animation: 29s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(84) {
+  width: 97px;
+  height: 97px;
+  top: 32%;
+  left: 98%;
+  background: #FE0016;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 21s light6 linear infinite;
+          animation: 21s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(85) {
+  width: 96px;
+  height: 96px;
+  top: 23%;
+  left: 18%;
+  background: #FE0016;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 24s light4 linear infinite;
+          animation: 24s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(86) {
+  width: 76px;
+  height: 76px;
+  top: 71%;
+  left: 37%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 18s light6 linear infinite;
+          animation: 18s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(87) {
+  width: 92px;
+  height: 92px;
+  top: 73%;
+  left: 83%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 15s light2 linear infinite;
+          animation: 15s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(88) {
+  width: 94px;
+  height: 94px;
+  top: 42%;
+  left: 55%;
   background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 13s light4 linear infinite;
+          animation: 13s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(89) {
+  width: 88px;
+  height: 88px;
+  top: 83%;
+  left: 59%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 25s light4 linear infinite;
+          animation: 25s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(90) {
+  width: 78px;
+  height: 78px;
+  top: 76%;
+  left: 57%;
+  background: #FEE34A;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 29s light3 linear infinite;
+          animation: 29s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(91) {
+  width: 77px;
+  height: 77px;
+  top: 93%;
+  left: 85%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light5 linear infinite;
+          animation: 23s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(92) {
+  width: 96px;
+  height: 96px;
+  top: 54%;
+  left: 74%;
+  background: #5C6C94;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 26s light6 linear infinite;
+          animation: 26s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(93) {
+  width: 98px;
+  height: 98px;
+  top: 79%;
+  left: 83%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 25s light3 linear infinite;
+          animation: 25s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(94) {
+  width: 79px;
+  height: 79px;
+  top: 15%;
+  left: 82%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 26s light4 linear infinite;
+          animation: 26s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(95) {
+  width: 77px;
+  height: 77px;
+  top: 34%;
+  left: 75%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 22s light5 linear infinite;
+          animation: 22s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(96) {
+  width: 87px;
+  height: 87px;
+  top: 81%;
+  left: 64%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 12s light4 linear infinite;
+          animation: 12s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(97) {
+  width: 94px;
+  height: 94px;
+  top: 51%;
+  left: 70%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 33s light2 linear infinite;
+          animation: 33s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(98) {
+  width: 100px;
+  height: 100px;
+  top: 35%;
+  left: 32%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 13s light5 linear infinite;
+          animation: 13s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(99) {
+  width: 90px;
+  height: 90px;
+  top: 79%;
+  left: 27%;
+  background: #2F8A27;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 15s light2 linear infinite;
+          animation: 15s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(100) {
+  width: 82px;
+  height: 82px;
+  top: 8%;
+  left: 1%;
+  background: #5C6C94;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 22s light5 linear infinite;
+          animation: 22s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(101) {
+  width: 87px;
+  height: 87px;
+  top: 59%;
+  left: 99%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 33s light2 linear infinite;
+          animation: 33s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(102) {
+  width: 93px;
+  height: 93px;
+  top: 84%;
+  left: 39%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 16s light4 linear infinite;
+          animation: 16s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(103) {
+  width: 89px;
+  height: 89px;
+  top: 35%;
+  left: 46%;
+  background: #5C6C94;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 16s light5 linear infinite;
+          animation: 16s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(104) {
+  width: 98px;
+  height: 98px;
+  top: 11%;
+  left: 27%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 34s light3 linear infinite;
+          animation: 34s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(105) {
+  width: 87px;
+  height: 87px;
+  top: 94%;
+  left: 46%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 31s light4 linear infinite;
+          animation: 31s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(106) {
+  width: 77px;
+  height: 77px;
+  top: 94%;
+  left: 35%;
+  background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 33s light4 linear infinite;
+          animation: 33s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(107) {
+  width: 82px;
+  height: 82px;
+  top: 86%;
+  left: 47%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 26s light6 linear infinite;
+          animation: 26s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(108) {
+  width: 87px;
+  height: 87px;
+  top: 95%;
+  left: 55%;
+  background: #5C6C94;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 12s light6 linear infinite;
+          animation: 12s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(109) {
+  width: 97px;
+  height: 97px;
+  top: 13%;
+  left: 62%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 26s light3 linear infinite;
+          animation: 26s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(110) {
+  width: 99px;
+  height: 99px;
+  top: 17%;
+  left: 14%;
+  background: #DB1913;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 18s light2 linear infinite;
+          animation: 18s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(111) {
+  width: 99px;
+  height: 99px;
+  top: 10%;
+  left: 21%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 35s light4 linear infinite;
+          animation: 35s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(112) {
+  width: 80px;
+  height: 80px;
+  top: 62%;
+  left: 28%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 35s light5 linear infinite;
+          animation: 35s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(113) {
+  width: 86px;
+  height: 86px;
+  top: 78%;
+  left: 79%;
+  background: #FE0016;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 17s light2 linear infinite;
+          animation: 17s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(114) {
+  width: 93px;
+  height: 93px;
+  top: 27%;
+  left: 16%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 13s light6 linear infinite;
+          animation: 13s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(115) {
+  width: 80px;
+  height: 80px;
+  top: 38%;
+  left: 8%;
+  background: #D00010;
   -webkit-filter: blur(4px);
           filter: blur(4px);
   -webkit-animation: 27s light3 linear infinite;
           animation: 27s light3 linear infinite;
 }
 
-body.christmas .light:nth-child(146) {
+body.christmas .light:nth-child(116) {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 13%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 26s light6 linear infinite;
+          animation: 26s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(117) {
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  left: 64%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 26s light5 linear infinite;
+          animation: 26s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(118) {
+  width: 91px;
+  height: 91px;
+  top: 77%;
+  left: 58%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 29s light5 linear infinite;
+          animation: 29s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(119) {
+  width: 95px;
+  height: 95px;
+  top: 86%;
+  left: 70%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 24s light4 linear infinite;
+          animation: 24s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(120) {
+  width: 100px;
+  height: 100px;
+  top: 16%;
+  left: 35%;
+  background: #DB1913;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 21s light5 linear infinite;
+          animation: 21s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(121) {
+  width: 95px;
+  height: 95px;
+  top: 60%;
+  left: 34%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 17s light4 linear infinite;
+          animation: 17s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(122) {
+  width: 92px;
+  height: 92px;
+  top: 85%;
+  left: 53%;
+  background: #5C6C94;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 32s light6 linear infinite;
+          animation: 32s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(123) {
+  width: 87px;
+  height: 87px;
+  top: 23%;
+  left: 7%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 23s light2 linear infinite;
+          animation: 23s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(124) {
+  width: 79px;
+  height: 79px;
+  top: 81%;
+  left: 56%;
+  background: #DB1913;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 13s light5 linear infinite;
+          animation: 13s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(125) {
   width: 78px;
   height: 78px;
-  top: 16%;
-  left: 59%;
+  top: 14%;
+  left: 43%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light3 linear infinite;
+          animation: 23s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(126) {
+  width: 85px;
+  height: 85px;
+  top: 36%;
+  left: 65%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 30s light4 linear infinite;
+          animation: 30s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(127) {
+  width: 79px;
+  height: 79px;
+  top: 52%;
+  left: 8%;
+  background: #2F8A27;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 30s light6 linear infinite;
+          animation: 30s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(128) {
+  width: 82px;
+  height: 82px;
+  top: 63%;
+  left: 4%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 22s light6 linear infinite;
+          animation: 22s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(129) {
+  width: 93px;
+  height: 93px;
+  top: 28%;
+  left: 5%;
+  background: #6B0D05;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 23s light3 linear infinite;
+          animation: 23s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(130) {
+  width: 85px;
+  height: 85px;
+  top: 48%;
+  left: 36%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 35s light4 linear infinite;
+          animation: 35s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(131) {
+  width: 93px;
+  height: 93px;
+  top: 93%;
+  left: 34%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 14s light5 linear infinite;
+          animation: 14s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(132) {
+  width: 87px;
+  height: 87px;
+  top: 75%;
+  left: 86%;
+  background: #FE0016;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 25s light5 linear infinite;
+          animation: 25s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(133) {
+  width: 80px;
+  height: 80px;
+  top: 91%;
+  left: 80%;
+  background: #DB1913;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 18s light6 linear infinite;
+          animation: 18s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(134) {
+  width: 77px;
+  height: 77px;
+  top: 35%;
+  left: 74%;
+  background: #5C6C94;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 19s light3 linear infinite;
+          animation: 19s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(135) {
+  width: 81px;
+  height: 81px;
+  top: 1%;
+  left: 5%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 26s light6 linear infinite;
+          animation: 26s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(136) {
+  width: 87px;
+  height: 87px;
+  top: 55%;
+  left: 55%;
+  background: #7D0006;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 16s light2 linear infinite;
+          animation: 16s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(137) {
+  width: 84px;
+  height: 84px;
+  top: 91%;
+  left: 67%;
+  background: #FEC641;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 15s light4 linear infinite;
+          animation: 15s light4 linear infinite;
+}
+
+body.christmas .light:nth-child(138) {
+  width: 91px;
+  height: 91px;
+  top: 10%;
+  left: 57%;
+  background: #6B0D05;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 22s light3 linear infinite;
+          animation: 22s light3 linear infinite;
+}
+
+body.christmas .light:nth-child(139) {
+  width: 100px;
+  height: 100px;
+  top: 74%;
+  left: 46%;
+  background: #FEE34A;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 14s light6 linear infinite;
+          animation: 14s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(140) {
+  width: 81px;
+  height: 81px;
+  top: 32%;
+  left: 48%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 35s light5 linear infinite;
+          animation: 35s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(141) {
+  width: 85px;
+  height: 85px;
+  top: 1%;
+  left: 78%;
+  background: #D00010;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 22s light2 linear infinite;
+          animation: 22s light2 linear infinite;
+}
+
+body.christmas .light:nth-child(142) {
+  width: 88px;
+  height: 88px;
+  top: 76%;
+  left: 50%;
+  background: #D00010;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 20s light6 linear infinite;
+          animation: 20s light6 linear infinite;
+}
+
+body.christmas .light:nth-child(143) {
+  width: 97px;
+  height: 97px;
+  top: 90%;
+  left: 98%;
+  background: #63C13B;
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+  -webkit-animation: 11s light5 linear infinite;
+          animation: 11s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(144) {
+  width: 86px;
+  height: 86px;
+  top: 53%;
+  left: 21%;
   background: #FE0016;
   -webkit-filter: blur(4px);
           filter: blur(4px);
@@ -13383,57 +13360,81 @@ body.christmas .light:nth-child(146) {
           animation: 13s light5 linear infinite;
 }
 
-body.christmas .light:nth-child(147) {
-  width: 94px;
-  height: 94px;
-  top: 98%;
-  left: 61%;
-  background: #FEE34A;
+body.christmas .light:nth-child(145) {
+  width: 90px;
+  height: 90px;
+  top: 77%;
+  left: 21%;
+  background: #DB1913;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 21s light2 linear infinite;
-          animation: 21s light2 linear infinite;
+  -webkit-animation: 30s light4 linear infinite;
+          animation: 30s light4 linear infinite;
 }
 
-body.christmas .light:nth-child(148) {
-  width: 80px;
-  height: 80px;
-  top: 93%;
-  left: 81%;
+body.christmas .light:nth-child(146) {
+  width: 96px;
+  height: 96px;
+  top: 30%;
+  left: 71%;
   background: #2F8A27;
   -webkit-filter: blur(4px);
           filter: blur(4px);
-  -webkit-animation: 31s light4 linear infinite;
-          animation: 31s light4 linear infinite;
+  -webkit-animation: 23s light5 linear infinite;
+          animation: 23s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(147) {
+  width: 87px;
+  height: 87px;
+  top: 90%;
+  left: 63%;
+  background: #7D0006;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 14s light5 linear infinite;
+          animation: 14s light5 linear infinite;
+}
+
+body.christmas .light:nth-child(148) {
+  width: 98px;
+  height: 98px;
+  top: 17%;
+  left: 89%;
+  background: #2F8A27;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 11s light3 linear infinite;
+          animation: 11s light3 linear infinite;
 }
 
 body.christmas .light:nth-child(149) {
-  width: 88px;
-  height: 88px;
-  top: 58%;
-  left: 24%;
-  background: #2F8A27;
-  -webkit-filter: blur(3px);
-          filter: blur(3px);
-  -webkit-animation: 22s light6 linear infinite;
-          animation: 22s light6 linear infinite;
+  width: 96px;
+  height: 96px;
+  top: 61%;
+  left: 60%;
+  background: #FEC641;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  -webkit-animation: 11s light3 linear infinite;
+          animation: 11s light3 linear infinite;
 }
 
 body.christmas .light:nth-child(150) {
-  width: 96px;
-  height: 96px;
-  top: 39%;
-  left: 9%;
-  background: #2F8A27;
+  width: 83px;
+  height: 83px;
+  top: 76%;
+  left: 80%;
+  background: #FEE34A;
   -webkit-filter: blur(3px);
           filter: blur(3px);
-  -webkit-animation: 21s light2 linear infinite;
-          animation: 21s light2 linear infinite;
+  -webkit-animation: 16s light3 linear infinite;
+          animation: 16s light3 linear infinite;
 }
 
 @-webkit-keyframes light1 {
   25% {
-    opacity: 0.41;
+    opacity: 0.53;
   }
 
   50% {
@@ -13441,7 +13442,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.46;
+    opacity: 0.6;
   }
 
   100% {
@@ -13451,7 +13452,7 @@ body.christmas .light:nth-child(150) {
 
 @keyframes light1 {
   25% {
-    opacity: 0.41;
+    opacity: 0.53;
   }
 
   50% {
@@ -13459,7 +13460,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.46;
+    opacity: 0.6;
   }
 
   100% {
@@ -13469,7 +13470,7 @@ body.christmas .light:nth-child(150) {
 
 @-webkit-keyframes light2 {
   25% {
-    opacity: 0.31;
+    opacity: 0.38;
   }
 
   50% {
@@ -13477,7 +13478,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.38;
+    opacity: 0.56;
   }
 
   100% {
@@ -13487,7 +13488,7 @@ body.christmas .light:nth-child(150) {
 
 @keyframes light2 {
   25% {
-    opacity: 0.31;
+    opacity: 0.38;
   }
 
   50% {
@@ -13495,7 +13496,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.38;
+    opacity: 0.56;
   }
 
   100% {
@@ -13505,7 +13506,7 @@ body.christmas .light:nth-child(150) {
 
 @-webkit-keyframes light3 {
   25% {
-    opacity: 0.46;
+    opacity: 0.39;
   }
 
   50% {
@@ -13513,7 +13514,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.59;
+    opacity: 0.5;
   }
 
   100% {
@@ -13523,7 +13524,7 @@ body.christmas .light:nth-child(150) {
 
 @keyframes light3 {
   25% {
-    opacity: 0.46;
+    opacity: 0.39;
   }
 
   50% {
@@ -13531,7 +13532,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.59;
+    opacity: 0.5;
   }
 
   100% {
@@ -13541,7 +13542,7 @@ body.christmas .light:nth-child(150) {
 
 @-webkit-keyframes light4 {
   25% {
-    opacity: 0.73;
+    opacity: 0.71;
   }
 
   50% {
@@ -13549,7 +13550,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.4;
+    opacity: 0.69;
   }
 
   100% {
@@ -13559,7 +13560,7 @@ body.christmas .light:nth-child(150) {
 
 @keyframes light4 {
   25% {
-    opacity: 0.73;
+    opacity: 0.71;
   }
 
   50% {
@@ -13567,7 +13568,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.4;
+    opacity: 0.69;
   }
 
   100% {
@@ -13577,7 +13578,7 @@ body.christmas .light:nth-child(150) {
 
 @-webkit-keyframes light5 {
   25% {
-    opacity: 0.44;
+    opacity: 0.74;
   }
 
   50% {
@@ -13585,7 +13586,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.61;
+    opacity: 0.65;
   }
 
   100% {
@@ -13595,7 +13596,7 @@ body.christmas .light:nth-child(150) {
 
 @keyframes light5 {
   25% {
-    opacity: 0.44;
+    opacity: 0.74;
   }
 
   50% {
@@ -13603,7 +13604,7 @@ body.christmas .light:nth-child(150) {
   }
 
   75% {
-    opacity: 0.61;
+    opacity: 0.65;
   }
 
   100% {
@@ -13649,7 +13650,7 @@ body.christmas #three .text {
 
 body.christmas #three .three-msg {
   font-family: "Mountains of Christmas", cursive;
-  font-size: 1em;
+  font-size: 2em;
   color: #fff;
   text-align: center;
 }
@@ -13666,6 +13667,19 @@ body.christmas .form__field:not([readonly]):focus {
 
 body.christmas .form__field:not([readonly]):focus ~ .form__label {
   color: #0F8A5F;
+}
+
+body.christmas #admin-main-container .menus button {
+  background-color: #0F8A5F;
+}
+
+body.christmas #admin-main-container .menus button:hover {
+  background-color: #CC231E;
+}
+
+body.christmas #filters_search span,
+body.christmas #filters_search label {
+  color: #fff;
 }
 
 @media only screen and (min-width: 600px) {
