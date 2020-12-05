@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="dark-white-btn-icon">
-            <font-awesome-icon class="fa-lg" v-on:click="openTab" icon="calendar-check"/>
+        <div class="dark-white-btn-icon" v-on:click="openTab">
+            <font-awesome-icon class="fa-lg" icon="calendar-check"/>
         </div>
         <div id="appointment-tab-container" v-show="showTab">
             <h3>Citas</h3>

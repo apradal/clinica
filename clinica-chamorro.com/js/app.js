@@ -49131,12 +49131,11 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "dark-white-btn-icon" },
+        { staticClass: "dark-white-btn-icon", on: { click: _vm.openTab } },
         [
           _c("font-awesome-icon", {
             staticClass: "fa-lg",
-            attrs: { icon: "calendar-check" },
-            on: { click: _vm.openTab }
+            attrs: { icon: "calendar-check" }
           })
         ],
         1
