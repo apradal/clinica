@@ -13,12 +13,15 @@ $lightSize: 75;
 $blurLevel: 2;
 
 body {
+  #three {
+    display: none;
+  }
   &.christmas {
     background-image: -webkit-gradient(linear, right bottom, left top, from(#0A0707), color-stop(50%, #110C0D), to(#0C090A));
     /* Pretty Lights */
     .bokeh{
       position: absolute;
-      width: 100%;
+      width: 95%;
       height: 100%;
       pointer-events: none;
       top: -50px;
@@ -88,10 +91,8 @@ body {
     }
 
     #three {
-      position: absolute;
-      top: 6%;
-      left: 65%;
-      display: none;
+      position: relative;
+      display: block;
       .text {
         color: var(--background);
         font-size: 3em;
@@ -110,6 +111,22 @@ body {
         text-align: center;
       }
     }
+    .table-hover {
+      tbody {
+        tr {
+          &:hover {
+            background-color: #f8f8f8;
+          }
+        }
+      }
+    }
+    .form__field:not([readonly]):focus {
+      ~ .form__label {
+        color: #0F8A5F;
+      }
+      border-image: linear-gradient(to right, #0F8A5F, #05593c);
+      border-image-slice: 1;
+    }
   }
 }
 
@@ -117,7 +134,7 @@ body {
   body {
     &.christmas {
       #three {
-        display: unset;
+        display: block;
       }
     }
   }

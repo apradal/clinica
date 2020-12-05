@@ -1,7 +1,3 @@
-<div id="three">
-    <div class="text">🎄</div>
-    <div class="three-msg">Feliz Navidad!!!</div>
-</div>
 <div class="bokeh">
     <div class="light"></div>
     <div class="light"></div>

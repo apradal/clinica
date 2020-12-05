@@ -21,8 +21,9 @@
 </head>
 <body class="@yield('body_class') christmas">
     <div id="app">
-        @include('includes.christmas')
+        @include('includes.admin.christmas.lights')
         @include('includes.admin.header.navbar')
+        @include('includes.admin.christmas.three')
         <main class="py-4">
             @yield('content')
         </main>
