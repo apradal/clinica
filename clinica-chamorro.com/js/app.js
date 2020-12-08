@@ -12062,6 +12062,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -12070,32 +12073,54 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    checkStorage: function checkStorage() {
-      return !!localStorage.getItem("christmas");
+    checkCookie: function checkCookie() {
+      if (parseInt(this.getCookie('is_christmas')) === 1) {
+        return true;
+      } else {
+        return false;
+      }
     },
     onoff: function onoff(event) {
       if (event.target.checked) {
         if (!this.bodyElement.classList.contains('christmas')) {
           this.bodyElement.classList.add("christmas");
-          this.controlStorageChristmas();
+          this.setCookie('is_christmas', 1, 30);
         }
       } else {
         if (this.bodyElement.classList.contains('christmas')) {
           this.bodyElement.classList.remove("christmas");
-          this.controlStorageChristmas();
+          this.setCookie('is_christmas', 0, 30);
         }
       }
     },
-    controlStorageChristmas: function controlStorageChristmas() {
-      if (this.bodyElement.classList.contains('christmas')) {
-        localStorage.setItem("christmas", true);
-      } else {
-        localStorage.removeItem("christmas");
+    getCookie: function getCookie(cname) {
+      var name = cname + "=";
+      var decodedCookie = decodeURIComponent(document.cookie);
+      var ca = decodedCookie.split(';');
+
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
       }
+
+      return "";
+    },
+    setCookie: function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
   },
   mounted: function mounted() {
-    this.checked = this.checkStorage();
+    this.checked = this.checkCookie();
   }
 });
 
@@ -49349,46 +49374,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("input", {
-    directives: [
-      {
-        name: "model",
-        rawName: "v-model",
-        value: _vm.checked,
-        expression: "checked"
-      }
-    ],
-    attrs: {
-      type: "checkbox",
-      id: "christmass-switch",
-      name: "christmass-switch"
-    },
-    domProps: {
-      checked: Array.isArray(_vm.checked)
-        ? _vm._i(_vm.checked, null) > -1
-        : _vm.checked
-    },
-    on: {
-      click: _vm.onoff,
-      change: function($event) {
-        var $$a = _vm.checked,
-          $$el = $event.target,
-          $$c = $$el.checked ? true : false
-        if (Array.isArray($$a)) {
-          var $$v = null,
-            $$i = _vm._i($$a, $$v)
-          if ($$el.checked) {
-            $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+  return _c("div", [
+    _c("label", { attrs: { for: "christmass-switch" } }, [
+      _vm._v("Modo Navidad")
+    ]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.checked,
+          expression: "checked"
+        }
+      ],
+      attrs: {
+        type: "checkbox",
+        id: "christmass-switch",
+        name: "christmass-switch"
+      },
+      domProps: {
+        checked: Array.isArray(_vm.checked)
+          ? _vm._i(_vm.checked, null) > -1
+          : _vm.checked
+      },
+      on: {
+        click: _vm.onoff,
+        change: function($event) {
+          var $$a = _vm.checked,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false
+          if (Array.isArray($$a)) {
+            var $$v = null,
+              $$i = _vm._i($$a, $$v)
+            if ($$el.checked) {
+              $$i < 0 && (_vm.checked = $$a.concat([$$v]))
+            } else {
+              $$i > -1 &&
+                (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+            }
           } else {
-            $$i > -1 &&
-              (_vm.checked = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+            _vm.checked = $$c
           }
-        } else {
-          _vm.checked = $$c
         }
       }
-    }
-  })
+    })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

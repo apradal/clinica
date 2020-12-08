@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="@yield('body_class') christmas">
+<body class="@yield('body_class') @if($is_christmas) christmas @endif">
     <div id="app">
         @include('includes.admin.christmas.lights')
         @include('includes.admin.header.navbar')
