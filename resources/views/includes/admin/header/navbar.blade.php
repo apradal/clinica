@@ -63,5 +63,4 @@
             </ul>
         </div>
     </div>
-    <admin-christmas-onoff></admin-christmas-onoff>
 </nav>
